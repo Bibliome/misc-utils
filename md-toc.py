@@ -153,6 +153,7 @@ def add(fin, fout):
     for l in lines:
         l.toc(fout, min_level)
     writeln(fout, TOC_END)
+    fout.write('\n')
     for l in lines:
         l.add(fout)
 
