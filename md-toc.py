@@ -114,7 +114,7 @@ def read_file(f):
         if m is not None:
             level = len(m.group('level'))
             title = m.group('title')
-            toc_title = title.split('(')[0].strip()
+            toc_title = title.split('(')[0].strip().replace('[', '').replace(']', '')
             if anchor_name is None:
                 anchor_name_root = toc_title.replace(' ', '-').replace('`', '')
                 for n in xrange(1, 10):
