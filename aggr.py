@@ -367,7 +367,7 @@ if __name__ == '__main__':
                                 type='string',
                                 callback=_parse_callback_aggregator_function,
                                 callback_args=('max',),
-                                help='max the specified colums (equivalent to -f COLS max)',
+                                help='max of the specified colums (equivalent to -f COLS max)',
                                 metavar='COLS'
                                 )
     aggregate_optgrp.add_option('--min',
@@ -376,7 +376,7 @@ if __name__ == '__main__':
                                 type='string',
                                 callback=_parse_callback_aggregator_function,
                                 callback_args=('min',),
-                                help='min the specified colums (equivalent to -f COLS min)',
+                                help='min of the specified colums (equivalent to -f COLS min)',
                                 metavar='COLS'
                                 )
     aggregate_optgrp.add_option('--xsum',
@@ -394,7 +394,7 @@ if __name__ == '__main__':
                                 type='string',
                                 callback=_parse_callback_aggregator_function,
                                 callback_args=('xmax',),
-                                help='max the specified colums (forgiving, equivalent to -f COLS xmax)',
+                                help='max of the specified colums (forgiving, equivalent to -f COLS xmax)',
                                 metavar='COLS'
                                 )
     aggregate_optgrp.add_option('--xmin',
@@ -403,7 +403,7 @@ if __name__ == '__main__':
                                 type='string',
                                 callback=_parse_callback_aggregator_function,
                                 callback_args=('xmin',),
-                                help='min the specified colums (forgiving, equivalent to -f COLS xmin)',
+                                help='min of the specified colums (forgiving, equivalent to -f COLS xmin)',
                                 metavar='COLS'
                                 )
     aggregate_optgrp.add_option('--list',
