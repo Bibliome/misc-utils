@@ -29,6 +29,7 @@ def Resubmit(max_tries, fail):
             jt.jobid = pool.session.runJob(jt)
             pool.log('job specified at ' + jt.source + ' resubmitted with id ' + jt.jobid)
             pool.current_jobs[jt.jobid] = jt
+            pool.breakdown['rerunning'] += 1
     return resubmit_function
 
 
@@ -49,6 +50,12 @@ class JobPool:
         self.current_jobs = {}
         self.all_done = True
         self.shall_stop = False
+        self.breakdown = {
+            'success': 0,
+            'running': 0,
+            'rerunning': 0,
+            'failed': 0
+        }
 
     def log(self, msg=''):
         '''Logs a message'''
@@ -87,7 +94,8 @@ class JobPool:
         while self.current_jobs:
             joblist = self.current_jobs.keys()
             try:
-                self.log('synchronizing ' + str(len(joblist)) + ' jobs, see you in ' + str(interval) + ' seconds')
+                self.log('synchronizing ' + str(len(joblist)) + ' jobs: success (' + str(self.breakdown['success']) + '), running (' + str(self.breakdown['running']) + '), rerunning (' + str(self.breakdown['rerunning']) + '), failed (' + str(self.breakdown['failed']) + ')')
+                self.log('see you in ' + str(interval) + ' seconds')
                 self.session.synchronize(joblist, interval, False)
             except drmaa.errors.ExitTimeoutException:
                 pass
@@ -96,6 +104,11 @@ class JobPool:
                 if status == drmaa.JobState.DONE:
                     try:
                         info = self.session.wait(jobid, drmaa.Session.TIMEOUT_NO_WAIT)
+                        jt = self.current_jobs[jobid]
+                        if jt.failures == 0:
+                            self.breakdown['running'] -= 1
+                        else:
+                            self.breakdown['rerunning'] -= 1
                     except drmaa.errors.ExitTimeoutException:
                         pass
                     if info.wasAborted:
@@ -109,6 +122,7 @@ class JobPool:
                         self._failed(jobid, fail, info)
                     else:
                         self.log('job specified at ' + self.current_jobs[jobid].source + ' with id ' + str(jobid) + ' is done')
+                        self.breakdown['success'] += 1
                         del self.current_jobs[jobid]
                 elif status == drmaa.JobState.FAILED:
                     self.log('job specified at ' + self.current_jobs[jobid].source + ' with id ' + str(jobid) + ' failed somehow')
@@ -128,6 +142,7 @@ class JobPool:
         jt = self.current_jobs[jobid]
         jt.failures += 1
         del self.current_jobs[jobid]
+        self.breakdown['failed'] += 1
         fail(self, jt, info)
 
     def runall(self, jobs, fail=Proceed, interval=60):
