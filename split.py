@@ -4,6 +4,10 @@ from sys import stdin, stderr
 from optparse import OptionParser, OptionGroup
 import re
 
+def log(msg, *args):
+    stderr.write(msg % args)
+    stderr.write('\n')
+
 class Splitter:
     def __init__(self, options):
         self.options = options
@@ -23,6 +27,7 @@ class Splitter:
         self.entries = 0
         self.current += 1
         fn = self.options.pattern % self.current
+        log('writing to %s', fn)
         self.fout = open(fn, 'w')
         self.fout.write(self.options.header)
 
