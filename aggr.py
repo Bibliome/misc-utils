@@ -73,7 +73,7 @@ class CollectionAggregateFunction:
 
     @staticmethod
     def column(value, **kwargs):
-        if kwargs['sort_values']:
+        if 'sort_values' in kwargs and kwargs['sort_values']:
             value = sorted(value)
         return kwargs['value_separator'].join(value)
 
@@ -324,7 +324,8 @@ if __name__ == '__main__':
             key = value
             spec = default_spec
         aggfun = StandardAggregatorFunctions.get(spec)()
-        aggregator.aggregator_functions[_parse_key(key)]
+        parsedkey = _parse_key(key)
+        aggregator.aggregator_functions[parsedkey] = aggfun
 
     parser = OptionParser(
         usage='usage: %prog [options] [files]',
