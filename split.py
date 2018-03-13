@@ -104,7 +104,9 @@ class Split(OptionParser):
             options.dictionary = set(line.strip() for line in f)
             f.close()
         elif options.dictionary is not None:
-            raise Exception('missing --dictionary')   
+            raise Exception('missing --dictionary')
+        options.header = options.header.replace('\\n', '\n')
+        options.footer = options.footer.replace('\\n', '\n')
         splitter = Splitter(options)
         if len(args) == 0:
             splitter.read_file(stdin)
