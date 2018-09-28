@@ -84,13 +84,15 @@ class JobPool:
         interval: check for job status every number of seconds.
         '''
         start = datetime.now()
+        running = 0
         while self.current_jobs:
-            joblist = self.current_jobs.keys()
+            joblist = list(self.current_jobs.keys()) # create fresh list to work around Python 3 iterator
             try:
-                self.log('synchronizing ' + str(len(joblist)) + ' jobs, see you in ' + str(interval) + ' seconds')
+                self.log('synchronizing %d jobs (%d running), see you in %d seconds' % (len(joblist), running, interval))
                 self.session.synchronize(joblist, interval, False)
             except drmaa.errors.ExitTimeoutException:
                 pass
+            running = 0
             for jobid in joblist:
                 status = self.session.jobStatus(jobid)
                 if status == drmaa.JobState.DONE:
@@ -100,20 +102,22 @@ class JobPool:
                     except drmaa.errors.ExitTimeoutException:
                         pass
                     if info.wasAborted:
-                        self.log('job specified at ' + self.current_jobs[jobid].source + ' with id ' + str(jobid) + ' aborted')
+                        self.log('job specified at %s with id %s aborted' % (self.current_jobs[jobid].source, jobid))
                         self._failed(jobid, fail, info)
                     elif info.hasSignal:
-                        self.log('job specified at ' + self.current_jobs[jobid].source + ' with id ' + str(jobid) + ' received signal ' + str(info.terminatedSignal))
+                        self.log('job specified at %s with id %s aborted received signal %d' % (self.current_jobs[jobid].source, jobid, info.terminatedSignal))
                         self._failed(jobid, fail, info)
                     elif info.exitStatus != 0:
-                        self.log('job specified at ' + self.current_jobs[jobid].source + ' with id ' + str(jobid) + ' exited with status ' + str(info.exitStatus))
+                        self.log('job specified at %s with id %s aborted exited with status %d' % (self.current_jobs[jobid].source, jobid, info.exitStatus))
                         self._failed(jobid, fail, info)
                     else:
-                        self.log('job specified at ' + self.current_jobs[jobid].source + ' with id ' + str(jobid) + ' is done')
+                        self.log('job specified at %s with id %s is done' % (self.current_jobs[jobid].source, jobid))
                         del self.current_jobs[jobid]
                 elif status == drmaa.JobState.FAILED:
-                    self.log('job specified at ' + self.current_jobs[jobid].source + ' with id ' + str(jobid) + ' failed somehow')
+                    self.log('job specified at %s with id %s failed somehow' % (self.current_jobs[jobid].source, jobid))
                     self._failed(jobid, fail, None)
+                elif status == drmaa.JobState.RUNNING:
+                    running += 1
             if self.shall_stop:
                 break
         if self.all_done:
@@ -223,6 +227,7 @@ class QSync(OptionParser):
                 pool.terminate()
             return r
         except BaseException as e:
+            pool.log(str(e))
             pool.terminate()
             raise e
         finally:
