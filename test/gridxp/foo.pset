@@ -1,0 +1,6 @@
+ParamSet(
+    'parent-pset',
+    params=(
+        Param('foo', 'The Foo', values=('a', 'b')),
+    )
+)

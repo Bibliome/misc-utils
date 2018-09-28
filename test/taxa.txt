@@ -1,0 +1,1000 @@
+Bacteria	2	Bacteria	/1/131567/2	NP	superkingdom
+Prokaryota	2	Bacteria	/1/131567/2	NP	superkingdom
+prokaryote	2	Bacteria	/1/131567/2	NP	superkingdom
+Prokaryotas	2	Bacteria	/1/131567/2	NP	superkingdom
+eubacteria	2	Bacteria	/1/131567/2	NN	superkingdom
+prokaryotes	2	Bacteria	/1/131567/2	NP	superkingdom
+not Bacteria Haeckel 1894	2	Bacteria	/1/131567/2	NP	superkingdom
+Moneras	2	Bacteria	/1/131567/2	NP	superkingdom
+Prokaryotae	2	Bacteria	/1/131567/2	NP	superkingdom
+bacteria	2	Bacteria	/1/131567/2	NNS	superkingdom
+Bacterias	2	Bacteria	/1/131567/2	NP	superkingdom
+Procaryotae	2	Bacteria	/1/131567/2	NP	superkingdom
+Monera	2	Bacteria	/1/131567/2	NP	superkingdom
+Azorhizobium	6	Azorhizobium	/1/131567/2/1224/28211/356/335928/6	NP	genus
+Azotirhizobium	6	Azorhizobium	/1/131567/2/1224/28211/356/335928/6	NP	genus
+Azorhizobium Dreyfus et al. 1988	6	Azorhizobium	/1/131567/2/1224/28211/356/335928/6	NP	genus
+NBRC 14845	7	Azorhizobium caulinodans	/1/131567/2/1224/28211/356/335928/6/7	NP	species
+IFO 14845	7	Azorhizobium caulinodans	/1/131567/2/1224/28211/356/335928/6/7	NP	species
+A caulinodans	7	Azorhizobium caulinodans	/1/131567/2/1224/28211/356/335928/6/7	NP	species
+A . caulinodans	7	Azorhizobium caulinodans	/1/131567/2/1224/28211/356/335928/6/7	NP	species
+Azorhizobium caulinodans Dreyfus et al. 1988	7	Azorhizobium caulinodans	/1/131567/2/1224/28211/356/335928/6/7	NP	species
+Azotirhizobium caulinodans	7	Azorhizobium caulinodans	/1/131567/2/1224/28211/356/335928/6/7	NP	species
+DSM 5975	7	Azorhizobium caulinodans	/1/131567/2/1224/28211/356/335928/6/7	NP	species
+Azorhizobium caulinodans	7	Azorhizobium caulinodans	/1/131567/2/1224/28211/356/335928/6/7	NP	species
+CCUG 26647	7	Azorhizobium caulinodans	/1/131567/2/1224/28211/356/335928/6/7	NP	species
+JCM 20966	7	Azorhizobium caulinodans	/1/131567/2/1224/28211/356/335928/6/7	NP	species
+A.caulinodans	7	Azorhizobium caulinodans	/1/131567/2/1224/28211/356/335928/6/7	NP	species
+ATCC 43989	7	Azorhizobium caulinodans	/1/131567/2/1224/28211/356/335928/6/7	NP	species
+ORS 571	7	Azorhizobium caulinodans	/1/131567/2/1224/28211/356/335928/6/7	NP	species
+A. caulinodans	7	Azorhizobium caulinodans	/1/131567/2/1224/28211/356/335928/6/7	NP	species
+LMG 6465	7	Azorhizobium caulinodans	/1/131567/2/1224/28211/356/335928/6/7	NP	species
+B. aphidicola	9	Buchnera aphidicola	/1/131567/2/1224/1236/91347/543/32199/9	NP	species
+B aphidicola	9	Buchnera aphidicola	/1/131567/2/1224/1236/91347/543/32199/9	NP	species
+Acyrthosiphon pisum symbiont P	9	Buchnera aphidicola	/1/131567/2/1224/1236/91347/543/32199/9	NP	species
+Buchnera aphidicola	9	Buchnera aphidicola	/1/131567/2/1224/1236/91347/543/32199/9	NP	species
+B.aphidicola	9	Buchnera aphidicola	/1/131567/2/1224/1236/91347/543/32199/9	NP	species
+Buchnera aphidicola Munson et al. 1991	9	Buchnera aphidicola	/1/131567/2/1224/1236/91347/543/32199/9	NP	species
+B . aphidicola	9	Buchnera aphidicola	/1/131567/2/1224/1236/91347/543/32199/9	NP	species
+Cellvibrio	10	Cellvibrio	/1/131567/2/1224/1236/72274/135621/10	NP	genus
+"Cellvibrio" Winogradsky 1929	10	Cellvibrio	/1/131567/2/1224/1236/72274/135621/10	NP	genus
+Cellvibrio (ex Winogradsky 1929) Blackall et al. 1986 emend. Humphry et al. 2003	10	Cellvibrio	/1/131567/2/1224/1236/72274/135621/10	NP	genus
+Cellvibrios	10	Cellvibrio	/1/131567/2/1224/1236/72274/135621/10	NP	genus
+C gilvus	11	[Cellvibrio] gilvus	/1/131567/2/201174/1760/85003/2037/85006/85016/1707/11	NP	species
+[Cellvibrio] gilvus	11	[Cellvibrio] gilvus	/1/131567/2/201174/1760/85003/2037/85006/85016/1707/11	NP	species
+C.gilvus	11	[Cellvibrio] gilvus	/1/131567/2/201174/1760/85003/2037/85006/85016/1707/11	NP	species
+"Cellvibrio gilvus" Hulcher and King 1958	11	[Cellvibrio] gilvus	/1/131567/2/201174/1760/85003/2037/85006/85016/1707/11	NP	species
+C . gilvus	11	[Cellvibrio] gilvus	/1/131567/2/201174/1760/85003/2037/85006/85016/1707/11	NP	species
+C. gilvus	11	[Cellvibrio] gilvus	/1/131567/2/201174/1760/85003/2037/85006/85016/1707/11	NP	species
+Cellvibrio gilvus	11	[Cellvibrio] gilvus	/1/131567/2/201174/1760/85003/2037/85006/85016/1707/11	NP	species
+Dictyoglomus	13	Dictyoglomus	/1/131567/2/68297/203486/203487/203488/13	NP	genus
+Dictyoglomus Saiki et al. 1985	13	Dictyoglomus	/1/131567/2/68297/203486/203487/203488/13	NP	genus
+Dictyoglomi	13	Dictyoglomus	/1/131567/2/68297/203486/203487/203488/13	NP	genus
+D thermophilum	14	Dictyoglomus thermophilum	/1/131567/2/68297/203486/203487/203488/13/14	NP	species
+D . thermophilum	14	Dictyoglomus thermophilum	/1/131567/2/68297/203486/203487/203488/13/14	NP	species
+Dictyoglomus thermophilum	14	Dictyoglomus thermophilum	/1/131567/2/68297/203486/203487/203488/13/14	NP	species
+D. thermophilum	14	Dictyoglomus thermophilum	/1/131567/2/68297/203486/203487/203488/13/14	NP	species
+ATCC 35947	14	Dictyoglomus thermophilum	/1/131567/2/68297/203486/203487/203488/13/14	NP	species
+Dictyoglomus thermophilum Saiki et al. 1985	14	Dictyoglomus thermophilum	/1/131567/2/68297/203486/203487/203488/13/14	NP	species
+strain H-6-12	14	Dictyoglomus thermophilum	/1/131567/2/68297/203486/203487/203488/13/14	NP	species
+DSM 3960	14	Dictyoglomus thermophilum	/1/131567/2/68297/203486/203487/203488/13/14	NP	species
+D.thermophilum	14	Dictyoglomus thermophilum	/1/131567/2/68297/203486/203487/203488/13/14	NP	species
+strain H 6-12	14	Dictyoglomus thermophilum	/1/131567/2/68297/203486/203487/203488/13/14	NP	species
+Methylophilus methylotrophus Jenkins et al. 1987	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+M.methylophilus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+NCIMB 10515	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+LMG 6787	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+M. methylitrophus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+M methylotrophus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+ATCC 53528	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+NCIB 10515	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+VKM B-1623	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+Methylophilus sp. CBMB147	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+M.methylitrophus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+M. methylophilus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+VKM B 1623	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+Methylophilus methylitrophus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+M methylophilus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+Methyliphilus methylotrophus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+M . methylotrophus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+M methylitrophus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+M . methylophilus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+M.methylotrophus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+Methylotrophus methylophilus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+Methylophilus methylotrophus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+Methyliphilus methylitrophus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+M . methylitrophus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+DSM 46235	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+M. methylotrophus	17	Methylophilus methylotrophus	/1/131567/2/1224/28216/206350/32011/16/17	NP	species
+Methylophilus Jenkins et al. 1987	16	Methylophilus	/1/131567/2/1224/28216/206350/32011/16	NP	genus
+Methyliphili	16	Methylophilus	/1/131567/2/1224/28216/206350/32011/16	NP	genus
+Methyliphilus	16	Methylophilus	/1/131567/2/1224/28216/206350/32011/16	NP	genus
+Methylotrophi	16	Methylophilus	/1/131567/2/1224/28216/206350/32011/16	NP	genus
+Methylophili	16	Methylophilus	/1/131567/2/1224/28216/206350/32011/16	NP	genus
+Methylotrophus	16	Methylophilus	/1/131567/2/1224/28216/206350/32011/16	NP	genus
+Methylophilus	16	Methylophilus	/1/131567/2/1224/28216/206350/32011/16	NP	genus
+NBRC 103641	19	Pelobacter carbinolicus	/1/131567/2/1224/68525/28221/69541/213423/18/19	NP	species
+P.carbinolicus	19	Pelobacter carbinolicus	/1/131567/2/1224/68525/28221/69541/213423/18/19	NP	species
+DSM 2380	19	Pelobacter carbinolicus	/1/131567/2/1224/68525/28221/69541/213423/18/19	NP	species
+Pelobacter carbinolicus	19	Pelobacter carbinolicus	/1/131567/2/1224/68525/28221/69541/213423/18/19	NP	species
+P . carbinolicus	19	Pelobacter carbinolicus	/1/131567/2/1224/68525/28221/69541/213423/18/19	NP	species
+strain Gra Bd 1	19	Pelobacter carbinolicus	/1/131567/2/1224/68525/28221/69541/213423/18/19	NP	species
+P carbinolicus	19	Pelobacter carbinolicus	/1/131567/2/1224/68525/28221/69541/213423/18/19	NP	species
+Pelobacter carbinolicus Schink 1984	19	Pelobacter carbinolicus	/1/131567/2/1224/68525/28221/69541/213423/18/19	NP	species
+P. carbinolicus	19	Pelobacter carbinolicus	/1/131567/2/1224/68525/28221/69541/213423/18/19	NP	species
+Pelobacter	18	Pelobacter	/1/131567/2/1224/68525/28221/69541/213423/18	NP	genus
+Pelobacter Schink and Pfennig 1983	18	Pelobacter	/1/131567/2/1224/68525/28221/69541/213423/18	NP	genus
+Phenylobacterium immobile	21	Phenylobacterium immobile	/1/131567/2/1224/28211/204458/76892/20/21	NP	species
+P immobile	21	Phenylobacterium immobile	/1/131567/2/1224/28211/204458/76892/20/21	NP	species
+DSM 1986	21	Phenylobacterium immobile	/1/131567/2/1224/28211/204458/76892/20/21	NP	species
+P. immobile	21	Phenylobacterium immobile	/1/131567/2/1224/28211/204458/76892/20/21	NP	species
+Phenylobacterium immobile Lingens et al. 1985	21	Phenylobacterium immobile	/1/131567/2/1224/28211/204458/76892/20/21	NP	species
+P . immobile	21	Phenylobacterium immobile	/1/131567/2/1224/28211/204458/76892/20/21	NP	species
+CIP 103305	21	Phenylobacterium immobile	/1/131567/2/1224/28211/204458/76892/20/21	NP	species
+ATCC 35973	21	Phenylobacterium immobile	/1/131567/2/1224/28211/204458/76892/20/21	NP	species
+P.immobile	21	Phenylobacterium immobile	/1/131567/2/1224/28211/204458/76892/20/21	NP	species
+LMG 6165	21	Phenylobacterium immobile	/1/131567/2/1224/28211/204458/76892/20/21	NP	species
+Phenylobacterium Lingens et al. 1985 emend. Oh and Roh 2012	20	Phenylobacterium	/1/131567/2/1224/28211/204458/76892/20	NP	genus
+Phenylobacterium Lingens et al. 1985 emend. Kanso and Patel 2004	20	Phenylobacterium	/1/131567/2/1224/28211/204458/76892/20	NP	genus
+Phenylobacterium Lingens et al. 1985 emend. Tiago et al. 2005	20	Phenylobacterium	/1/131567/2/1224/28211/204458/76892/20	NP	genus
+Phenylobacterium	20	Phenylobacterium	/1/131567/2/1224/28211/204458/76892/20	NP	genus
+Phenylobacterium Lingens et al. 1985 emend. Abraham et al. 2008	20	Phenylobacterium	/1/131567/2/1224/28211/204458/76892/20	NP	genus
+S.affinis	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+S affinis	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+Alteromonas colwelliana	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+Shewanella affinis	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+S colwelliana	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+S. affinis	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+ATCC 39565	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+S.colwelliana	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+A colwelliana	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+A. colwelliana	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+strain LST W	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+A . colwelliana	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+S . affinis	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+S. colwelliana	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+A.colwelliana	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+Shewanella colwelliana (Weiner et al. 1988) Coyne et al. 1990	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+S . colwelliana	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+Alteromonas colwelliana Weiner et al. 1988	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+Shewanella affinis Ivanova et al. 2004	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+strain LST-W	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+Shewanella colwelliana	23	Shewanella colwelliana	/1/131567/2/1224/1236/135622/267890/22/23	NP	species
+Shewanella MacDonell and Colwell 1986	22	Shewanella	/1/131567/2/1224/1236/135622/267890/22	NP	genus
+Shewanella	22	Shewanella	/1/131567/2/1224/1236/135622/267890/22	NP	genus
+Shewanellas	22	Shewanella	/1/131567/2/1224/1236/135622/267890/22	NP	genus
+CIP 103207	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+A.hanedai	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+CCUG 16097	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+strain 281	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+DSM 6066	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+A . hanedai	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+NBRC 102223	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+S. hanedai	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+A hanedai	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+S.hanedai	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+ATCC 33224	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+S hanedai	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+A. hanedai	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+JCM 20706	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+Shewanella hanedai	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+Alteromonas hanedai	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+Shewanella hanedai (Jensen et al. 1981) MacDonell and Colwell 1986	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+LMG 19004	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+S . hanedai	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+Alteromonas hanedai Jensen et al. 1981	25	Shewanella hanedai	/1/131567/2/1224/1236/135622/267890/22/25	NP	species
+DSM 6067	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+NCIB 10471	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+S putrifaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+A.putrefaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+Shewanella putrifaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+S putrefaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+A. putrefaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+S . putrifaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+Alteromonas putrefaciens (ex Derby and Hammer) Lee et al. 1981	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+"Pseudomonas putrefaciens" (Derby and Hammer) Long and Hammer 1941	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+CIP 80.40	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+Pseudomonas putrefaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+IFO 3908	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+Alteromonas putrefaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+strain Hammer 95	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+P.putrefaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+A putrifaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+NBRC 3908	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+A.putrifaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+P putrefaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+A . putrefaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+S . putrefaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+Alteromonas putrifaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+Shewanella putrefaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+A . putrifaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+JCM 20190	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+P. putrefaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+S. putrefaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+NCIMB 10471	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+Shewanella putrefaciens (Lee et al. 1981) MacDonell and Colwell 1986	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+A putrefaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+CFBP 3033	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+ATCC 8071	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+CCUG 13452 D	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+LMG 2268	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+NCTC 12960	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+S. putrifaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+P . putrefaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+S.putrefaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+JCM 9294	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+A. putrifaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+S.putrifaciens	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+CFBP 3034	24	Shewanella putrefaciens	/1/131567/2/1224/1236/135622/267890/22/24	NP	species
+halophilic eubacterium (NRCC 41227)	27	halophilic eubacterium NRCC 41227	/1/131567/2/2323/49928/27	NP	species
+halophilic eubacterium NRCC41227	27	halophilic eubacterium NRCC 41227	/1/131567/2/2323/49928/27	NP	species
+halophilic eubacterium NRCC 41227	27	halophilic eubacterium NRCC 41227	/1/131567/2/2323/49928/27	NP	species
+Myxobacterias	29	Myxococcales	/1/131567/2/1224/68525/28221/29	NP	order
+Myxococcales	29	Myxococcales	/1/131567/2/1224/68525/28221/29	NP	order
+Myxobacteria	29	Myxococcales	/1/131567/2/1224/68525/28221/29	NP	order
+Myxococcales Tchan et al. 1948	29	Myxococcales	/1/131567/2/1224/68525/28221/29	NP	order
+fruiting gliding bacteria	29	Myxococcales	/1/131567/2/1224/68525/28221/29	NN	order
+The Myxobacteria	29	Myxococcales	/1/131567/2/1224/68525/28221/29	NP	order
+halophilic eubacterium	28	halophilic eubacterium	/1/131567/2/2323/49928/28	NP	species
+Myxococcaceae	31	Myxococcaceae	/1/131567/2/1224/68525/28221/29/80811/31	NP	family
+Myxococcaceae Jahn 1924	31	Myxococcaceae	/1/131567/2/1224/68525/28221/29/80811/31	NP	family
+M . xanthus	34	Myxococcus xanthus	/1/131567/2/1224/68525/28221/29/80811/31/32/34	NP	species
+ATCC 25232	34	Myxococcus xanthus	/1/131567/2/1224/68525/28221/29/80811/31/32/34	NP	species
+M.xanthus	34	Myxococcus xanthus	/1/131567/2/1224/68525/28221/29/80811/31/32/34	NP	species
+Myxococcus xanthus retron Mx65	34	Myxococcus xanthus	/1/131567/2/1224/68525/28221/29/80811/31/32/34	NP	species
+NBRC 13542	34	Myxococcus xanthus	/1/131567/2/1224/68525/28221/29/80811/31/32/34	NP	species
+CCUG 2079	34	Myxococcus xanthus	/1/131567/2/1224/68525/28221/29/80811/31/32/34	NP	species
+IFO 13542	34	Myxococcus xanthus	/1/131567/2/1224/68525/28221/29/80811/31/32/34	NP	species
+Myxococcus xanthus	34	Myxococcus xanthus	/1/131567/2/1224/68525/28221/29/80811/31/32/34	NP	species
+Myxococcus xanthus retron Mx162	34	Myxococcus xanthus	/1/131567/2/1224/68525/28221/29/80811/31/32/34	NP	species
+CIP 107069	34	Myxococcus xanthus	/1/131567/2/1224/68525/28221/29/80811/31/32/34	NP	species
+Myxococcus xanthus Beebe 1941	34	Myxococcus xanthus	/1/131567/2/1224/68525/28221/29/80811/31/32/34	NP	species
+M. xanthus	34	Myxococcus xanthus	/1/131567/2/1224/68525/28221/29/80811/31/32/34	NP	species
+M xanthus	34	Myxococcus xanthus	/1/131567/2/1224/68525/28221/29/80811/31/32/34	NP	species
+M.macrosporus	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+"Chondrococcus macrosporus" Krzemieniewska and Krzemieniewski 1926	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+Myxococcus macrosporus	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+Chondrococcus macrosporus	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+M. macrosporus	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+Corallococcus macrosporus Reichenbach 2007	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+C. macrosporus	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+DSM 14697	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+JCM 12621	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+not "Myxococcus macrosporus" Zukal 1897	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+Corallococcus macrosporus	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+strain Cc m8	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+C.macrosporus	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+M macrosporus	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+CIP 109128	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+C macrosporus	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+Myxococcus macrosporus (Krzemieniewska and Krzemieniewski 1926) Zahler and McCurdy 1974 (Approved Lists 1980)	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+C . macrosporus	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+M . macrosporus	35	Corallococcus macrosporus	/1/131567/2/1224/68525/28221/29/80811/31/83461/35	NP	species
+Myxococci	32	Myxococcus	/1/131567/2/1224/68525/28221/29/80811/31/32	NP	genus
+Myxococcus	32	Myxococcus	/1/131567/2/1224/68525/28221/29/80811/31/32	NP	genus
+Myxococcus Thaxter 1892	32	Myxococcus	/1/131567/2/1224/68525/28221/29/80811/31/32	NP	genus
+Myxococcus fulvus	33	Myxococcus fulvus	/1/131567/2/1224/68525/28221/29/80811/31/32/33	NP	species
+M . fulvus	33	Myxococcus fulvus	/1/131567/2/1224/68525/28221/29/80811/31/32/33	NP	species
+NBRC 100333	33	Myxococcus fulvus	/1/131567/2/1224/68525/28221/29/80811/31/32/33	NP	species
+NCIMB 13349	33	Myxococcus fulvus	/1/131567/2/1224/68525/28221/29/80811/31/32/33	NP	species
+Myxococcus fulvus (Cohn 1875) Jahn 1911	33	Myxococcus fulvus	/1/131567/2/1224/68525/28221/29/80811/31/32/33	NP	species
+M fulvus	33	Myxococcus fulvus	/1/131567/2/1224/68525/28221/29/80811/31/32/33	NP	species
+M.fulvus	33	Myxococcus fulvus	/1/131567/2/1224/68525/28221/29/80811/31/32/33	NP	species
+ATCC 25199	33	Myxococcus fulvus	/1/131567/2/1224/68525/28221/29/80811/31/32/33	NP	species
+"Micrococcus fulvus" Cohn 1875	33	Myxococcus fulvus	/1/131567/2/1224/68525/28221/29/80811/31/32/33	NP	species
+Micrococcus fulvus	33	Myxococcus fulvus	/1/131567/2/1224/68525/28221/29/80811/31/32/33	NP	species
+M. fulvus	33	Myxococcus fulvus	/1/131567/2/1224/68525/28221/29/80811/31/32/33	NP	species
+"Angiococcus disciformis" (Thaxter 1904) Jahn 1924	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+ATCC 33172	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+C disciformis	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+Angiococcus disciformis	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+"Cystobacter disciformis" (Thaxter 1904) Brockman and McCurdy 1989	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+M.disciformis	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+Cystobacter disciformis	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+C . disciformis	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+M. disciformis	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+strain CMU-1	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+A.disciformis	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+A. disciformis	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+Angiococcus disciformis (Thaxter 1904) Hook et al. 1980	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+C. disciformis	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+C.disciformis	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+Myxococcus disciformis	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+strain CMU 1	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+M disciformis	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+A disciformis	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+M . disciformis	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+A . disciformis	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+Myxococcus disciformis Thaxter 1904 (Approved Lists 1980)	38	Angiococcus disciformis	/1/131567/2/1224/68525/28221/29/80811/39/42/38	NP	species
+Archangiaceae Jahn 1924	39	Cystobacteraceae	/1/131567/2/1224/68525/28221/29/80811/39	NP	family
+Cystobacteraceae McCurdy 1970	39	Cystobacteraceae	/1/131567/2/1224/68525/28221/29/80811/39	NP	family
+Cystobacteraceae	39	Cystobacteraceae	/1/131567/2/1224/68525/28221/29/80811/39	NP	family
+Archangiaceae	39	Cystobacteraceae	/1/131567/2/1224/68525/28221/29/80811/39	NP	family
+Angiococci	42	Cystobacter	/1/131567/2/1224/68525/28221/29/80811/39/42	NP	genus
+Cystobacter Schroeter 1886	42	Cystobacter	/1/131567/2/1224/68525/28221/29/80811/39/42	NP	genus
+Cystobacter	42	Cystobacter	/1/131567/2/1224/68525/28221/29/80811/39/42	NP	genus
+Angiococcus	42	Cystobacter	/1/131567/2/1224/68525/28221/29/80811/39/42	NP	genus
+"Angiococcus" Jahn 1924	42	Cystobacter	/1/131567/2/1224/68525/28221/29/80811/39/42	NP	genus
+Angiococcus (ex Jahn 1924) Hook et al. 1980	42	Cystobacter	/1/131567/2/1224/68525/28221/29/80811/39/42	NP	genus
+Cystobacter fuscus Schroeter 1886	43	Cystobacter fuscus	/1/131567/2/1224/68525/28221/29/80811/39/42/43	NP	species
+C . fuscus	43	Cystobacter fuscus	/1/131567/2/1224/68525/28221/29/80811/39/42/43	NP	species
+C fuscus	43	Cystobacter fuscus	/1/131567/2/1224/68525/28221/29/80811/39/42/43	NP	species
+Cystobacter fuscus	43	Cystobacter fuscus	/1/131567/2/1224/68525/28221/29/80811/39/42/43	NP	species
+C. fuscus	43	Cystobacter fuscus	/1/131567/2/1224/68525/28221/29/80811/39/42/43	NP	species
+P fuscum	43	Cystobacter fuscus	/1/131567/2/1224/68525/28221/29/80811/39/42/43	NP	species
+DSM 2262	43	Cystobacter fuscus	/1/131567/2/1224/68525/28221/29/80811/39/42/43	NP	species
+Polyangium fuscum	43	Cystobacter fuscus	/1/131567/2/1224/68525/28221/29/80811/39/42/43	NP	species
+P.fuscum	43	Cystobacter fuscus	/1/131567/2/1224/68525/28221/29/80811/39/42/43	NP	species
+P. fuscum	43	Cystobacter fuscus	/1/131567/2/1224/68525/28221/29/80811/39/42/43	NP	species
+"Polyangium fuscum" (Schroeter 1886) Thaxter 1904	43	Cystobacter fuscus	/1/131567/2/1224/68525/28221/29/80811/39/42/43	NP	species
+ATCC 25194	43	Cystobacter fuscus	/1/131567/2/1224/68525/28221/29/80811/39/42/43	NP	species
+C.fuscus	43	Cystobacter fuscus	/1/131567/2/1224/68525/28221/29/80811/39/42/43	NP	species
+P . fuscum	43	Cystobacter fuscus	/1/131567/2/1224/68525/28221/29/80811/39/42/43	NP	species
+Stigmatella	40	Stigmatella	/1/131567/2/1224/68525/28221/29/80811/39/40	NP	genus
+Stigmatella Berkeley and Curtis 1875	40	Stigmatella	/1/131567/2/1224/68525/28221/29/80811/39/40	NP	genus
+Stigmatellas	40	Stigmatella	/1/131567/2/1224/68525/28221/29/80811/39/40	NP	genus
+C . aurantiacus	41	Stigmatella aurantiaca	/1/131567/2/1224/68525/28221/29/80811/39/40/41	NP	species
+C aurantiacus	41	Stigmatella aurantiaca	/1/131567/2/1224/68525/28221/29/80811/39/40/41	NP	species
+"Chondromyces aurantiacus" (Berkeley and Curtis) Thaxter 1892	41	Stigmatella aurantiaca	/1/131567/2/1224/68525/28221/29/80811/39/40/41	NP	species
+S aurantiaca	41	Stigmatella aurantiaca	/1/131567/2/1224/68525/28221/29/80811/39/40/41	NP	species
+Stigmatella aurantiaca	41	Stigmatella aurantiaca	/1/131567/2/1224/68525/28221/29/80811/39/40/41	NP	species
+Chondromyces aurantiacus	41	Stigmatella aurantiaca	/1/131567/2/1224/68525/28221/29/80811/39/40/41	NP	species
+S . aurantiaca	41	Stigmatella aurantiaca	/1/131567/2/1224/68525/28221/29/80811/39/40/41	NP	species
+ATCC 25190	41	Stigmatella aurantiaca	/1/131567/2/1224/68525/28221/29/80811/39/40/41	NP	species
+C.aurantiacus	41	Stigmatella aurantiaca	/1/131567/2/1224/68525/28221/29/80811/39/40/41	NP	species
+S.aurantiaca	41	Stigmatella aurantiaca	/1/131567/2/1224/68525/28221/29/80811/39/40/41	NP	species
+Stigmatella aurantiaca Berkeley and Curtis 1875	41	Stigmatella aurantiaca	/1/131567/2/1224/68525/28221/29/80811/39/40/41	NP	species
+C. aurantiacus	41	Stigmatella aurantiaca	/1/131567/2/1224/68525/28221/29/80811/39/40/41	NP	species
+S. aurantiaca	41	Stigmatella aurantiaca	/1/131567/2/1224/68525/28221/29/80811/39/40/41	NP	species
+Archangium Jahn 1924	47	Archangium	/1/131567/2/1224/68525/28221/29/80811/39/47	NP	genus
+Archangium	47	Archangium	/1/131567/2/1224/68525/28221/29/80811/39/47	NP	genus
+Melittangium	44	Melittangium	/1/131567/2/1224/68525/28221/29/80811/39/44	NP	genus
+Melittangium Jahn 1924	44	Melittangium	/1/131567/2/1224/68525/28221/29/80811/39/44	NP	genus
+C. lichenicolus	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+C . minor	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+M lichenicola	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+C.gracilipes	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+Melittangium lichenicola (Thaxter 1892) McCurdy 1971	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+P lichenicolum	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+C . lichenicolus	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+Chondromyces gracilipes	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+DSM 2275	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+"Chondromyces minor" Krzemieniewska and Krzemieniewski 1930	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+Chondromyces minor	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+Podangium lichenicolum	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+"Chondromyces gracilipes" Thaxter 1897	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+M.lichenicola	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+M . lichenicola	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+C lichenicolus	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+P. gracilipes	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+P.gracilipes	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+C gracilipes	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+C minor	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+Melittangium lichenicola	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+"Podangium lichenicolum" (Thaxter 1892) Jahn 1924	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+P. lichenicolum	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+C. gracilipes	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+P . lichenicolum	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+P . gracilipes	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+M. lichenicola	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+C. minor	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+"Chondromyces lichenicolus" Thaxter 1892	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+ATCC 25944	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+Podangium gracilipes	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+P.lichenicolum	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+"Podangium gracilipes" (Thaxter 1897) Jahn 1924	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+strain M155	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+C . gracilipes	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+C.minor	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+P gracilipes	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+Chondromyces lichenicolus	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+C.lichenicolus	45	Melittangium lichenicola	/1/131567/2/1224/68525/28221/29/80811/39/44/45	NP	species
+C apiculatus	51	Chondromyces apiculatus	/1/131567/2/1224/68525/28221/29/80812/49/50/51	NP	species
+C . apiculatus	51	Chondromyces apiculatus	/1/131567/2/1224/68525/28221/29/80812/49/50/51	NP	species
+C.apiculatus	51	Chondromyces apiculatus	/1/131567/2/1224/68525/28221/29/80812/49/50/51	NP	species
+Chondromyces apiculatus Thaxter 1897	51	Chondromyces apiculatus	/1/131567/2/1224/68525/28221/29/80812/49/50/51	NP	species
+Chrondromyces apiculatus	51	Chondromyces apiculatus	/1/131567/2/1224/68525/28221/29/80812/49/50/51	NP	species
+Chondromyces apiculatus	51	Chondromyces apiculatus	/1/131567/2/1224/68525/28221/29/80812/49/50/51	NP	species
+TC 4481	51	Chondromyces apiculatus	/1/131567/2/1224/68525/28221/29/80812/49/50/51	NP	species
+C. apiculatus	51	Chondromyces apiculatus	/1/131567/2/1224/68525/28221/29/80812/49/50/51	NP	species
+Polycephalum	50	Chondromyces	/1/131567/2/1224/68525/28221/29/80812/49/50	NP	genus
+Myxobotrys	50	Chondromyces	/1/131567/2/1224/68525/28221/29/80812/49/50	NP	genus
+Chondromyces Berkeley and Curtis 1874	50	Chondromyces	/1/131567/2/1224/68525/28221/29/80812/49/50	NP	genus
+Chrondromyces	50	Chondromyces	/1/131567/2/1224/68525/28221/29/80812/49/50	NP	genus
+Chondromyces	50	Chondromyces	/1/131567/2/1224/68525/28221/29/80812/49/50	NP	genus
+"Myxobotrys" Zukal 1896	50	Chondromyces	/1/131567/2/1224/68525/28221/29/80812/49/50	NP	genus
+"Polycephalum" Kalchbrenner and Cooke 1880	50	Chondromyces	/1/131567/2/1224/68525/28221/29/80812/49/50	NP	genus
+Sorangiaceae	49	Polyangiaceae	/1/131567/2/1224/68525/28221/29/80812/49	NP	family
+Polyangiaceae Jahn 1924	49	Polyangiaceae	/1/131567/2/1224/68525/28221/29/80812/49	NP	family
+"Sorangiaceae" Jahn 1924	49	Polyangiaceae	/1/131567/2/1224/68525/28221/29/80812/49	NP	family
+Polyangiaceae	49	Polyangiaceae	/1/131567/2/1224/68525/28221/29/80812/49	NP	family
+A. gephyra	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+C cerebriformis	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+"Chondromyces serpens" Quehl 1906	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+C. serpens	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+ATCC 25201	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+C . serpens	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+C. cerebriformis	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+A . gephyra	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+C.cerebriformis	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+M. cerebriformis	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+M.cerebriformis	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+Myxococcus cerebriformis	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+C . cerebriformis	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+"Chondrococcus cerebriformis" (Kofler) Jahn 1924	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+C.serpens	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+A.gephyra	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+A gephyra	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+M cerebriformis	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+DSM 2261	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+Archangium gephyra Jahn 1924	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+Chondrococcus cerebriformis	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+Archangium gephyra	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+M . cerebriformis	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+"Myxococcus cerebriformis" Kofler 1913	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+Chondromyces serpens	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+C serpens	48	Archangium gephyra	/1/131567/2/1224/68525/28221/29/80811/39/47/48	NP	species
+Polyangium	55	Polyangium	/1/131567/2/1224/68525/28221/29/80812/49/55	NP	genus
+Polyangium Link 1809	55	Polyangium	/1/131567/2/1224/68525/28221/29/80812/49/55	NP	genus
+N . exedens	54	Nannocystis exedens	/1/131567/2/1224/68525/28221/29/224462/224463/53/54	NP	species
+N. exedens	54	Nannocystis exedens	/1/131567/2/1224/68525/28221/29/224462/224463/53/54	NP	species
+Nannocystis exedens	54	Nannocystis exedens	/1/131567/2/1224/68525/28221/29/224462/224463/53/54	NP	species
+N.exedens	54	Nannocystis exedens	/1/131567/2/1224/68525/28221/29/224462/224463/53/54	NP	species
+N exedens	54	Nannocystis exedens	/1/131567/2/1224/68525/28221/29/224462/224463/53/54	NP	species
+Nannocystis exedens Reichenbach 1970	54	Nannocystis exedens	/1/131567/2/1224/68525/28221/29/224462/224463/53/54	NP	species
+ATCC 25963	54	Nannocystis exedens	/1/131567/2/1224/68525/28221/29/224462/224463/53/54	NP	species
+DSM 71	54	Nannocystis exedens	/1/131567/2/1224/68525/28221/29/224462/224463/53/54	NP	species
+Nannocystis Reichenbach 1970	53	Nannocystis	/1/131567/2/1224/68525/28221/29/224462/224463/53	NP	genus
+Nannocystis	53	Nannocystis	/1/131567/2/1224/68525/28221/29/224462/224463/53	NP	genus
+M.variabilis	52	Chondromyces crocatus	/1/131567/2/1224/68525/28221/29/80812/49/50/52	NP	species
+M. variabilis	52	Chondromyces crocatus	/1/131567/2/1224/68525/28221/29/80812/49/50/52	NP	species
+Chondromyces crocatus Berkeley and Curtis 1874	52	Chondromyces crocatus	/1/131567/2/1224/68525/28221/29/80812/49/50/52	NP	species
+Chrondromyces crocatus	52	Chondromyces crocatus	/1/131567/2/1224/68525/28221/29/80812/49/50/52	NP	species
+M variabilis	52	Chondromyces crocatus	/1/131567/2/1224/68525/28221/29/80812/49/50/52	NP	species
+C.crocatus	52	Chondromyces crocatus	/1/131567/2/1224/68525/28221/29/80812/49/50/52	NP	species
+Myxobotrys variabilis	52	Chondromyces crocatus	/1/131567/2/1224/68525/28221/29/80812/49/50/52	NP	species
+C crocatus	52	Chondromyces crocatus	/1/131567/2/1224/68525/28221/29/80812/49/50/52	NP	species
+C . crocatus	52	Chondromyces crocatus	/1/131567/2/1224/68525/28221/29/80812/49/50/52	NP	species
+"Myxobotrys variabilis" Zukal 1896 (putative synonym)	52	Chondromyces crocatus	/1/131567/2/1224/68525/28221/29/80812/49/50/52	NP	species
+M . variabilis	52	Chondromyces crocatus	/1/131567/2/1224/68525/28221/29/80812/49/50/52	NP	species
+Chondromyces crocatus	52	Chondromyces crocatus	/1/131567/2/1224/68525/28221/29/80812/49/50/52	NP	species
+C. crocatus	52	Chondromyces crocatus	/1/131567/2/1224/68525/28221/29/80812/49/50/52	NP	species
+TC 601	52	Chondromyces crocatus	/1/131567/2/1224/68525/28221/29/80812/49/50/52	NP	species
+Vitreoscillas	59	Vitreoscilla	/1/131567/2/1224/28216/206351/481/90153/59	NP	genus
+Vitreoscilla Pringsheim 1949	59	Vitreoscilla	/1/131567/2/1224/28216/206351/481/90153/59	NP	genus
+Vitreoscilla	59	Vitreoscilla	/1/131567/2/1224/28216/206351/481/90153/59	NP	genus
+Polyangium sp.	57	Polyangium sp.	/1/131567/2/1224/68525/28221/29/80812/49/55/57	NP	species
+"Sorangium compositum" Jahn 1924	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+strain So ce1871	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+P compositum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+S.nigrum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+S.nigrescens	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+S.cellulosum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+S. nigrum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+Sorangium compositum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+S . nigrescens	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+P . compositum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+S . cellulosum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+Polyangium compositum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+"Polyangium compositum" Thaxter 1904	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+JCM 12707	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+S compositum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+S . compositum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+P.compositum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+S . nigrum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+P cellulosum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+"Sorangium cellulosum" (Imshenetski and Solntseva 1936) Imshenetski and Solntseva 1937	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+S cellulosum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+CIP 109122	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+S. cellulosum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+Sorangium nigrum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+Sorangium nigrescens	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+"Sorangium compositum" Krzemieniewska and Krzemieniewski 1937	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+Sorangium cellulosum (Brockman 1989) Reichenbach 2007	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+P. compositum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+S. compositum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+S nigrum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+P.cellulosum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+"Sorangium nigrescens" Krzemieniewska and Krzemieniewski 1937	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+"Sorangium nigrum" Krzemieniewska and Krzemieniewski 1937	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+S nigrescens	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+S.compositum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+Polyangium cellulosum (ex Imshenetski and Solntseva 1936) Brockman 1989	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+DSM 14627	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+P. cellulosum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+S. nigrescens	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+P . cellulosum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+Sorangium cellulosum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+Polyangium cellulosum	56	Sorangium cellulosum	/1/131567/2/1224/68525/28221/29/80812/49/39643/56	NP	species
+strain L1401 2	63	Vitreoscilla filiformis	/1/131567/2/1224/28216/206351/481/90153/59/63	NP	species
+V filiformis	63	Vitreoscilla filiformis	/1/131567/2/1224/28216/206351/481/90153/59/63	NP	species
+V.filiformis	63	Vitreoscilla filiformis	/1/131567/2/1224/28216/206351/481/90153/59/63	NP	species
+strain L1401-2	63	Vitreoscilla filiformis	/1/131567/2/1224/28216/206351/481/90153/59/63	NP	species
+ATCC 43190	63	Vitreoscilla filiformis	/1/131567/2/1224/28216/206351/481/90153/59/63	NP	species
+V . filiformis	63	Vitreoscilla filiformis	/1/131567/2/1224/28216/206351/481/90153/59/63	NP	species
+V. filiformis	63	Vitreoscilla filiformis	/1/131567/2/1224/28216/206351/481/90153/59/63	NP	species
+Vitreoscilla filiformis (ex Pringsheim 1951) Strohl et al. 1986	63	Vitreoscilla filiformis	/1/131567/2/1224/28216/206351/481/90153/59/63	NP	species
+"Vitreoscilla filiformis" Pringsheim 1951	63	Vitreoscilla filiformis	/1/131567/2/1224/28216/206351/481/90153/59/63	NP	species
+Vitreoscilla filiformis	63	Vitreoscilla filiformis	/1/131567/2/1224/28216/206351/481/90153/59/63	NP	species
+Vitreoscilla beggiatoides Pringsheim 1949 (Approved Lists 1980) emend. Strohl et al. 1986	62	Vitreoscilla beggiatoides	/1/131567/2/1224/28216/206351/481/90153/59/62	NP	species
+V. beggiatoides	62	Vitreoscilla beggiatoides	/1/131567/2/1224/28216/206351/481/90153/59/62	NP	species
+strain B23SS	62	Vitreoscilla beggiatoides	/1/131567/2/1224/28216/206351/481/90153/59/62	NP	species
+ATCC 43189	62	Vitreoscilla beggiatoides	/1/131567/2/1224/28216/206351/481/90153/59/62	NP	species
+Vitreoscilla beggiatoides	62	Vitreoscilla beggiatoides	/1/131567/2/1224/28216/206351/481/90153/59/62	NP	species
+V.beggiatoides	62	Vitreoscilla beggiatoides	/1/131567/2/1224/28216/206351/481/90153/59/62	NP	species
+V beggiatoides	62	Vitreoscilla beggiatoides	/1/131567/2/1224/28216/206351/481/90153/59/62	NP	species
+V . beggiatoides	62	Vitreoscilla beggiatoides	/1/131567/2/1224/28216/206351/481/90153/59/62	NP	species
+Vitreoscilla stercoraria	61	Vitreoscilla stercoraria	/1/131567/2/1224/28216/206351/481/90153/59/61	NP	species
+LMG 7756	61	Vitreoscilla stercoraria	/1/131567/2/1224/28216/206351/481/90153/59/61	NP	species
+V stercoraria	61	Vitreoscilla stercoraria	/1/131567/2/1224/28216/206351/481/90153/59/61	NP	species
+V.stercoraria	61	Vitreoscilla stercoraria	/1/131567/2/1224/28216/206351/481/90153/59/61	NP	species
+DSM 513	61	Vitreoscilla stercoraria	/1/131567/2/1224/28216/206351/481/90153/59/61	NP	species
+Vitreoscilla stercoraria Pringsheim 1951 (Approved Lists 1980) emend. Strohl et al. 1986	61	Vitreoscilla stercoraria	/1/131567/2/1224/28216/206351/481/90153/59/61	NP	species
+V . stercoraria	61	Vitreoscilla stercoraria	/1/131567/2/1224/28216/206351/481/90153/59/61	NP	species
+V. stercoraria	61	Vitreoscilla stercoraria	/1/131567/2/1224/28216/206351/481/90153/59/61	NP	species
+ATCC 15218	61	Vitreoscilla stercoraria	/1/131567/2/1224/28216/206351/481/90153/59/61	NP	species
+Vitreoscilla sp.	60	Vitreoscilla sp.	/1/131567/2/1224/28216/206351/481/90153/59/60	NP	species
+Lysobacter	68	Lysobacter	/1/131567/2/1224/1236/135614/32033/68	NP	genus
+Lysobacter Christensen and Cook 1978 (Approved Lists 1980) emend. Park et al. 2008	68	Lysobacter	/1/131567/2/1224/1236/135614/32033/68	NP	genus
+DSM 2043	69	Lysobacter enzymogenes	/1/131567/2/1224/1236/135614/32033/68/69	NP	species
+LMG 8762	69	Lysobacter enzymogenes	/1/131567/2/1224/1236/135614/32033/68/69	NP	species
+UASM 495	69	Lysobacter enzymogenes	/1/131567/2/1224/1236/135614/32033/68/69	NP	species
+Lysobacter enzymogenes Christensen and Cook 1978	69	Lysobacter enzymogenes	/1/131567/2/1224/1236/135614/32033/68/69	NP	species
+L . enzymogenes	69	Lysobacter enzymogenes	/1/131567/2/1224/1236/135614/32033/68/69	NP	species
+L enzymogenes	69	Lysobacter enzymogenes	/1/131567/2/1224/1236/135614/32033/68/69	NP	species
+Lysobacter enzymogenes	69	Lysobacter enzymogenes	/1/131567/2/1224/1236/135614/32033/68/69	NP	species
+ATCC 29487	69	Lysobacter enzymogenes	/1/131567/2/1224/1236/135614/32033/68/69	NP	species
+L. enzymogenes	69	Lysobacter enzymogenes	/1/131567/2/1224/1236/135614/32033/68/69	NP	species
+L.enzymogenes	69	Lysobacter enzymogenes	/1/131567/2/1224/1236/135614/32033/68/69	NP	species
+Simonsiella	71	Simonsiella	/1/131567/2/1224/28216/206351/481/71	NP	genus
+Simonsiellas	71	Simonsiella	/1/131567/2/1224/28216/206351/481/71	NP	genus
+Simonsiella Schmid 1922	71	Simonsiella	/1/131567/2/1224/28216/206351/481/71	NP	genus
+Herpetosiphon	64	Herpetosiphon	/1/131567/2/200795/32061/189772/189773/64	NP	genus
+Herpetosiphon Holt and Lewin 1968	64	Herpetosiphon	/1/131567/2/200795/32061/189772/189773/64	NP	genus
+ATCC 23779	65	Herpetosiphon aurantiacus	/1/131567/2/200795/32061/189772/189773/64/65	NP	species
+CCUG 48726	65	Herpetosiphon aurantiacus	/1/131567/2/200795/32061/189772/189773/64/65	NP	species
+H.aurantiacus	65	Herpetosiphon aurantiacus	/1/131567/2/200795/32061/189772/189773/64/65	NP	species
+DSM 785	65	Herpetosiphon aurantiacus	/1/131567/2/200795/32061/189772/189773/64/65	NP	species
+Herpetosiphon aurantiacus	65	Herpetosiphon aurantiacus	/1/131567/2/200795/32061/189772/189773/64/65	NP	species
+Herpetosiphon giganteus	65	Herpetosiphon aurantiacus	/1/131567/2/200795/32061/189772/189773/64/65	NP	species
+H. giganteus	65	Herpetosiphon aurantiacus	/1/131567/2/200795/32061/189772/189773/64/65	NP	species
+H aurantiacus	65	Herpetosiphon aurantiacus	/1/131567/2/200795/32061/189772/189773/64/65	NP	species
+H. aurantiacus	65	Herpetosiphon aurantiacus	/1/131567/2/200795/32061/189772/189773/64/65	NP	species
+Herpetosiphon aurantiacus Holt and Lewin 1968	65	Herpetosiphon aurantiacus	/1/131567/2/200795/32061/189772/189773/64/65	NP	species
+H . giganteus	65	Herpetosiphon aurantiacus	/1/131567/2/200795/32061/189772/189773/64/65	NP	species
+HAMBI 1968	65	Herpetosiphon aurantiacus	/1/131567/2/200795/32061/189772/189773/64/65	NP	species
+H giganteus	65	Herpetosiphon aurantiacus	/1/131567/2/200795/32061/189772/189773/64/65	NP	species
+H.giganteus	65	Herpetosiphon aurantiacus	/1/131567/2/200795/32061/189772/189773/64/65	NP	species
+H . aurantiacus	65	Herpetosiphon aurantiacus	/1/131567/2/200795/32061/189772/189773/64/65	NP	species
+Caulobacter sp.	78	Caulobacter sp.	/1/131567/2/1224/28211/204458/76892/75/78	NP	species
+"Caryophanon muelleri" (Schmid 1922) Peshkoff 1948	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+CCUG 30554	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+C. muelleri	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+Caryophanon muelleri	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+DSM 2579	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+S . muelleri	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+ATCC 29453	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+C . muelleri	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+S. muelleri	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+S.muelleri	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+S muelleri	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+Simonsiella muelleri	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+C muelleri	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+CIP 103436	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+LMG 7828	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+Scheibenbakterien	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NN	species
+C.muelleri	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+Scheibenbakterien Muller 1911	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NN	species
+Simonsiella muelleri Schmid 1922	72	Simonsiella muelleri	/1/131567/2/1224/28216/206351/481/71/72	NP	species
+Caulobacter	75	Caulobacter	/1/131567/2/1224/28211/204458/76892/75	NP	genus
+Caulobacter Henrici and Johnson 1935 (Approved Lists 1980) emend. Abraham et al. 1999	75	Caulobacter	/1/131567/2/1224/28211/204458/76892/75	NP	genus
+Hyphomonas (ex Pongratz 1957) Moore et al. 1984 emend. Weiner et al. 2000	85	Hyphomonas	/1/131567/2/1224/28211/204455/69657/85	NP	genus
+Hyphomonas	85	Hyphomonas	/1/131567/2/1224/28211/204455/69657/85	NP	genus
+H.methylovorum	84	Hyphomicrobium methylovorum	/1/131567/2/1224/28211/356/45401/81/84	NP	species
+Hyphomicrobium methylovorum Izumi et al. 1983	84	Hyphomicrobium methylovorum	/1/131567/2/1224/28211/356/45401/81/84	NP	species
+H. methylovorum	84	Hyphomicrobium methylovorum	/1/131567/2/1224/28211/356/45401/81/84	NP	species
+JCM 6890	84	Hyphomicrobium methylovorum	/1/131567/2/1224/28211/356/45401/81/84	NP	species
+H . methylovorum	84	Hyphomicrobium methylovorum	/1/131567/2/1224/28211/356/45401/81/84	NP	species
+ATCC 35216	84	Hyphomicrobium methylovorum	/1/131567/2/1224/28211/356/45401/81/84	NP	species
+NBRC 14180	84	Hyphomicrobium methylovorum	/1/131567/2/1224/28211/356/45401/81/84	NP	species
+DSM 5458	84	Hyphomicrobium methylovorum	/1/131567/2/1224/28211/356/45401/81/84	NP	species
+H methylovorum	84	Hyphomicrobium methylovorum	/1/131567/2/1224/28211/356/45401/81/84	NP	species
+strain KM 146	84	Hyphomicrobium methylovorum	/1/131567/2/1224/28211/356/45401/81/84	NP	species
+Hyphomicrobium methylovorum	84	Hyphomicrobium methylovorum	/1/131567/2/1224/28211/356/45401/81/84	NP	species
+IFO 14180	84	Hyphomicrobium methylovorum	/1/131567/2/1224/28211/356/45401/81/84	NP	species
+Hyphomonas sp.	87	Hyphomonas sp.	/1/131567/2/1224/28211/204455/69657/85/87	NP	species
+Hyphomonas jannaschiana Weiner et al. 1985	86	Hyphomonas jannaschiana	/1/131567/2/1224/28211/204455/69657/85/86	NP	species
+H . jannaschiana	86	Hyphomonas jannaschiana	/1/131567/2/1224/28211/204455/69657/85/86	NP	species
+H.jannaschiana	86	Hyphomonas jannaschiana	/1/131567/2/1224/28211/204455/69657/85/86	NP	species
+strain VP2	86	Hyphomonas jannaschiana	/1/131567/2/1224/28211/204455/69657/85/86	NP	species
+ATCC 33883	86	Hyphomonas jannaschiana	/1/131567/2/1224/28211/204455/69657/85/86	NP	species
+H. jannaschiana	86	Hyphomonas jannaschiana	/1/131567/2/1224/28211/204455/69657/85/86	NP	species
+H jannaschiana	86	Hyphomonas jannaschiana	/1/131567/2/1224/28211/204455/69657/85/86	NP	species
+Hyphomonas jannaschiana	86	Hyphomonas jannaschiana	/1/131567/2/1224/28211/204455/69657/85/86	NP	species
+DSM 5153	86	Hyphomonas jannaschiana	/1/131567/2/1224/28211/204455/69657/85/86	NP	species
+Hyphomicrobium	81	Hyphomicrobium	/1/131567/2/1224/28211/356/45401/81	NP	genus
+Hyphomicrobium Stutzer and Hartleb 1899 (sic)	81	Hyphomicrobium	/1/131567/2/1224/28211/356/45401/81	NP	genus
+Hyphomicrobium Stutzer and Hartleb 1898	81	Hyphomicrobium	/1/131567/2/1224/28211/356/45401/81	NP	genus
+Hyphomicrobium vulgare Stutzer and Hartleb 1898	83	Hyphomicrobium vulgare	/1/131567/2/1224/28211/356/45401/81/83	NP	species
+Hyphomicrobium vulgare Stutzer and Hartleb 1899 (sic)	83	Hyphomicrobium vulgare	/1/131567/2/1224/28211/356/45401/81/83	NP	species
+H.vulgare	83	Hyphomicrobium vulgare	/1/131567/2/1224/28211/356/45401/81/83	NP	species
+ATCC 33404	83	Hyphomicrobium vulgare	/1/131567/2/1224/28211/356/45401/81/83	NP	species
+NCIB 9698	83	Hyphomicrobium vulgare	/1/131567/2/1224/28211/356/45401/81/83	NP	species
+H vulgare	83	Hyphomicrobium vulgare	/1/131567/2/1224/28211/356/45401/81/83	NP	species
+JCM 6889	83	Hyphomicrobium vulgare	/1/131567/2/1224/28211/356/45401/81/83	NP	species
+H . vulgare	83	Hyphomicrobium vulgare	/1/131567/2/1224/28211/356/45401/81/83	NP	species
+H. vulgare	83	Hyphomicrobium vulgare	/1/131567/2/1224/28211/356/45401/81/83	NP	species
+Hyphomicrobium vulgare	83	Hyphomicrobium vulgare	/1/131567/2/1224/28211/356/45401/81/83	NP	species
+Hyphomicrobium sp.	82	Hyphomicrobium sp.	/1/131567/2/1224/28211/356/45401/81/82	NP	species
+Stella	93	Stella	/1/131567/2/1224/28211/204441/433/93	NP	genus
+Stella Vasilyeva 1985	93	Stella	/1/131567/2/1224/28211/204441/433/93	NP	genus
+Stellas	93	Stella	/1/131567/2/1224/28211/204441/433/93	NP	genus
+S. humosa	94	Stella humosa	/1/131567/2/1224/28211/204441/433/93/94	NP	species
+S.humosa	94	Stella humosa	/1/131567/2/1224/28211/204441/433/93/94	NP	species
+ATCC 43930	94	Stella humosa	/1/131567/2/1224/28211/204441/433/93/94	NP	species
+Stella humosa Vasilyeva 1985	94	Stella humosa	/1/131567/2/1224/28211/204441/433/93/94	NP	species
+S humosa	94	Stella humosa	/1/131567/2/1224/28211/204441/433/93/94	NP	species
+AUCM B 1137	94	Stella humosa	/1/131567/2/1224/28211/204441/433/93/94	NP	species
+Stella humosa	94	Stella humosa	/1/131567/2/1224/28211/204441/433/93/94	NP	species
+S . humosa	94	Stella humosa	/1/131567/2/1224/28211/204441/433/93/94	NP	species
+AUCM B-1137	94	Stella humosa	/1/131567/2/1224/28211/204441/433/93/94	NP	species
+VKM B 1137	94	Stella humosa	/1/131567/2/1224/28211/204441/433/93/94	NP	species
+VKM B-1137	94	Stella humosa	/1/131567/2/1224/28211/204441/433/93/94	NP	species
+DSM 5900	94	Stella humosa	/1/131567/2/1224/28211/204441/433/93/94	NP	species
+M discophora	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+ATCC 43182	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+"Leptothrix crassa" Cholodny 1924	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+L . crassa	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+LMG 8141	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+M. discophora	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+L. crassa	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+L.discophora	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+Leptothrix discophora	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+Megalothrix discophora	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+Leptothrix discophora (ex Schwers 1912) Spring et al. 1997	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+L crassa	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+Leptothrix crassa	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+"Megalothrix discophora" Schwers 1912	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+strain SS 1	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+"Leptothrix discophora" (Schwers 1912) Dorff 1934	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+L. discophora	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+L.crassa	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+L . discophora	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+strain SS-1	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+L discophora	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+M.discophora	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+M . discophora	89	Leptothrix discophora	/1/131567/2/1224/28216/80840/119065/224471/88/89	NP	species
+Detoniellas	88	Leptothrix	/1/131567/2/1224/28216/80840/119065/224471/88	NP	genus
+Detoniella	88	Leptothrix	/1/131567/2/1224/28216/80840/119065/224471/88	NP	genus
+Leptothrix	88	Leptothrix	/1/131567/2/1224/28216/80840/119065/224471/88	NP	genus
+Chlamydothrix	88	Leptothrix	/1/131567/2/1224/28216/80840/119065/224471/88	NP	genus
+"Chlamydothrix" Migula 1900	88	Leptothrix	/1/131567/2/1224/28216/80840/119065/224471/88	NP	genus
+Leptothrix Kutzing 1843	88	Leptothrix	/1/131567/2/1224/28216/80840/119065/224471/88	NP	genus
+"Detoniella" Trevisan in de Toni and Trevisan 1889	88	Leptothrix	/1/131567/2/1224/28216/80840/119065/224471/88	NP	genus
+P glomeratus	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+P.glomeratus	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+LMG 13858	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+P . glomeratus	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+Polaribacter glomeratus	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+ACAM 171	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+CIP 103112	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+Flectobacillus glomeratus McGuire et al. 1988	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+ATCC 43844	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+F . glomeratus	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+UQM 3055	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+P. glomeratus	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+F glomeratus	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+F.glomeratus	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+F. glomeratus	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+Polaribacter glomeratus (McGuire et al. 1988) Gosink et al. 1998	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+Flectobacillus glomeratus	102	Polaribacter glomeratus	/1/131567/2/68336/976/117743/200644/49546/52959/102	NP	species
+F. major	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+M.major	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+VKM B-859	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+F major	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+M . major	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+M. major	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+F.major	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+LMG 13163	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+Microcyclus major	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+F . major	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+"Microcyclus major" Gromov 1963	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+Flectobacillus major (Gromov 1963) Larkin et al. 1977	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+VKM B 859	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+M major	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+Flectobacillus major	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+ATCC 29496	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+DSM 103	103	Flectobacillus major	/1/131567/2/68336/976/768503/768507/89373/101/103	NP	species
+M aquaticus	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+JCM 20518	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+Ancylobacter aquaticus	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+Ancylobacter aquaticus (Orskov 1928) Raj 1983	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+DSM 101	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+M. aquaticus	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+Microcyclus aquaticus Orskov 1928 (Approved Lists 1980)	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+VKM B-1287	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+strain rskov	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+CCUG 30551	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+CCUG 1820	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+Microcyclus aquaticus	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+ATCC 25396	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+A.aquaticus	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+A . aquaticus	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+M . aquaticus	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+LMG 4052	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+VKM B 1287	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+A. aquaticus	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+A aquaticus	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+M.aquaticus	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+NBRC 102453	100	Ancylobacter aquaticus	/1/131567/2/1224/28211/356/335928/99/100	NP	species
+Flectobacillus	101	Flectobacillus	/1/131567/2/68336/976/768503/768507/89373/101	NP	genus
+Flectobacillus Larkin et al. 1977 (Approved Lists 1980) emend. Raj and Maloy 1990	101	Flectobacillus	/1/131567/2/68336/976/768503/768507/89373/101	NP	genus
+Flectobacilli	101	Flectobacillus	/1/131567/2/68336/976/768503/768507/89373/101	NP	genus
+"Renobacter" Nikitin 1971	99	Ancylobacter	/1/131567/2/1224/28211/356/335928/99	NP	genus
+Ancylobacter Raj 1983	99	Ancylobacter	/1/131567/2/1224/28211/356/335928/99	NP	genus
+Microcycli	99	Ancylobacter	/1/131567/2/1224/28211/356/335928/99	NP	genus
+Microcyclus	99	Ancylobacter	/1/131567/2/1224/28211/356/335928/99	NP	genus
+Renobacter	99	Ancylobacter	/1/131567/2/1224/28211/356/335928/99	NP	genus
+Microcyclus Orskov 1928 (Approved Lists 1980)	99	Ancylobacter	/1/131567/2/1224/28211/356/335928/99	NP	genus
+Ancylobacter	99	Ancylobacter	/1/131567/2/1224/28211/356/335928/99	NP	genus
+Gallionella	96	Gallionella	/1/131567/2/1224/28216/713636/90627/96	NP	genus
+Gallionella Ehrenberg 1838	96	Gallionella	/1/131567/2/1224/28216/713636/90627/96	NP	genus
+Gallionellas	96	Gallionella	/1/131567/2/1224/28216/713636/90627/96	NP	genus
+C . ferruginea	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+G ferruginea	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+"Chlamydothrix ferruginea" (Ehrenberg 1838) Migula 1900	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+Gallionella ferruginea	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+Spirillum ferrugineum	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+"Spirillum ferrugineum" (Ehrenberg 1838) de Toni and Trevisan 1889	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+Chlamydothrix ferruginea	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+Gallionella ferruginea Ehrenberg 1838	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+S.ferrugineum	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+G.ferruginea	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+C ferruginea	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+G. ferruginea	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+S . ferrugineum	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+S. ferrugineum	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+Spirophyllum ferrugineum	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+S ferrugineum	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+C.ferruginea	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+no culture available	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+G . ferruginea	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+C. ferruginea	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+"Spirophyllum ferrugineum" (Ehrenberg 1838) Ellis 1907	97	Gallionella ferruginea	/1/131567/2/1224/28216/713636/90627/96/97	NP	species
+VKM B 2253	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+Blastobacter viscosus	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+X viscosus	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+"Blastobacter viscosus" Loginova and Trotensko 1979	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+"Blastobacter viscosus" Loginova and Trotsenok 1979	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+VKM B-2253	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+Xanthobacter viscosus Doronina and Trotsenko 2003	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+B. viscosus	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+X . viscosus	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+Blastobacter viscosus 7d	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+B viscosus	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+ATCC BAA-298	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+B.viscosus	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+X. viscosus	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+strain 7d	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+X.viscosus	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+ATCC BAA 298	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+B . viscosus	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+Xanthobacter viscosus	110	Xanthobacter viscosus	/1/131567/2/1224/28211/356/335928/279/110	NP	species
+S.linguale	108	Spirosoma linguale	/1/131567/2/68336/976/768503/768507/89373/107/108	NP	species
+S . linguale	108	Spirosoma linguale	/1/131567/2/68336/976/768503/768507/89373/107/108	NP	species
+S linguale	108	Spirosoma linguale	/1/131567/2/68336/976/768503/768507/89373/107/108	NP	species
+LMG 10896	108	Spirosoma linguale	/1/131567/2/68336/976/768503/768507/89373/107/108	NP	species
+S. linguale	108	Spirosoma linguale	/1/131567/2/68336/976/768503/768507/89373/107/108	NP	species
+Spirosoma linguale	108	Spirosoma linguale	/1/131567/2/68336/976/768503/768507/89373/107/108	NP	species
+Spirosoma linguale Migula 1894	108	Spirosoma linguale	/1/131567/2/68336/976/768503/768507/89373/107/108	NP	species
+DSM 74	108	Spirosoma linguale	/1/131567/2/68336/976/768503/768507/89373/107/108	NP	species
+ATCC 33905	108	Spirosoma linguale	/1/131567/2/68336/976/768503/768507/89373/107/108	NP	species
+Blastobacter Zavarzin 1961 (Approved Lists 1980) emend. Sly 1985	109	Blastobacter	/1/131567/2/1224/28211/356/41294/109	NP	genus
+Blastobacter	109	Blastobacter	/1/131567/2/1224/28211/356/41294/109	NP	genus
+Runella slithyformis Larkin and Williams 1978	106	Runella slithyformis	/1/131567/2/68336/976/768503/768507/89373/105/106	NP	species
+LMG 11500	106	Runella slithyformis	/1/131567/2/68336/976/768503/768507/89373/105/106	NP	species
+R. slithyformis	106	Runella slithyformis	/1/131567/2/68336/976/768503/768507/89373/105/106	NP	species
+ATCC 29530	106	Runella slithyformis	/1/131567/2/68336/976/768503/768507/89373/105/106	NP	species
+R slithyformis	106	Runella slithyformis	/1/131567/2/68336/976/768503/768507/89373/105/106	NP	species
+R.slithyformis	106	Runella slithyformis	/1/131567/2/68336/976/768503/768507/89373/105/106	NP	species
+R . slithyformis	106	Runella slithyformis	/1/131567/2/68336/976/768503/768507/89373/105/106	NP	species
+Runella slithyformis	106	Runella slithyformis	/1/131567/2/68336/976/768503/768507/89373/105/106	NP	species
+DSM 19594	106	Runella slithyformis	/1/131567/2/68336/976/768503/768507/89373/105/106	NP	species
+Spirosomas	107	Spirosoma	/1/131567/2/68336/976/768503/768507/89373/107	NP	genus
+Spirosoma	107	Spirosoma	/1/131567/2/68336/976/768503/768507/89373/107	NP	genus
+Spirosoma Migula 1894 (Approved Lists 1980) emend. Finster et al. 2009	107	Spirosoma	/1/131567/2/68336/976/768503/768507/89373/107	NP	genus
+Microcyclus marinus	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+"Microcyclus marinus" Raj 1976	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+F. marinus	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+C. marinum	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+M.marinus	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+C. marinus	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+C.marinum	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+Cyclobacterium marinum	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+C . marinus	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+ATCC 25205	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+Cyclobacterium marinus	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+Flectobacillus marinus (Raj 1976) Borrall and Larkin 1978 (Approved Lists 1980)	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+C.marinus	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+LMG 13164	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+strain Raj	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+DSM 745	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+F.marinus	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+C . marinum	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+F marinus	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+C marinum	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+M marinus	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+C marinus	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+Cyclibacterium marinum	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+F . marinus	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+M. marinus	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+Cyclobacterium marinum corrig. (Raj 1976) Raj and Maloy 1990	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+Flectobacillus marinus	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+M . marinus	104	Cyclobacterium marinum	/1/131567/2/68336/976/768503/768507/563798/68288/104	NP	species
+Runella Larkin and Williams 1978	105	Runella	/1/131567/2/68336/976/768503/768507/89373/105	NP	genus
+Runellas	105	Runella	/1/131567/2/68336/976/768503/768507/89373/105	NP	genus
+Runella	105	Runella	/1/131567/2/68336/976/768503/768507/89373/105	NP	genus
+P brasiliensis	119	Planctomyces brasiliensis	/1/131567/2/203682/203683/112/126/118/119	NP	species
+DSM 5305	119	Planctomyces brasiliensis	/1/131567/2/203682/203683/112/126/118/119	NP	species
+IFAM 1448	119	Planctomyces brasiliensis	/1/131567/2/203682/203683/112/126/118/119	NP	species
+NBRC 103401	119	Planctomyces brasiliensis	/1/131567/2/203682/203683/112/126/118/119	NP	species
+P.brasiliensis	119	Planctomyces brasiliensis	/1/131567/2/203682/203683/112/126/118/119	NP	species
+P . brasiliensis	119	Planctomyces brasiliensis	/1/131567/2/203682/203683/112/126/118/119	NP	species
+JCM 21570	119	Planctomyces brasiliensis	/1/131567/2/203682/203683/112/126/118/119	NP	species
+ATCC 49424	119	Planctomyces brasiliensis	/1/131567/2/203682/203683/112/126/118/119	NP	species
+P. brasiliensis	119	Planctomyces brasiliensis	/1/131567/2/203682/203683/112/126/118/119	NP	species
+Planctomyces brasiliensis Schlesner 1990	119	Planctomyces brasiliensis	/1/131567/2/203682/203683/112/126/118/119	NP	species
+Planctomyces brasiliensis	119	Planctomyces brasiliensis	/1/131567/2/203682/203683/112/126/118/119	NP	species
+Acinothrix	118	Planctomyces	/1/131567/2/203682/203683/112/126/118	NP	genus
+"Acinothrix" Novacek 1938	118	Planctomyces	/1/131567/2/203682/203683/112/126/118	NP	genus
+"Blastocaulis" Henrici and Johnson 1935	118	Planctomyces	/1/131567/2/203682/203683/112/126/118	NP	genus
+Planctomyces	118	Planctomyces	/1/131567/2/203682/203683/112/126/118	NP	genus
+Planctomyces Gimesi 1924	118	Planctomyces	/1/131567/2/203682/203683/112/126/118	NP	genus
+Blastocaulis	118	Planctomyces	/1/131567/2/203682/203683/112/126/118	NP	genus
+Pirella sp.	117	Pirellula sp.	/1/131567/2/203682/203683/112/126/123/117	NP	species
+Pirellula sp.	117	Pirellula sp.	/1/131567/2/203682/203683/112/126/123/117	NP	species
+Gemmata obscuriglobus	114	Gemmata obscuriglobus	/1/131567/2/203682/203683/112/126/113/114	NP	species
+G obscuriglobus	114	Gemmata obscuriglobus	/1/131567/2/203682/203683/112/126/113/114	NP	species
+UQM 2246	114	Gemmata obscuriglobus	/1/131567/2/203682/203683/112/126/113/114	NP	species
+Gemmata obscuriglobus Franzmann and Skerman 1985	114	Gemmata obscuriglobus	/1/131567/2/203682/203683/112/126/113/114	NP	species
+G . obscuriglobus	114	Gemmata obscuriglobus	/1/131567/2/203682/203683/112/126/113/114	NP	species
+DSM 5831	114	Gemmata obscuriglobus	/1/131567/2/203682/203683/112/126/113/114	NP	species
+G. obscuriglobus	114	Gemmata obscuriglobus	/1/131567/2/203682/203683/112/126/113/114	NP	species
+G.obscuriglobus	114	Gemmata obscuriglobus	/1/131567/2/203682/203683/112/126/113/114	NP	species
+Gemmatas	113	Gemmata	/1/131567/2/203682/203683/112/126/113	NP	genus
+Gemmata	113	Gemmata	/1/131567/2/203682/203683/112/126/113	NP	genus
+Gemmata Franzmann and Skerman 1985	113	Gemmata	/1/131567/2/203682/203683/112/126/113	NP	genus
+Planctomycetales	112	Planctomycetales	/1/131567/2/203682/203683/112	NP	order
+"Planctomycetales" Schlesner and Stackebrandt 1987 emend. Ward 2011	112	Planctomycetales	/1/131567/2/203682/203683/112	NP	order
+planctomycetes	112	Planctomycetales	/1/131567/2/203682/203683/112	NNS	order
+Planctomycetales Schlesner and Stackebrandt 1987	112	Planctomycetales	/1/131567/2/203682/203683/112	NP	order
+Isosphaeras	127	Isosphaera	/1/131567/2/203682/203683/112/126/127	NP	genus
+Isosphaera Giovannoni et al. 1995	127	Isosphaera	/1/131567/2/203682/203683/112/126/127	NP	genus
+Isosphaera	127	Isosphaera	/1/131567/2/203682/203683/112/126/127	NP	genus
+Planctomycetaceae	126	Planctomycetaceae	/1/131567/2/203682/203683/112/126	NP	family
+"Planctomycetaceae" Schlesner and Stackebrandt 1987 emend. Ward 2011	126	Planctomycetaceae	/1/131567/2/203682/203683/112/126	NP	family
+Planctomycetaceae Schlesner and Stackebrandt 1987	126	Planctomycetaceae	/1/131567/2/203682/203683/112/126	NP	family
+DSM 6068	125	Pirellula staleyi	/1/131567/2/203682/203683/112/126/123/125	NP	species
+Pirella staleyi Schlesner and Hirsch 1984	125	Pirellula staleyi	/1/131567/2/203682/203683/112/126/123/125	NP	species
+Pirellula staleyi (Schlesner and Hirsch 1984) Schlesner and Hirsch 1987	125	Pirellula staleyi	/1/131567/2/203682/203683/112/126/123/125	NP	species
+Pirellula staleyi	125	Pirellula staleyi	/1/131567/2/203682/203683/112/126/123/125	NP	species
+P staleyi	125	Pirellula staleyi	/1/131567/2/203682/203683/112/126/123/125	NP	species
+Planctomyces staleyi	125	Pirellula staleyi	/1/131567/2/203682/203683/112/126/123/125	NP	species
+P. staleyi	125	Pirellula staleyi	/1/131567/2/203682/203683/112/126/123/125	NP	species
+Pirella staleyi	125	Pirellula staleyi	/1/131567/2/203682/203683/112/126/123/125	NP	species
+ATCC 27377	125	Pirellula staleyi	/1/131567/2/203682/203683/112/126/123/125	NP	species
+Pasteuria ramosa ATCC 27377	125	Pirellula staleyi	/1/131567/2/203682/203683/112/126/123/125	NP	species
+P . staleyi	125	Pirellula staleyi	/1/131567/2/203682/203683/112/126/123/125	NP	species
+P.staleyi	125	Pirellula staleyi	/1/131567/2/203682/203683/112/126/123/125	NP	species
+P. marina	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+Pirellula marina	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+strain SH 106	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+Pirellula marina (Schlesner 1987) Schlesner and Hirsch 1987	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+Pivellula marina	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+Blastopirellula marina (Schlesner 1987) Schlesner et al. 2004	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+B . marina	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+ATCC 49069	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+DSM 3645	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+B marina	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+P . marina	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+P marina	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+B. marina	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+P.marina	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+IFAM 1313	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+Blastopirellula marina	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+Pirella marina Schlesner 1987	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+B.marina	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+Pirella marina	124	Blastopirellula marina	/1/131567/2/203682/203683/112/126/265487/124	NP	species
+Pirella	123	Pirellula	/1/131567/2/203682/203683/112/126/123	NP	genus
+Pivellulas	123	Pirellula	/1/131567/2/203682/203683/112/126/123	NP	genus
+Pirellulas	123	Pirellula	/1/131567/2/203682/203683/112/126/123	NP	genus
+Pirellula Schlesner and Hirsch 1987 emend. Schlesner et al. 2004	123	Pirellula	/1/131567/2/203682/203683/112/126/123	NP	genus
+Pirellas	123	Pirellula	/1/131567/2/203682/203683/112/126/123	NP	genus
+Pirella Schlesner and Hirsch 1984	123	Pirellula	/1/131567/2/203682/203683/112/126/123	NP	genus
+Pivellula	123	Pirellula	/1/131567/2/203682/203683/112/126/123	NP	genus
+Pirellula	123	Pirellula	/1/131567/2/203682/203683/112/126/123	NP	genus
+strain 534 30	122	Planctomyces maris	/1/131567/2/203682/203683/112/126/118/122	NP	species
+P. maris	122	Planctomyces maris	/1/131567/2/203682/203683/112/126/118/122	NP	species
+"Planctomyces maris" Bauld and Staley 1976	122	Planctomyces maris	/1/131567/2/203682/203683/112/126/118/122	NP	species
+strain 534-30	122	Planctomyces maris	/1/131567/2/203682/203683/112/126/118/122	NP	species
+Planctomyces maris	122	Planctomyces maris	/1/131567/2/203682/203683/112/126/118/122	NP	species
+P.maris	122	Planctomyces maris	/1/131567/2/203682/203683/112/126/118/122	NP	species
+P maris	122	Planctomyces maris	/1/131567/2/203682/203683/112/126/118/122	NP	species
+P . maris	122	Planctomyces maris	/1/131567/2/203682/203683/112/126/118/122	NP	species
+Planctomyces maris (ex Bauld and Staley 1976) Bauld and Staley 1980	122	Planctomyces maris	/1/131567/2/203682/203683/112/126/118/122	NP	species
+DSM 8797	122	Planctomyces maris	/1/131567/2/203682/203683/112/126/118/122	NP	species
+ATCC 29201	122	Planctomyces maris	/1/131567/2/203682/203683/112/126/118/122	NP	species
+P.limnophilus	120	Planctomyces limnophilus	/1/131567/2/203682/203683/112/126/118/120	NP	species
+Planctomyces limnophilus	120	Planctomyces limnophilus	/1/131567/2/203682/203683/112/126/118/120	NP	species
+P . limnophilus	120	Planctomyces limnophilus	/1/131567/2/203682/203683/112/126/118/120	NP	species
+DSM 3776	120	Planctomyces limnophilus	/1/131567/2/203682/203683/112/126/118/120	NP	species
+ATCC 43296	120	Planctomyces limnophilus	/1/131567/2/203682/203683/112/126/118/120	NP	species
+IFAM 1008	120	Planctomyces limnophilus	/1/131567/2/203682/203683/112/126/118/120	NP	species
+Planctomyces limnophilus Hirsch and Muller 1986	120	Planctomyces limnophilus	/1/131567/2/203682/203683/112/126/118/120	NP	species
+strain M 290	120	Planctomyces limnophilus	/1/131567/2/203682/203683/112/126/118/120	NP	species
+P. limnophilus	120	Planctomyces limnophilus	/1/131567/2/203682/203683/112/126/118/120	NP	species
+P limnophilus	120	Planctomyces limnophilus	/1/131567/2/203682/203683/112/126/118/120	NP	species
+Treponemataceae Robinson 1948 (Approved Lists 1980)	137	Spirochaetaceae	/1/131567/2/203691/203692/136/137	NP	family
+"Spirochaetaceae" Swellengrebel 1907 emend. Abt et al. 2012	137	Spirochaetaceae	/1/131567/2/203691/203692/136/137	NP	family
+Treponemataceae	137	Spirochaetaceae	/1/131567/2/203691/203692/136/137	NP	family
+Spirochaetaceae	137	Spirochaetaceae	/1/131567/2/203691/203692/136/137	NP	family
+Spirochaetaceae Swellengrebel 1907	137	Spirochaetaceae	/1/131567/2/203691/203692/136/137	NP	family
+spirochetes	136	Spirochaetales	/1/131567/2/203691/203692/136	NNS	order
+Spirochaetales	136	Spirochaetales	/1/131567/2/203691/203692/136	NP	order
+Spirochaetales Buchanan 1917	136	Spirochaetales	/1/131567/2/203691/203692/136	NP	order
+B burgdorferi	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+B burgdorffragment	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+ATCC 35210	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+Borrelia burgdorferi	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+B. burgdorferi	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+B . burgdorferi	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+B.burgdorffragment	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+B . burdorferi	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+DSM 4680	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+CIP 102532	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+Borrelia burgdorferi sensu stricto	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+Borrelia burdorferi	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+Borrelia burgdorffragment	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+Borrelia burgdorferi Johnson et al. 1984 emend. Baranton et al. 1992	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+B. burgdorffragment	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+B.burgdorferi	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+strain B31	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+Lyme disease spirochete	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NN	species
+B.burdorferi	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+B . burgdorffragment	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+B burdorferi	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+B. burdorferi	139	Borrelia burgdorferi	/1/131567/2/203691/203692/136/137/138/64895/139	NP	species
+Borrelia	138	Borrelia	/1/131567/2/203691/203692/136/137/138	NP	genus
+Borrelias	138	Borrelia	/1/131567/2/203691/203692/136/137/138	NP	genus
+Borrelia Swellengrebel 1907	138	Borrelia	/1/131567/2/203691/203692/136/137/138	NP	genus
+Spirochaeta parkeri	141	Borrelia parkeri	/1/131567/2/203691/203692/136/137/138/141	NP	species
+S . parkeri	141	Borrelia parkeri	/1/131567/2/203691/203692/136/137/138/141	NP	species
+B . parkeri	141	Borrelia parkeri	/1/131567/2/203691/203692/136/137/138/141	NP	species
+Borrelia parkeri	141	Borrelia parkeri	/1/131567/2/203691/203692/136/137/138/141	NP	species
+S parkeri	141	Borrelia parkeri	/1/131567/2/203691/203692/136/137/138/141	NP	species
+B.parkeri	141	Borrelia parkeri	/1/131567/2/203691/203692/136/137/138/141	NP	species
+B parkeri	141	Borrelia parkeri	/1/131567/2/203691/203692/136/137/138/141	NP	species
+S. parkeri	141	Borrelia parkeri	/1/131567/2/203691/203692/136/137/138/141	NP	species
+Borrelia parkeri (Davis 1942) Steinhaus 1946	141	Borrelia parkeri	/1/131567/2/203691/203692/136/137/138/141	NP	species
+S.parkeri	141	Borrelia parkeri	/1/131567/2/203691/203692/136/137/138/141	NP	species
+"Spirochaeta parkeri" Davis 1942	141	Borrelia parkeri	/1/131567/2/203691/203692/136/137/138/141	NP	species
+no culture available	141	Borrelia parkeri	/1/131567/2/203691/203692/136/137/138/141	NP	species
+B. parkeri	141	Borrelia parkeri	/1/131567/2/203691/203692/136/137/138/141	NP	species
+B. hermsii	140	Borrelia hermsii	/1/131567/2/203691/203692/136/137/138/140	NP	species
+S hermsi	140	Borrelia hermsii	/1/131567/2/203691/203692/136/137/138/140	NP	species
+S. hermsi	140	Borrelia hermsii	/1/131567/2/203691/203692/136/137/138/140	NP	species
+Borrelia hermsii (Davis 1942) Steinhaus 1946	140	Borrelia hermsii	/1/131567/2/203691/203692/136/137/138/140	NP	species
+B hermsii	140	Borrelia hermsii	/1/131567/2/203691/203692/136/137/138/140	NP	species
+Borrelia hermsii	140	Borrelia hermsii	/1/131567/2/203691/203692/136/137/138/140	NP	species
+B . hermsii	140	Borrelia hermsii	/1/131567/2/203691/203692/136/137/138/140	NP	species
+S . hermsi	140	Borrelia hermsii	/1/131567/2/203691/203692/136/137/138/140	NP	species
+B.hermsii	140	Borrelia hermsii	/1/131567/2/203691/203692/136/137/138/140	NP	species
+Spirochaeta hermsi	140	Borrelia hermsii	/1/131567/2/203691/203692/136/137/138/140	NP	species
+"Spirochaeta hermsi" (sic) Davis 1942	140	Borrelia hermsii	/1/131567/2/203691/203692/136/137/138/140	NP	species
+no culture available	140	Borrelia hermsii	/1/131567/2/203691/203692/136/137/138/140	NP	species
+S.hermsi	140	Borrelia hermsii	/1/131567/2/203691/203692/136/137/138/140	NP	species
+S.anserina	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+Spirochaeta anserina	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+B anserina	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+"Spirochaete gallinarum" (sic) Stephens and Christophers 1904	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+S anserina	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+S.gallinarum	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+Borrelia anserina	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+Spirochaete gallinarum	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+Spiroschaudinnia anserina	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+S gallinarum	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+no culture available	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+"Spiroschaudinnia anserina" (Sakharoff 1891) Sambon 1907	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+S . anserina	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+S. anserina	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+B . anserina	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+Borrelia anserina (Sakharoff 1891) Bergey et al. 1925	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+S. gallinarum	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+B.anserina	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+"Spirochaeta anserina" Sakharoff 1891	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+B. anserina	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+S . gallinarum	143	Borrelia anserina	/1/131567/2/203691/203692/136/137/138/143	NP	species
+B turicatae	142	Borrelia turicatae	/1/131567/2/203691/203692/136/137/138/142	NP	species
+S . turicatae	142	Borrelia turicatae	/1/131567/2/203691/203692/136/137/138/142	NP	species
+Borrelia turicatae (Brumpt 1933) Steinhaus 1946	142	Borrelia turicatae	/1/131567/2/203691/203692/136/137/138/142	NP	species
+Borrelia turicatae	142	Borrelia turicatae	/1/131567/2/203691/203692/136/137/138/142	NP	species

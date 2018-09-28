@@ -1,0 +1,4 @@
+CommandlineExperiment(
+    ParamSet.load('bar.pset'),
+    'echo $d_test'
+)
