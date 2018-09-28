@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+from sys import stderr
 import itertools
 from collections import OrderedDict
 import os.path
@@ -22,9 +23,13 @@ class Param:
 
 
 class Loadable:
+    search_paths = ('.',)
+
     @classmethod
     def load(cls, filename):
-        f = open(filename)
+        found = cls.searchfile(filename)
+        stderr.write('loading %s as %s\n' % (found, str(cls)))
+        f = open(found)
         s = '\n'.join(f)
         f.close()
         r = eval(s)
@@ -32,8 +37,19 @@ class Loadable:
             raise ValueError('expected %s, got %s' % (cls, r.__class__))
         return r
 
+    @classmethod
+    def searchfile(cls, filename):
+        if os.path.isabs(filename):
+            return filename
+        for d in cls.search_paths:
+            r = os.path.join(d, filename)
+            if os.path.exists(r):
+                return r
+        raise ValueError('could not find \'%s\' in %s' % (filename, str(cls.search_paths)))
     
 class ParamSet(Loadable):
+    search_paths = ('.',)
+
     def __init__(self, name, parent=None, params=()):
         self.parent = parent
         self.name = name
@@ -79,8 +95,11 @@ class ParamSet(Loadable):
 
 
 class Experiment(Loadable):
-    def __init__(self, pset):
+    search_paths = ('.',)
+
+    def __init__(self, pset, output_path='.'):
         self.pset = pset
+        self.output_path = output_path
 
     def run(self, test=False, values=None):
         if values is not None:
@@ -118,7 +137,7 @@ class CommandlineExperiment(Experiment):
 
     def _pset_dir(self, pset):
         d = tuple(self._param_dir(p) for p in pset.params.values())
-        return os.path.join(*d)
+        return os.path.join(self.output_path, *d)
         
     def _env(self):
         for p in self.pset.params.values():
@@ -147,11 +166,16 @@ class GridXP(ArgumentParser):
         ArgumentParser.__init__(self, description='Perform a grid experiment')
         self.add_argument('xp_filename', metavar='XPFILE', type=str, nargs=1, help='file containing the experiment definition object')
         self.add_argument('--test', dest='test', action='store_true', default=False, help='test run (only one parameter value set)')
+        self.add_argument('--xp-path', metavar='PATH', dest='xp_paths', action='append', type=str, default=['.'], help='add path where to search for experiment file')
+        self.add_argument('--pset-path', metavar='PATH', dest='pset_paths', action='append', type=str, default=['.'], help='add path where to search for parameter set files')
+        self.add_argument('--output-path', metavar='PATH', dest='output_path', action='store', type=str, default='.', help='base directory of experiment')
 
     def go(self):
         args = self.parse_args()
-        print args.xp_filename
+        Experiment.search_paths = args.xp_paths
+        ParamSet.search_paths = args.pset_paths
         xp = Experiment.load(args.xp_filename[0])
+        xp.output_path = args.output_path
         xp.run(test=args.test)
 
 
