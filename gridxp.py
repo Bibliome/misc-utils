@@ -7,6 +7,7 @@ import os.path
 import subprocess
 from os import makedirs
 from argparse import ArgumentParser
+from datetime import datetime
 
 class Param:
     def __init__(self, name, descr, fmt='s', values=()):
@@ -103,12 +104,17 @@ class Experiment(Loadable):
 
     def run(self, test=False, values=None):
         if values is not None:
+            self.log('setting parameter values')
             self.pset.set_values(values)
+        self.log('running pre-process')
         self.pre()
         for _ in self.pset.cells():
+            self.log('running process for ' + ', '.join(('%s=%s' % (n, p.svalue())) for (n, p) in self.pset.params.items()))
             self.exe()
             if test:
+                self.log('test run, stop')
                 break
+        self.log('running post-process')
         self.post()
 
     def test(self, values=None):
@@ -123,14 +129,19 @@ class Experiment(Loadable):
     def exe(self):
         raise NotImplemented()
 
+    def log(self, msg):
+        d = datetime.now()
+        stderr.write('[' + d.strftime('%Y-%m-%d %H:%M:%S') + '] ' + msg + '\n')
+        stderr.flush()
 
 class CommandlineExperiment(Experiment):
-    def __init__(self, pset, cl, sep='=', shell=None, cd=False):
+    def __init__(self, pset, cl, sep='_', shell=None, cd=False, env={}):
         Experiment.__init__(self, pset)
         self.cl = cl
         self.sep = sep
         self.shell = shell
         self.cd = cd
+        self.env = env
 
     def _param_dir(self, p):
         return p.name + self.sep + p.svalue()
@@ -148,6 +159,8 @@ class CommandlineExperiment(Experiment):
             if not os.path.exists(d):
                 makedirs(d)
             yield ('d_' + pset.name, d)
+        for p in self.env.items():
+            yield p
 
     def exe(self):
         env = dict(self._env())
@@ -157,7 +170,8 @@ class CommandlineExperiment(Experiment):
             wd = None
         p = subprocess.Popen(self.cl, shell=True, env=env, executable=self.shell, cwd=wd)
         p.wait()
-
+        if p.returncode != 0:
+            self.log('process has FAILED')
 
 
 
