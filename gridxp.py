@@ -135,45 +135,70 @@ class Experiment(Loadable):
         stderr.flush()
 
 class CommandlineExperiment(Experiment):
-    def __init__(self, pset, cl, sep='_', shell=None, cd=False, env={}):
+    def __init__(self, pset, cl, sep='_', shell=None, cd=False, pre_cl=None, post_cl=None, out=None, err=None):
         Experiment.__init__(self, pset)
         self.cl = cl
         self.sep = sep
         self.shell = shell
         self.cd = cd
-        self.env = env
-
+        self.pre_cl = pre_cl
+        self.post_cl = post_cl
+        self.out = out
+        self.err = err
+        
     def _param_dir(self, p):
         return p.name + self.sep + p.svalue()
 
     def _pset_dir(self, pset):
         d = tuple(self._param_dir(p) for p in pset.params.values())
         return os.path.join(self.output_path, *d)
-        
-    def _env(self):
-        for p in self.pset.params.values():
-            yield ('p_' + p.name, str(p.current))
-            yield ('s_' + p.name, p.svalue())
+
+    def _dict(self):
+        for name, p in self.pset.params.items():
+            yield name, str(p.current)
+            yield 's_' + name, p.svalue()
         for pset in self.pset.ancestors(include_self=True):
             d = self._pset_dir(pset)
             if not os.path.exists(d):
                 makedirs(d)
-            yield ('d_' + pset.name, d)
-        for p in self.env.items():
-            yield p
+            yield 'd_' + pset.name, d
+
+    @staticmethod
+    def _open_out(filename, d):
+        if filename is None:
+            return None
+        expanded = os.path.expanduser(os.path.expandvars(filename % d))
+        return open(expanded, 'w')
 
     def exe(self):
-        env = dict(self._env())
         if self.cd:
             wd = self._pset_dir(self.pset)
         else:
             wd = None
-        p = subprocess.Popen(self.cl, shell=True, env=env, executable=self.shell, cwd=wd)
+        d = dict(self._dict())
+        out = CommandlineExperiment._open_out(self.out, d)
+        err = CommandlineExperiment._open_out(self.err, d)
+        cl = self.cl % d
+        p = subprocess.Popen(cl, shell=True, executable=self.shell, cwd=wd, stdout=out, stderr=err, close_fds=True)
         p.wait()
         if p.returncode != 0:
             self.log('process has FAILED')
 
+    def pre(self):
+        if self.pre_cl is not None:
+            p = subprocess.Popen(self.pre_cl, shell=True, executable=self.shell)
+            p.wait()
+            if p.returncode != 0:
+                self.log('preprocess has FAILED')
 
+    def post(self):
+        if self.post_cl is not None:
+            p = subprocess.Popen(self.post_cl, shell=True, executable=self.shell)
+            p.wait()
+            if p.returncode != 0:
+                self.log('postprocess has FAILED')
+
+        
 
 class GridXP(ArgumentParser):
     def __init__(self):

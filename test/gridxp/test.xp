@@ -1,4 +1,5 @@
 CommandlineExperiment(
     ParamSet.load('bar.pset'),
-    'echo $d_test'
+    '. test/gridxp/setenv.sh; echo %(d_test)s - $toto',
+    out='%(d_test)s/out.txt'
 )
