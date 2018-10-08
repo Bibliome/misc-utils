@@ -8,7 +8,7 @@ import subprocess
 from os import makedirs
 from argparse import ArgumentParser
 from datetime import datetime
-
+from qsync import QSync
 
 class Param:
     def __init__(self, name, descr, fmt='s', values=()):
@@ -100,9 +100,10 @@ class ParamSet(Loadable):
 class Experiment(Loadable):
     search_paths = ('.',)
 
-    def __init__(self, pset, output_path='.'):
+    def __init__(self, pset, output_path='.', values={}):
         self.pset = pset
         self.output_path = output_path
+        self.pset.set_values(values)
 
     def run(self, test=False, values=None):
         if values is not None:
@@ -138,32 +139,32 @@ class Experiment(Loadable):
 
 
 class QSyncExperiment(Experiment):
-    def __init__(self, clxp, job_opts, qsync_filename='gridxp.qsync', self.qsync_opts={}):
-        Experiment.__init__(self, clxp.pset)
+    def __init__(self, clxp, job_opts, qsync_filename='gridxp.qsync', qsync_opts={}, values={}):
+        Experiment.__init__(self, clxp.pset, values=values)
         self.clxp = clxp
         self.job_opts = job_opts
         self.qsync_filename = qsync_filename
+        self.qsync_opts = qsync_opts
 
     def pre(self):
+        self.clxp.output_path = self.output_path
         self.clxp.pre()
         self.qsync_file = open(self.qsync_filename, 'w')
 
     def exe(self):
         d = dict(self.clxp._dict())
-        self.qsync_file.write('-V')
+        self.qsync_file.write('-V -cwd')
         if self.job_opts:
             self.qsync_file.write(' ')
-            self.qsync_file.write(self.job_opts % d)
+            self.qsync_file.write(CommandlineExperiment.expandstring(d, self.job_opts))
         if self.clxp.out is not None:
             self.qsync_file.write(' -o ')
-            self.qsync_file.write(os.path.expanduser(os.path.expandvars(self.clxp.out % d)))
+            self.qsync_file.write(CommandlineExperiment.expandstring(d, self.clxp.out))
         if self.clxp.err is not None:
             self.qsync_file.write(' -e ')
-            self.qsync_file.write(os.path.expanduser(os.path.expandvars(self.clxp.err % d)))
-        if self.clxp.cd:
-            self.qsync_file.write(' -cwd')
+            self.qsync_file.write(CommandlineExperiment.expandstring(d, self.clxp.err))
         self.qsync_file.write(' -- ')
-        self.qsync_file.write(self.clxp.cl % d)
+        self.qsync_file.write(CommandlineExperiment.expandstring(d, self.clxp.cl))
         self.qsync_file.write('\n')
 
     def post(self):
@@ -175,8 +176,8 @@ class QSyncExperiment(Experiment):
 
         
 class CommandlineExperiment(Experiment):
-    def __init__(self, pset, cl, sep='_', shell=None, cd=False, pre_cl=None, post_cl=None, out=None, err=None):
-        Experiment.__init__(self, pset)
+    def __init__(self, pset, cl, sep='_', shell=None, cd=False, pre_cl=None, post_cl=None, out=None, err=None, values={}):
+        Experiment.__init__(self, pset, values=values)
         self.cl = cl
         self.sep = sep
         self.shell = shell
@@ -195,7 +196,7 @@ class CommandlineExperiment(Experiment):
 
     def _dict(self):
         for name, p in self.pset.params.items():
-            yield name, str(p.current)
+            yield name, p.current
             yield 's_' + name, p.svalue()
         for pset in self.pset.ancestors(include_self=True):
             d = self._pset_dir(pset)
@@ -204,10 +205,14 @@ class CommandlineExperiment(Experiment):
             yield 'd_' + pset.name, d
 
     @staticmethod
+    def expandstring(d, s):
+        return os.path.expanduser(os.path.expandvars(s % d))
+
+    @staticmethod
     def _open_out(filename, d):
         if filename is None:
             return None
-        expanded = os.path.expanduser(os.path.expandvars(filename % d))
+        expanded = CommandlineExperiment.expandstring(d, filename)
         return open(expanded, 'w')
 
     def exe(self):
@@ -218,7 +223,7 @@ class CommandlineExperiment(Experiment):
         d = dict(self._dict())
         out = CommandlineExperiment._open_out(self.out, d)
         err = CommandlineExperiment._open_out(self.err, d)
-        cl = self.cl % d
+        cl = CommandlineExperiment.expandstring(d, self.cl)
         p = subprocess.Popen(cl, shell=True, executable=self.shell, cwd=wd, stdout=out, stderr=err, close_fds=True)
         p.wait()
         if p.returncode != 0:
