@@ -9,6 +9,7 @@ from os import makedirs
 from argparse import ArgumentParser
 from datetime import datetime
 
+
 class Param:
     def __init__(self, name, descr, fmt='s', values=()):
         self.name = name
@@ -47,6 +48,7 @@ class Loadable:
             if os.path.exists(r):
                 return r
         raise ValueError('could not find \'%s\' in %s' % (filename, str(cls.search_paths)))
+
     
 class ParamSet(Loadable):
     search_paths = ('.',)
@@ -94,7 +96,7 @@ class ParamSet(Loadable):
                 p.current = v
             yield self
 
-
+            
 class Experiment(Loadable):
     search_paths = ('.',)
 
@@ -134,6 +136,44 @@ class Experiment(Loadable):
         stderr.write('[' + d.strftime('%Y-%m-%d %H:%M:%S') + '] ' + msg + '\n')
         stderr.flush()
 
+
+class QSyncExperiment(Experiment):
+    def __init__(self, clxp, job_opts, qsync_filename='gridxp.qsync', self.qsync_opts={}):
+        Experiment.__init__(self, clxp.pset)
+        self.clxp = clxp
+        self.job_opts = job_opts
+        self.qsync_filename = qsync_filename
+
+    def pre(self):
+        self.clxp.pre()
+        self.qsync_file = open(self.qsync_filename, 'w')
+
+    def exe(self):
+        d = dict(self.clxp._dict())
+        self.qsync_file.write('-V')
+        if self.job_opts:
+            self.qsync_file.write(' ')
+            self.qsync_file.write(self.job_opts % d)
+        if self.clxp.out is not None:
+            self.qsync_file.write(' -o ')
+            self.qsync_file.write(os.path.expanduser(os.path.expandvars(self.clxp.out % d)))
+        if self.clxp.err is not None:
+            self.qsync_file.write(' -e ')
+            self.qsync_file.write(os.path.expanduser(os.path.expandvars(self.clxp.err % d)))
+        if self.clxp.cd:
+            self.qsync_file.write(' -cwd')
+        self.qsync_file.write(' -- ')
+        self.qsync_file.write(self.clxp.cl % d)
+        self.qsync_file.write('\n')
+
+    def post(self):
+        self.qsync_file.close()
+        qsync = QSync()
+        qsync.filenames = (self.qsync_filename,)
+        qsync.go(**self.qsync_opts)
+        self.clxp.post()
+
+        
 class CommandlineExperiment(Experiment):
     def __init__(self, pset, cl, sep='_', shell=None, cd=False, pre_cl=None, post_cl=None, out=None, err=None):
         Experiment.__init__(self, pset)
@@ -145,7 +185,7 @@ class CommandlineExperiment(Experiment):
         self.post_cl = post_cl
         self.out = out
         self.err = err
-        
+
     def _param_dir(self, p):
         return p.name + self.sep + p.svalue()
 
@@ -198,7 +238,6 @@ class CommandlineExperiment(Experiment):
             if p.returncode != 0:
                 self.log('postprocess has FAILED')
 
-        
 
 class GridXP(ArgumentParser):
     def __init__(self):
