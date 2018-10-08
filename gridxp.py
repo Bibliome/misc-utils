@@ -132,42 +132,6 @@ class Experiment(Loadable):
         stderr.write('[' + d.strftime('%Y-%m-%d %H:%M:%S') + '] ' + msg + '\n')
         stderr.flush()
 
-
-class QSyncExperiment(Experiment):
-    def __init__(self, clxp, job_opts, qsync_filename, qsync_opts={}):
-        Experiment.__init__(self, clxp.pset)
-        self.clxp = clxp
-        self.job_opts = job_opts
-        self.qsync_filename = qsync_filename
-        self.qsync_opts = qsync_opts
-
-    def pre(self):
-        self.clxp.pre()
-        self.qsync_file = open(self.qsync_filename, 'w')
-
-    def exe(self):
-        d = dict(self.clxp._dict())
-        self.qsync_file.write('-V -cwd')
-        if self.job_opts:
-            self.qsync_file.write(' ')
-            self.qsync_file.write(CommandlineExperiment.expandstring(d, self.job_opts))
-        if self.clxp.out is not None:
-            self.qsync_file.write(' -o ')
-            self.qsync_file.write(CommandlineExperiment.expandstring(d, self.clxp.out))
-        if self.clxp.err is not None:
-            self.qsync_file.write(' -e ')
-            self.qsync_file.write(CommandlineExperiment.expandstring(d, self.clxp.err))
-        self.qsync_file.write(' -- ')
-        self.qsync_file.write(CommandlineExperiment.expandstring(d, self.clxp.cl))
-        self.qsync_file.write('\n')
-
-    def post(self):
-        self.qsync_file.close()
-        qsync = QSync()
-        qsync.filenames = (self.qsync_filename,)
-        qsync.go(**self.qsync_opts)
-        self.clxp.post()
-
         
 class CommandlineExperiment(Experiment):
     def __init__(self, pset, cl, output_path, sep='_', shell=None, cd=False, pre_cl=None, post_cl=None, out=None, err=None, values={}):
@@ -237,6 +201,42 @@ class CommandlineExperiment(Experiment):
             p.wait()
             if p.returncode != 0:
                 self.log('postprocess has FAILED')
+
+
+class QSyncExperiment(Experiment):
+    def __init__(self, clxp, job_opts, qsync_filename, qsync_opts={}):
+        Experiment.__init__(self, clxp.pset)
+        self.clxp = clxp
+        self.job_opts = job_opts
+        self.qsync_filename = qsync_filename
+        self.qsync_opts = qsync_opts
+
+    def pre(self):
+        self.clxp.pre()
+        self.qsync_file = open(self.qsync_filename, 'w')
+
+    def exe(self):
+        d = dict(self.clxp._dict())
+        self.qsync_file.write('-V -cwd')
+        if self.job_opts:
+            self.qsync_file.write(' ')
+            self.qsync_file.write(CommandlineExperiment.expandstring(d, self.job_opts))
+        if self.clxp.out is not None:
+            self.qsync_file.write(' -o ')
+            self.qsync_file.write(CommandlineExperiment.expandstring(d, self.clxp.out))
+        if self.clxp.err is not None:
+            self.qsync_file.write(' -e ')
+            self.qsync_file.write(CommandlineExperiment.expandstring(d, self.clxp.err))
+        self.qsync_file.write(' -- ')
+        self.qsync_file.write(CommandlineExperiment.expandstring(d, self.clxp.cl))
+        self.qsync_file.write('\n')
+
+    def post(self):
+        self.qsync_file.close()
+        qsync = QSync()
+        qsync.filenames = (self.qsync_filename,)
+        qsync.go(**self.qsync_opts)
+        self.clxp.post()
 
 
 class GridXP(ArgumentParser):
