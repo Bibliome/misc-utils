@@ -103,10 +103,7 @@ class Experiment(Loadable):
     def __init__(self, pset):
         self.pset = pset
 
-    def run(self, test=False, values=None):
-        if values is not None:
-            self.log('setting parameter values')
-            self.pset.set_values(values)
+    def run(self, test=False):
         self.log('running pre-process')
         self.pre()
         for _ in self.pset.cells():
@@ -138,7 +135,7 @@ class Experiment(Loadable):
 
 class QSyncExperiment(Experiment):
     def __init__(self, clxp, job_opts, qsync_filename, qsync_opts={}):
-        Experiment.__init__(self, clxp.pset, values=values)
+        Experiment.__init__(self, clxp.pset)
         self.clxp = clxp
         self.job_opts = job_opts
         self.qsync_filename = qsync_filename
