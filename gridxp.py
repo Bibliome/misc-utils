@@ -137,7 +137,7 @@ class Experiment(Loadable):
 
 
 class QSyncExperiment(Experiment):
-    def __init__(self, clxp, job_opts, qsync_filename='gridxp.qsync', qsync_opts={}, values={}):
+    def __init__(self, clxp, job_opts, qsync_filename, qsync_opts={}):
         Experiment.__init__(self, clxp.pset, values=values)
         self.clxp = clxp
         self.job_opts = job_opts
