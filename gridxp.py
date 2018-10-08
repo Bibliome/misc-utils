@@ -137,7 +137,7 @@ class Experiment(Loadable):
         stderr.write('[' + d.strftime('%Y-%m-%d %H:%M:%S') + '] ' + msg + '\n')
         stderr.flush()
 
-
+    
 class QSyncExperiment(Experiment):
     def __init__(self, clxp, job_opts, qsync_filename='gridxp.qsync', qsync_opts={}, values={}):
         Experiment.__init__(self, clxp.pset, values=values)
@@ -176,9 +176,10 @@ class QSyncExperiment(Experiment):
 
         
 class CommandlineExperiment(Experiment):
-    def __init__(self, pset, cl, sep='_', shell=None, cd=False, pre_cl=None, post_cl=None, out=None, err=None, values={}):
+    def __init__(self, pset, cl, output_path, sep='_', shell=None, cd=False, pre_cl=None, post_cl=None, out=None, err=None, values={}):
         Experiment.__init__(self, pset, values=values)
         self.cl = cl
+        self.output_path = output_path
         self.sep = sep
         self.shell = shell
         self.cd = cd
@@ -251,14 +252,12 @@ class GridXP(ArgumentParser):
         self.add_argument('--test', dest='test', action='store_true', default=False, help='test run (only one parameter value set)')
         self.add_argument('--xp-path', metavar='PATH', dest='xp_paths', action='append', type=str, default=['.'], help='add path where to search for experiment file')
         self.add_argument('--pset-path', metavar='PATH', dest='pset_paths', action='append', type=str, default=['.'], help='add path where to search for parameter set files')
-        self.add_argument('--output-path', metavar='PATH', dest='output_path', action='store', type=str, default='.', help='base directory of experiment')
 
     def go(self):
         args = self.parse_args()
         Experiment.search_paths = args.xp_paths
         ParamSet.search_paths = args.pset_paths
         xp = Experiment.load(args.xp_filename[0])
-        xp.output_path = args.output_path
         xp.run(test=args.test)
 
 
