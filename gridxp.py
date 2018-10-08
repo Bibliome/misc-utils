@@ -132,10 +132,14 @@ class Experiment(Loadable):
         stderr.write('[' + d.strftime('%Y-%m-%d %H:%M:%S') + '] ' + msg + '\n')
         stderr.flush()
 
-        
+    def reset_values(self, values):
+        self.pset.set_values(values)
+        return self
+
+    
 class CommandlineExperiment(Experiment):
-    def __init__(self, pset, cl, output_path, sep='_', shell=None, cd=False, pre_cl=None, post_cl=None, out=None, err=None, values={}):
-        Experiment.__init__(self, pset, values=values)
+    def __init__(self, pset, cl, output_path, sep='_', shell=None, cd=False, pre_cl=None, post_cl=None, out=None, err=None):
+        Experiment.__init__(self, pset)
         self.cl = cl
         self.output_path = output_path
         self.sep = sep
@@ -145,6 +149,10 @@ class CommandlineExperiment(Experiment):
         self.post_cl = post_cl
         self.out = out
         self.err = err
+
+    def reset_values(self, values, output_path):
+        self.output_path = output_path
+        return Experiment.reset_values(values)
 
     def _param_dir(self, p):
         return p.name + self.sep + p.svalue()
@@ -164,14 +172,14 @@ class CommandlineExperiment(Experiment):
             yield 'd_' + pset.name, d
 
     @staticmethod
-    def expandstring(d, s):
+    def expand(d, s):
         return os.path.expanduser(os.path.expandvars(s % d))
 
     @staticmethod
     def _open_out(filename, d):
         if filename is None:
             return None
-        expanded = CommandlineExperiment.expandstring(d, filename)
+        expanded = CommandlineExperiment.expand(d, filename)
         return open(expanded, 'w')
 
     def exe(self):
@@ -182,7 +190,7 @@ class CommandlineExperiment(Experiment):
         d = dict(self._dict())
         out = CommandlineExperiment._open_out(self.out, d)
         err = CommandlineExperiment._open_out(self.err, d)
-        cl = CommandlineExperiment.expandstring(d, self.cl)
+        cl = CommandlineExperiment.expand(d, self.cl)
         p = subprocess.Popen(cl, shell=True, executable=self.shell, cwd=wd, stdout=out, stderr=err, close_fds=True)
         p.wait()
         if p.returncode != 0:
@@ -202,7 +210,7 @@ class CommandlineExperiment(Experiment):
             if p.returncode != 0:
                 self.log('postprocess has FAILED')
 
-
+        
 class QSyncExperiment(Experiment):
     def __init__(self, clxp, job_opts, qsync_filename, qsync_opts={}):
         Experiment.__init__(self, clxp.pset)
@@ -211,24 +219,27 @@ class QSyncExperiment(Experiment):
         self.qsync_filename = qsync_filename
         self.qsync_opts = qsync_opts
 
+    def reset_values(self, values, output_path):
+        self.clxp = self.clxp.reset_values(values, output_path)
+        return self
+
     def pre(self):
         self.clxp.pre()
         self.qsync_file = open(self.qsync_filename, 'w')
 
+    def _write_qsync_opt(self, d, prefix, suffix):
+        if suffix:
+            self.qsync_file.write(prefix)
+            self.qsync_file.write(CommandlineExperiment.expand(d, suffix))
+        
     def exe(self):
         d = dict(self.clxp._dict())
         self.qsync_file.write('-V -cwd')
-        if self.job_opts:
-            self.qsync_file.write(' ')
-            self.qsync_file.write(CommandlineExperiment.expandstring(d, self.job_opts))
-        if self.clxp.out is not None:
-            self.qsync_file.write(' -o ')
-            self.qsync_file.write(CommandlineExperiment.expandstring(d, self.clxp.out))
-        if self.clxp.err is not None:
-            self.qsync_file.write(' -e ')
-            self.qsync_file.write(CommandlineExperiment.expandstring(d, self.clxp.err))
+        self._write_qsync_opt(d, ' ', self.job_opts)
+        self._write_qsync_opt(d, ' -o ', self.clxp.out)
+        self._write_qsync_opt(d, ' -e ', self.clxp.err)
         self.qsync_file.write(' -- ')
-        self.qsync_file.write(CommandlineExperiment.expandstring(d, self.clxp.cl))
+        self.qsync_file.write(CommandlineExperiment.expand(d, self.clxp.cl))
         self.qsync_file.write('\n')
 
     def post(self):
