@@ -100,10 +100,8 @@ class ParamSet(Loadable):
 class Experiment(Loadable):
     search_paths = ('.',)
 
-    def __init__(self, pset, output_path='.', values={}):
+    def __init__(self, pset):
         self.pset = pset
-        self.output_path = output_path
-        self.pset.set_values(values)
 
     def run(self, test=False, values=None):
         if values is not None:
@@ -137,7 +135,7 @@ class Experiment(Loadable):
         stderr.write('[' + d.strftime('%Y-%m-%d %H:%M:%S') + '] ' + msg + '\n')
         stderr.flush()
 
-    
+
 class QSyncExperiment(Experiment):
     def __init__(self, clxp, job_opts, qsync_filename='gridxp.qsync', qsync_opts={}, values={}):
         Experiment.__init__(self, clxp.pset, values=values)
@@ -147,7 +145,6 @@ class QSyncExperiment(Experiment):
         self.qsync_opts = qsync_opts
 
     def pre(self):
-        self.clxp.output_path = self.output_path
         self.clxp.pre()
         self.qsync_file = open(self.qsync_filename, 'w')
 
