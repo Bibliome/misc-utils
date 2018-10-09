@@ -1,5 +1,6 @@
-CommandlineExperiment(
-    ParamSet.load('bar.pset'),
-    '. test/gridxp/setenv.sh; echo %(d_test)s - $toto',
-    out='%(d_test)s/out.txt'
+(
+    ExperimentConfig(ParamSet.load('bar.pset'))
+    .commandline('. test/gridxp/setenv.sh; echo %(d_test)s - $toto')
+    .output('test/gridxp/output')
+    .outfile('%(d_test)s/out.txt')
 )

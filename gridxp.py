@@ -201,7 +201,7 @@ class ExperimentConfig(Experiment):
         self.qsync_filename = fn
         return self
 
-    def qsync(self, key, value):
+    def qsync_config(self, key, value):
         self.qsync_opts[key] = value
         return self
 
@@ -217,7 +217,7 @@ class ExperimentConfig(Experiment):
     def _open_out(filename, d):
         if filename is None:
             return None
-        expanded = CommandlineExperiment.expand(d, filename)
+        expanded = ExperimentConfig.expand(d, filename)
         return open(expanded, 'w')
 
     def _param_dir(self, p):
@@ -236,6 +236,34 @@ class ExperimentConfig(Experiment):
             if not os.path.exists(d):
                 makedirs(d)
             yield 'd_' + pset.name, d
+
+    def _executor(self):
+        if self.executor is not None:
+            return self.executor
+        if QSyncExecutor.ready(self):
+            self.log('everything in place to use qsync')
+            return QSyncExecutor
+        self.log('defaulting to local executor')
+        return LocalExecutor
+
+    def pre(self):
+        self.executor = self._executor()
+        self.executor.check(self)
+        self.executor.pre(self)
+
+    def post(self):
+        self.executor.post(self)
+
+    def exe(self):
+        self.executor.exe(self)
+
+    def local(self):
+        self.executor = LocalExecutor
+        return self
+
+    def qsync(self):
+        self.executor = QSyncExecutor
+        return self
 
 
 class LocalExecutor:
@@ -269,7 +297,68 @@ class LocalExecutor:
         p.wait()
         if p.returncode != 0:
             config.log('process has FAILED')
-        
+
+    @staticmethod
+    def ready(config):
+        if config.cl is None:
+            return False
+        if config.output_path is None:
+            return False
+        return True
+
+    @staticmethod
+    def check(config):
+        if config.cl is None:
+            raise ValueError('mising commandline()')
+        if config.output_path is None:
+            raise ValueError('mising output()')
+
+
+
+class QSyncExecutor:
+    @staticmethod
+    def pre(config):
+        LocalExecutor.pre(config)
+        config.qsync_file = open(config.qsync_filename, 'w')
+
+    @staticmethod
+    def post(config):
+        config.qsync_file.close()
+        qsync = QSync()
+        qsync.filenames = (config.qsync_filename,)
+        qsync.go(**config.qsync_opts)
+        LocalExecutor.post(config)
+
+    @staticmethod
+    def exe(config):
+        d = dict(config._dict())
+        config.qsync_file.write('-V -cwd')
+        QSyncExecutor._write_qsync_opt(d, ' ', config.job_opts)
+        QSyncExecutor._write_qsync_opt(d, ' -o ', config.out)
+        QSyncExecutor._write_qsync_opt(d, ' -e ', config.err)
+        config.qsync_file.write(' -- ')
+        config.qsync_file.write(ExperimentConfig.expand(d, config.cl))
+        config.qsync_file.write('\n')
+
+    @staticmethod
+    def _write_qsync_opt(config, d, prefix, suffix):
+        if suffix:
+            config.qsync_file.write(prefix)
+            config.qsync_file.write(ExperimentConfig.expand(d, suffix))
+
+    @staticmethod
+    def ready(config):
+        if not LocalExecutor.ready(config):
+            return False
+        if config.job_opts is None:
+            return False
+        return True
+
+    @staticmethod
+    def check(config):
+        LocalExecutor.check(config)
+        if config.job_opts is None:
+            raise ValueError('mising qopts()')
 
                 
 class CommandlineExperiment(Experiment):
