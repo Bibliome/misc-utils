@@ -78,11 +78,14 @@ class ParamSet(Loadable):
         
     def set_values(self, paramvalues):
         for name, values in paramvalues.items():
+            self.set_param_values(name, values)
+            
+    def set_param_values(self, name, values):
             if name in self.params:
                 self.params[name].values = values
             else:
                 raise ValueError('no param %s' % name)
-
+            
     def values(self):
         return OrderedDict((name, p.current) for name, p in self.params.items())
 
@@ -136,7 +139,139 @@ class Experiment(Loadable):
         self.pset.set_values(values)
         return self
 
-    
+
+class ExperimentConfig(Experiment):
+    def __init__(self, pset):
+        Experiment.__init__(self, pset)
+        self.cl = None
+        self.output_path = None
+        self.sep = '_'
+        self.shell = None
+        self.cd = False
+        self.pre_cl = None
+        self.post_cl = None
+        self.out = None
+        self.err = None
+        self.job_opts = None
+        self.qsync_filename = 'gridxp.qsync'
+        self.qsync_opts = {}
+        self.executor = None
+
+    def commandline(self, cl):
+        self.cl = cl
+        return self
+
+    def output(self, path):
+        self.output_path = path
+        return self
+
+    def separator(self, sep):
+        self.sep = sep
+        return self
+
+    def runshell(self, shell):
+        self.shell = shell
+        return self
+
+    def paramwd(self):
+        self.cd = True
+        return self
+
+    def pre_commandline(self, cl):
+        self.pre_cl = cl
+        return self
+
+    def post_commandline(self, cl):
+        self.post_cl = cl
+        return self
+
+    def outfile(self, fn):
+        self.out = fn
+        return self
+
+    def errfile(self, fn):
+        self.err = fn
+        return self
+
+    def qopts(self, opts):
+        self.job_opts = opts
+        return self
+
+    def qsync_file(self, fn):
+        self.qsync_filename = fn
+        return self
+
+    def qsync(self, key, value):
+        self.qsync_opts[key] = value
+        return self
+
+    def paramvalues(self, name, values):
+        self.pset.set_param_values(name, values)
+        return self
+
+    @staticmethod
+    def expand(d, s):
+        return os.path.expanduser(os.path.expandvars(s % d))
+
+    @staticmethod
+    def _open_out(filename, d):
+        if filename is None:
+            return None
+        expanded = CommandlineExperiment.expand(d, filename)
+        return open(expanded, 'w')
+
+    def _param_dir(self, p):
+        return p.name + self.sep + p.svalue()
+
+    def _pset_dir(self, pset):
+        d = tuple(self._param_dir(p) for p in pset.params.values())
+        return os.path.join(self.output_path, *d)
+
+    def _dict(self):
+        for name, p in self.pset.params.items():
+            yield name, p.current
+            yield 's_' + name, p.svalue()
+        for pset in self.pset.ancestors(include_self=True):
+            d = self._pset_dir(pset)
+            if not os.path.exists(d):
+                makedirs(d)
+            yield 'd_' + pset.name, d
+
+
+class LocalExecutor:
+    @staticmethod
+    def pre(config):
+        if config.pre_cl is not None:
+            p = subprocess.Popen(self.pre_cl, shell=True, executable=config.shell)
+            p.wait()
+            if p.returncode != 0:
+                config.log('preprocess has FAILED')
+
+    @staticmethod
+    def post(config):
+        if config.post_cl is not None:
+            p = subprocess.Popen(config.post_cl, shell=True, executable=config.shell)
+            p.wait()
+            if p.returncode != 0:
+                config.log('postprocess has FAILED')
+
+    @staticmethod
+    def exe(config):
+        if config.cd:
+            wd = config._pset_dir(self.pset)
+        else:
+            wd = None
+        d = dict(config._dict())
+        out = ExperimentConfig._open_out(config.out, d)
+        err = ExperimentConfig._open_out(config.err, d)
+        cl = ExperimentConfig.expand(d, config.cl)
+        p = subprocess.Popen(cl, shell=True, executable=config.shell, cwd=wd, stdout=out, stderr=err, close_fds=True)
+        p.wait()
+        if p.returncode != 0:
+            config.log('process has FAILED')
+        
+
+                
 class CommandlineExperiment(Experiment):
     def __init__(self, pset, cl, output_path, sep='_', shell=None, cd=False, pre_cl=None, post_cl=None, out=None, err=None):
         Experiment.__init__(self, pset)
