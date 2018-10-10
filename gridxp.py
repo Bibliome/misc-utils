@@ -35,7 +35,7 @@ class Loadable:
     @classmethod
     def load(cls, filename):
         found = cls.searchfile(filename)
-        stderr.write('loading %s as %s\n' % (found, str(cls)))
+        log('loading %s as %s\n' % (found, str(cls)))
         f = open(found)
         s = '\n'.join(f)
         f.close()
