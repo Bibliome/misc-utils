@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/bin/env python
 
 from sys import stderr
 import itertools
@@ -9,6 +9,11 @@ from os import makedirs
 from argparse import ArgumentParser
 from datetime import datetime
 from qsync import QSync
+
+def log(msg):
+    d = datetime.now()
+    stderr.write('[' + d.strftime('%Y-%m-%d %H:%M:%S') + '] ' + msg + '\n')
+    stderr.flush()
 
 class Param:
     def __init__(self, name, descr, fmt='s', values=()):
@@ -99,7 +104,14 @@ class ParamSet(Loadable):
                 p.current = v
             yield self
 
-            
+
+class ParamValues(dict, Loadable):
+    search_paths = ('.',)
+
+    def __init__(self, *args, **kwargs):
+        dict.__init__(self, *args, **kwargs)
+
+
 class Experiment(Loadable):
     search_paths = ('.',)
 
@@ -107,15 +119,15 @@ class Experiment(Loadable):
         self.pset = pset
 
     def run(self, test=False):
-        self.log('running pre-process')
+        log('running pre-process')
         self.pre()
         for _ in self.pset.cells():
-            self.log('running process for ' + ', '.join(('%s=%s' % (n, p.svalue())) for (n, p) in self.pset.params.items()))
+            log('running process for ' + ', '.join(('%s=%s' % (n, p.svalue())) for (n, p) in self.pset.params.items()))
             self.exe()
             if test:
-                self.log('test run, stop')
+                log('test run, stop')
                 break
-        self.log('running post-process')
+        log('running post-process')
         self.post()
 
     def test(self, values=None):
@@ -129,11 +141,6 @@ class Experiment(Loadable):
 
     def exe(self):
         raise NotImplemented()
-
-    def log(self, msg):
-        d = datetime.now()
-        stderr.write('[' + d.strftime('%Y-%m-%d %H:%M:%S') + '] ' + msg + '\n')
-        stderr.flush()
 
     def reset_values(self, values):
         self.pset.set_values(values)
@@ -205,9 +212,12 @@ class ExperimentConfig(Experiment):
         self.qsync_opts[key] = value
         return self
 
-    def paramvalues(self, name, values):
+    def paramvalues(self, name, *values):
         self.pset.set_param_values(name, values)
         return self
+
+    def multiparamvalues(self, paramvalues):
+        self.pset.set_values(paramvalues)
 
     @staticmethod
     def expand(d, s):
@@ -241,9 +251,9 @@ class ExperimentConfig(Experiment):
         if self.executor is not None:
             return self.executor
         if QSyncExecutor.ready(self):
-            self.log('everything in place to use qsync')
+            log('everything in place to use qsync')
             return QSyncExecutor
-        self.log('defaulting to local executor')
+        log('defaulting to local executor')
         return LocalExecutor
 
     def pre(self):
@@ -270,10 +280,10 @@ class LocalExecutor:
     @staticmethod
     def pre(config):
         if config.pre_cl is not None:
-            p = subprocess.Popen(self.pre_cl, shell=True, executable=config.shell)
+            p = subprocess.Popen(config.pre_cl, shell=True, executable=config.shell)
             p.wait()
             if p.returncode != 0:
-                config.log('preprocess has FAILED')
+                log('preprocess has FAILED')
 
     @staticmethod
     def post(config):
@@ -281,7 +291,7 @@ class LocalExecutor:
             p = subprocess.Popen(config.post_cl, shell=True, executable=config.shell)
             p.wait()
             if p.returncode != 0:
-                config.log('postprocess has FAILED')
+                log('postprocess has FAILED')
 
     @staticmethod
     def exe(config):
@@ -296,7 +306,7 @@ class LocalExecutor:
         p = subprocess.Popen(cl, shell=True, executable=config.shell, cwd=wd, stdout=out, stderr=err, close_fds=True)
         p.wait()
         if p.returncode != 0:
-            config.log('process has FAILED')
+            log('process has FAILED')
 
     @staticmethod
     def ready(config):
@@ -319,13 +329,14 @@ class QSyncExecutor:
     @staticmethod
     def pre(config):
         LocalExecutor.pre(config)
-        config.qsync_file = open(config.qsync_filename, 'w')
+        config.qsync_filepath = os.path.join(config.output_path, config.qsync_filename)
+        config.qsync_file = open(config.qsync_filepath, 'w')
 
     @staticmethod
     def post(config):
         config.qsync_file.close()
         qsync = QSync()
-        qsync.filenames = (config.qsync_filename,)
+        qsync.filenames = (config.qsync_filepath,)
         qsync.go(**config.qsync_opts)
         LocalExecutor.post(config)
 
@@ -333,9 +344,9 @@ class QSyncExecutor:
     def exe(config):
         d = dict(config._dict())
         config.qsync_file.write('-V -cwd')
-        QSyncExecutor._write_qsync_opt(d, ' ', config.job_opts)
-        QSyncExecutor._write_qsync_opt(d, ' -o ', config.out)
-        QSyncExecutor._write_qsync_opt(d, ' -e ', config.err)
+        QSyncExecutor._write_qsync_opt(config, d, ' ', config.job_opts)
+        QSyncExecutor._write_qsync_opt(config, d, ' -o ', config.out)
+        QSyncExecutor._write_qsync_opt(config, d, ' -e ', config.err)
         config.qsync_file.write(' -- ')
         config.qsync_file.write(ExperimentConfig.expand(d, config.cl))
         config.qsync_file.write('\n')
@@ -360,133 +371,23 @@ class QSyncExecutor:
         if config.job_opts is None:
             raise ValueError('mising qopts()')
 
-                
-class CommandlineExperiment(Experiment):
-    def __init__(self, pset, cl, output_path, sep='_', shell=None, cd=False, pre_cl=None, post_cl=None, out=None, err=None):
-        Experiment.__init__(self, pset)
-        self.cl = cl
-        self.output_path = output_path
-        self.sep = sep
-        self.shell = shell
-        self.cd = cd
-        self.pre_cl = pre_cl
-        self.post_cl = post_cl
-        self.out = out
-        self.err = err
-
-    def reset_values(self, values, output_path):
-        self.output_path = output_path
-        return Experiment.reset_values(values)
-
-    def _param_dir(self, p):
-        return p.name + self.sep + p.svalue()
-
-    def _pset_dir(self, pset):
-        d = tuple(self._param_dir(p) for p in pset.params.values())
-        return os.path.join(self.output_path, *d)
-
-    def _dict(self):
-        for name, p in self.pset.params.items():
-            yield name, p.current
-            yield 's_' + name, p.svalue()
-        for pset in self.pset.ancestors(include_self=True):
-            d = self._pset_dir(pset)
-            if not os.path.exists(d):
-                makedirs(d)
-            yield 'd_' + pset.name, d
-
-    @staticmethod
-    def expand(d, s):
-        return os.path.expanduser(os.path.expandvars(s % d))
-
-    @staticmethod
-    def _open_out(filename, d):
-        if filename is None:
-            return None
-        expanded = CommandlineExperiment.expand(d, filename)
-        return open(expanded, 'w')
-
-    def exe(self):
-        if self.cd:
-            wd = self._pset_dir(self.pset)
-        else:
-            wd = None
-        d = dict(self._dict())
-        out = CommandlineExperiment._open_out(self.out, d)
-        err = CommandlineExperiment._open_out(self.err, d)
-        cl = CommandlineExperiment.expand(d, self.cl)
-        p = subprocess.Popen(cl, shell=True, executable=self.shell, cwd=wd, stdout=out, stderr=err, close_fds=True)
-        p.wait()
-        if p.returncode != 0:
-            self.log('process has FAILED')
-
-    def pre(self):
-        if self.pre_cl is not None:
-            p = subprocess.Popen(self.pre_cl, shell=True, executable=self.shell)
-            p.wait()
-            if p.returncode != 0:
-                self.log('preprocess has FAILED')
-
-    def post(self):
-        if self.post_cl is not None:
-            p = subprocess.Popen(self.post_cl, shell=True, executable=self.shell)
-            p.wait()
-            if p.returncode != 0:
-                self.log('postprocess has FAILED')
-
-        
-class QSyncExperiment(Experiment):
-    def __init__(self, clxp, job_opts, qsync_filename, qsync_opts={}):
-        Experiment.__init__(self, clxp.pset)
-        self.clxp = clxp
-        self.job_opts = job_opts
-        self.qsync_filename = qsync_filename
-        self.qsync_opts = qsync_opts
-
-    def reset_values(self, values, output_path):
-        self.clxp = self.clxp.reset_values(values, output_path)
-        return self
-
-    def pre(self):
-        self.clxp.pre()
-        self.qsync_file = open(self.qsync_filename, 'w')
-
-    def _write_qsync_opt(self, d, prefix, suffix):
-        if suffix:
-            self.qsync_file.write(prefix)
-            self.qsync_file.write(CommandlineExperiment.expand(d, suffix))
-        
-    def exe(self):
-        d = dict(self.clxp._dict())
-        self.qsync_file.write('-V -cwd')
-        self._write_qsync_opt(d, ' ', self.job_opts)
-        self._write_qsync_opt(d, ' -o ', self.clxp.out)
-        self._write_qsync_opt(d, ' -e ', self.clxp.err)
-        self.qsync_file.write(' -- ')
-        self.qsync_file.write(CommandlineExperiment.expand(d, self.clxp.cl))
-        self.qsync_file.write('\n')
-
-    def post(self):
-        self.qsync_file.close()
-        qsync = QSync()
-        qsync.filenames = (self.qsync_filename,)
-        qsync.go(**self.qsync_opts)
-        self.clxp.post()
-
 
 class GridXP(ArgumentParser):
     def __init__(self):
         ArgumentParser.__init__(self, description='Perform a grid experiment')
         self.add_argument('xp_filename', metavar='XPFILE', type=str, nargs=1, help='file containing the experiment definition object')
         self.add_argument('--test', dest='test', action='store_true', default=False, help='test run (only one parameter value set)')
-        self.add_argument('--xp-path', metavar='PATH', dest='xp_paths', action='append', type=str, default=['.'], help='add path where to search for experiment file')
-        self.add_argument('--pset-path', metavar='PATH', dest='pset_paths', action='append', type=str, default=['.'], help='add path where to search for parameter set files')
+        self.add_argument('--load-path', metavar='PATH', dest='load_paths', action='append', type=str, default=['.'], help='add path where to search for experiment and parameter set files')
+        self.add_argument('--local', dest='local', action='store_true', default=False, help='force local execution')
 
     def go(self):
         args = self.parse_args()
-        Experiment.search_paths = args.xp_paths
-        ParamSet.search_paths = args.pset_paths
+        Experiment.search_paths = args.load_paths
+        ParamSet.search_paths = args.load_paths
+        ParamValues.search_paths = args.load_paths
         xp = Experiment.load(args.xp_filename[0])
+        if args.local:
+            xp.local()
         xp.run(test=args.test)
 
 
