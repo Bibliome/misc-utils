@@ -10,24 +10,39 @@ from argparse import ArgumentParser
 from datetime import datetime
 from qsync import QSync
 
+
 def log(msg):
     d = datetime.now()
     stderr.write('[' + d.strftime('%Y-%m-%d %H:%M:%S') + '] ' + msg + '\n')
     stderr.flush()
 
 class Param:
-    def __init__(self, name, descr, fmt='s', values=()):
+    def __init__(self, name, descr, fmt='s', domain=None):
         self.name = name
         self.descr = descr
         self.fmt = fmt
         self.named_fmt = '%%(%s)%s' % (name, fmt)
         self.order_fmt = '%%%s' % fmt
-        self.values = values
+        self.values = ()
         self.current = None
 
     def svalue(self):
         return self.order_fmt % self.current
 
+    def check_value(self, value):
+        if self.domain is None:
+            return True
+        try:
+            return value in self.domain
+        except TypeError:
+            pass
+        return self.domain(value)
+
+    def set_value(self, value):
+        if not self.check_value(value):
+            raise ValueError('param %s domain error: %s' % (self.name, value))
+        self.current = value
+    
 
 class Loadable:
     search_paths = ('.',)
@@ -54,9 +69,9 @@ class Loadable:
                 return r
         raise ValueError('could not find \'%s\' in %s' % (filename, str(cls.search_paths)))
 
-    
+
 class ParamSet(Loadable):
-    search_paths = ('.',)
+    search_paths = ('.',)        
 
     def __init__(self, name, parent=None, params=()):
         self.parent = parent
@@ -101,7 +116,7 @@ class ParamSet(Loadable):
                 raise ValueError('empty values for %s' % p.name)
         for pvs in itertools.product(*paramvalues):
             for p, v in zip(self.params.values(), pvs):
-                p.current = v
+                p.set_value(v)
             yield self
 
 
@@ -163,7 +178,7 @@ class ExperimentConfig(Experiment):
         self.qsync_filename = 'gridxp.qsync'
         self.qsync_opts = {}
         self.executor = None
-
+    
     def commandline(self, cl):
         self.cl = cl
         return self
