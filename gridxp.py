@@ -91,10 +91,6 @@ class ParamSet:
         if p.name in self.params:
             raise ValueError('duplicate param %s' % p.name)
         self.params[p.name] = p
-        
-    def set_multi_param_values(self, paramvalues):
-        for name, values in paramvalues.items():
-            self.set_param_values(name, values)
             
     def set_param_values(self, name, values):
             if name in self.params:
@@ -143,10 +139,6 @@ class Experiment:
 
     def exe(self):
         raise NotImplemented()
-
-    def reset_values(self, values):
-        self.pset.set_multi_param_values(values)
-        return self
 
 
 class ExperimentConfig(Experiment):
