@@ -8,7 +8,7 @@ import subprocess
 from os import makedirs
 from argparse import ArgumentParser
 from datetime import datetime
-from qsync import QSync
+#from qsync import QSync
 
 
 def log(msg):
@@ -17,9 +17,8 @@ def log(msg):
     stderr.flush()
 
 class Param:
-    def __init__(self, name, descr, fmt='s', domain=None):
+    def __init__(self, name, fmt='s', domain=None):
         self.name = name
-        self.descr = descr
         self.fmt = fmt
         self.named_fmt = '%%(%s)%s' % (name, fmt)
         self.order_fmt = '%%%s' % fmt
@@ -57,35 +56,8 @@ def searchfile(filename):
 
 
 class ParamSet:
-    def __init__(self, name, parent=None, params=()):
-        self.parent = parent
-        self.name = name
-        for pset in self.ancestors():
-            if pset.name == name:
-                raise ValueError('ParamSet has same name as ancestor: %s' % name)
-        self.params = OrderedDict(() if parent is None else parent.params)
-        for p in params:
-            self.add_param(p)
-        ParamSet.current = self
-
-    @staticmethod
-    def load(filename):
-        found = searchfile(filename)
-        log('loading %s as %s' % (found, ParamSet.__name__))
-        f = open(found)
-        s = '\n'.join(f)
-        f.close()
-        r = eval(s)
-        if not isinstance(r, ParamSet):
-            raise ValueError('expected %s, got %s' % (ParamSet, r.__class__))
-        return r
-
-    def ancestors(self, include_self=False):
-        if self.parent is not None:
-            for pset in self.parent.ancestors(include_self=True):
-                yield pset
-        if include_self:
-            yield self
+    def __init__(self):
+        self.params = OrderedDict()
         
     def add_param(self, p):
         if p.name in self.params:
@@ -113,8 +85,8 @@ class ParamSet:
 
             
 class Experiment:
-    def __init__(self):
-        self.pset = None
+    def __init__(self, pset):
+        self.pset = pset
 
     def run(self, test=False):
         log('running pre-process')
@@ -143,7 +115,7 @@ class Experiment:
 
 class ExperimentConfig(Experiment):
     def __init__(self):
-        Experiment.__init__(self)
+        Experiment.__init__(self, ParamSet())
         self.cl = None
         self.output_dir = None
         self.sep = '_'
@@ -165,7 +137,6 @@ class ExperimentConfig(Experiment):
         execfile(found, self.create_locals())
 
     def create_locals(self):
-        pset = self._attrsetter('pset')
         cl = self._attrsetter('cl')
         od = self._attrsetter('output_dir')
         cd = self._attrsetter('cd')
@@ -175,10 +146,10 @@ class ExperimentConfig(Experiment):
         err = self._attrsetter('err')
         jo = self._attrsetter('job_opts')
         qf = self._attrsetter('qsync_filename')
+        param = self._paramdef()
         pv = self._paramvaluessetter()
         return dict(
-            pset=pset, param_set=pset, params=pset,
-            ParamSet=ParamSet,
+            param=param, addparam=param, add_param=param,
             cl=cl, commandline=cl, cmdline=cl, command_line=cd,
             od=od, outdir=od, outputdir=od, out_dir=od, output_dir=od,
             alternate_shell=self._attrsetter('shell'),
@@ -202,6 +173,11 @@ class ExperimentConfig(Experiment):
     def _attrsetter(self, name):
         return lambda value: setattr(self, name, value)
 
+    def _paramdef(self):
+        def result(name, fmt='s', domain=None):
+            self.pset.add_param(Param(name, fmt, domain))
+        return result
+
     def _paramvaluessetter(self):
         def result(name, *values):
             self.pset.set_param_values(name, values)
@@ -223,22 +199,21 @@ class ExperimentConfig(Experiment):
         expanded = ExperimentConfig.expand(d, filename)
         return open(expanded, 'w')
 
-    def _param_dir(self, p):
+    def _param_dirname(self, p):
         return p.name + self.sep + p.svalue()
-
-    def _pset_dir(self, pset):
-        d = tuple(self._param_dir(p) for p in pset.params.values())
-        return os.path.join(self.output_dir, *d)
 
     def _dict(self):
         for name, p in self.pset.params.items():
             yield name, p.current
             yield 's_' + name, p.svalue()
-        for pset in self.pset.ancestors(include_self=True):
-            d = self._pset_dir(pset)
+        d = self.output_dir
+        if not os.path.exists(d):
+            makedirs(d)
+        for p in self.pset.params.values():
+            d = os.path.join(d, self._param_dirname(p))
             if not os.path.exists(d):
                 makedirs(d)
-            yield 'd_' + pset.name, d
+            yield 'd_' + p.name, d
 
     def _executor(self):
         if self.executor is not None:

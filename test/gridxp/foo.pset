@@ -1,6 +1,0 @@
-ParamSet(
-    'parent-pset',
-    params=(
-        Param('foo', 'The Foo'),
-    )
-)

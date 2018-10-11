@@ -1,7 +1,0 @@
-ParamSet(
-    'test',
-    parent=ParamSet.load('foo.pset'),
-    params=(
-        Param('bar', 'The Bar', '02d'),
-    )
-)
