@@ -1,0 +1,2 @@
+paramvalues('bar', 0, 1, 2, 3)
+paramvalues('foo', 'a', 'b')

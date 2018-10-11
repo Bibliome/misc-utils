@@ -2,6 +2,6 @@ ParamSet(
     'test',
     parent=ParamSet.load('foo.pset'),
     params=(
-        Param('bar', 'The Bar', '02d', values=range(4)),
+        Param('bar', 'The Bar', '02d'),
     )
 )

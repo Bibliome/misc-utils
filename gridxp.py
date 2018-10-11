@@ -8,7 +8,7 @@ import subprocess
 from os import makedirs
 from argparse import ArgumentParser
 from datetime import datetime
-from qsync import QSync
+#from qsync import QSync
 
 
 def log(msg):
@@ -25,6 +25,7 @@ class Param:
         self.order_fmt = '%%%s' % fmt
         self.values = ()
         self.current = None
+        self.domain = domain
 
     def svalue(self):
         return self.order_fmt % self.current
@@ -44,35 +45,18 @@ class Param:
         self.current = value
     
 
-class Loadable:
-    search_paths = ('.',)
-
-    @classmethod
-    def load(cls, filename):
-        found = cls.searchfile(filename)
-        log('loading %s as %s\n' % (found, str(cls)))
-        f = open(found)
-        s = '\n'.join(f)
-        f.close()
-        r = eval(s)
-        if not isinstance(r, cls):
-            raise ValueError('expected %s, got %s' % (cls, r.__class__))
-        return r
-
-    @classmethod
-    def searchfile(cls, filename):
-        if os.path.isabs(filename):
-            return filename
-        for d in cls.search_paths:
-            r = os.path.join(d, filename)
-            if os.path.exists(r):
-                return r
-        raise ValueError('could not find \'%s\' in %s' % (filename, str(cls.search_paths)))
+LOAD_PATHS = ['.']
+def searchfile(filename):
+    if os.path.isabs(filename):
+        return filename
+    for d in LOAD_PATHS:
+        r = os.path.join(d, filename)
+        if os.path.exists(r):
+            return r
+    raise ValueError('could not find \'%s\' in %s' % (filename, LOAD_PATHS))
 
 
-class ParamSet(Loadable):
-    search_paths = ('.',)        
-
+class ParamSet:
     def __init__(self, name, parent=None, params=()):
         self.parent = parent
         self.name = name
@@ -83,6 +67,18 @@ class ParamSet(Loadable):
         for p in params:
             self.add_param(p)
         ParamSet.current = self
+
+    @staticmethod
+    def load(filename):
+        found = searchfile(filename)
+        log('loading %s as %s' % (found, ParamSet.__name__))
+        f = open(found)
+        s = '\n'.join(f)
+        f.close()
+        r = eval(s)
+        if not isinstance(r, ParamSet):
+            raise ValueError('expected %s, got %s' % (ParamSet, r.__class__))
+        return r
 
     def ancestors(self, include_self=False):
         if self.parent is not None:
@@ -96,7 +92,7 @@ class ParamSet(Loadable):
             raise ValueError('duplicate param %s' % p.name)
         self.params[p.name] = p
         
-    def set_values(self, paramvalues):
+    def set_multi_param_values(self, paramvalues):
         for name, values in paramvalues.items():
             self.set_param_values(name, values)
             
@@ -119,19 +115,10 @@ class ParamSet(Loadable):
                 p.set_value(v)
             yield self
 
-
-class ParamValues(dict, Loadable):
-    search_paths = ('.',)
-
-    def __init__(self, *args, **kwargs):
-        dict.__init__(self, *args, **kwargs)
-
-
-class Experiment(Loadable):
-    search_paths = ('.',)
-
-    def __init__(self, pset):
-        self.pset = pset
+            
+class Experiment:
+    def __init__(self):
+        self.pset = None
 
     def run(self, test=False):
         log('running pre-process')
@@ -158,15 +145,15 @@ class Experiment(Loadable):
         raise NotImplemented()
 
     def reset_values(self, values):
-        self.pset.set_values(values)
+        self.pset.set_multi_param_values(values)
         return self
 
 
 class ExperimentConfig(Experiment):
-    def __init__(self, pset):
-        Experiment.__init__(self, pset)
+    def __init__(self):
+        Experiment.__init__(self)
         self.cl = None
-        self.output_path = None
+        self.output_dir = None
         self.sep = '_'
         self.shell = None
         self.cd = False
@@ -178,62 +165,59 @@ class ExperimentConfig(Experiment):
         self.qsync_filename = 'gridxp.qsync'
         self.qsync_opts = {}
         self.executor = None
-    
-    def commandline(self, cl):
-        self.cl = cl
-        return self
 
-    def output(self, path):
-        self.output_path = path
-        return self
+    def load_config(self, filename):
+        found = searchfile(filename)
+        log('loading experiment configuration from ' + found)
+        execfile(found, self.create_locals())
 
-    def separator(self, sep):
-        self.sep = sep
-        return self
+    def create_locals(self):
+        pset = self._attrsetter('pset')
+        cl = self._attrsetter('cl')
+        od = self._attrsetter('output_dir')
+        cd = self._attrsetter('cd')
+        pre_cl = self._attrsetter('pre_cl')
+        post_cl = self._attrsetter('post_cl')
+        out = self._attrsetter('out')
+        err = self._attrsetter('err')
+        jo = self._attrsetter('job_opts')
+        qf = self._attrsetter('qsync_filename')
+        pv = self._paramvaluessetter()
+        return dict(
+            pset=pset, param_set=pset, params=pset,
+            ParamSet=ParamSet,
+            cl=cl, commandline=cl, cmdline=cl, command_line=cd,
+            od=od, outdir=od, outputdir=od, out_dir=od, output_dir=od,
+            alternate_shell=self._attrsetter('shell'),
+            cd=cd, changedir=cd, change_dir=cd, change_directory=cd,
+            pre_cl=pre_cl, pre_commandline=pre_cl, pre_cmdline=pre_cl, pre_command_line=pre_cl,
+            post_cl=post_cl, post_commandline=post_cl, post_cmdline=post_cl, post_command_line=post_cl,
+            outfile=out, out_file=out,
+            errfile=out, err_file=out,
+            job_opts=jo, job_options=jo,
+            qf=qf, qsync_filename=qf, qsync_file=qf,
+            paramvalues=pv, param_values=pv,
+            qsync_opts=self._qsync_opts(),
+            local=self.local_execution,
+            include=(lambda filename: self.load_config(filename))
+        )
 
-    def runshell(self, shell):
-        self.shell = shell
-        return self
+    def local_execution(self):
+        self.executor = LocalExecutor
 
-    def paramwd(self):
-        self.cd = True
-        return self
+    def _attrsetter(self, name):
+        return lambda value: setattr(self, name, value)
 
-    def pre_commandline(self, cl):
-        self.pre_cl = cl
-        return self
+    def _paramvaluessetter(self):
+        def result(name, *values):
+            self.pset.set_param_values(name, values)
+        return result
 
-    def post_commandline(self, cl):
-        self.post_cl = cl
-        return self
-
-    def outfile(self, fn):
-        self.out = fn
-        return self
-
-    def errfile(self, fn):
-        self.err = fn
-        return self
-
-    def qopts(self, opts):
-        self.job_opts = opts
-        return self
-
-    def qsync_file(self, fn):
-        self.qsync_filename = fn
-        return self
-
-    def qsync_config(self, key, value):
-        self.qsync_opts[key] = value
-        return self
-
-    def paramvalues(self, name, *values):
-        self.pset.set_param_values(name, values)
-        return self
-
-    def multiparamvalues(self, paramvalues):
-        self.pset.set_values(paramvalues)
-
+    def _qsync_opts(self):
+        def result(**kwargs):
+            self.qsync_file = kwargs
+        return result
+        
     @staticmethod
     def expand(d, s):
         return os.path.expanduser(os.path.expandvars(s % d))
@@ -250,7 +234,7 @@ class ExperimentConfig(Experiment):
 
     def _pset_dir(self, pset):
         d = tuple(self._param_dir(p) for p in pset.params.values())
-        return os.path.join(self.output_path, *d)
+        return os.path.join(self.output_dir, *d)
 
     def _dict(self):
         for name, p in self.pset.params.items():
@@ -327,7 +311,7 @@ class LocalExecutor:
     def ready(config):
         if config.cl is None:
             return False
-        if config.output_path is None:
+        if config.output_dir is None:
             return False
         return True
 
@@ -335,7 +319,7 @@ class LocalExecutor:
     def check(config):
         if config.cl is None:
             raise ValueError('mising commandline()')
-        if config.output_path is None:
+        if config.output_dir is None:
             raise ValueError('mising output()')
 
 
@@ -344,7 +328,7 @@ class QSyncExecutor:
     @staticmethod
     def pre(config):
         LocalExecutor.pre(config)
-        config.qsync_filepath = os.path.join(config.output_path, config.qsync_filename)
+        config.qsync_filepath = os.path.join(config.output_dir, config.qsync_filename)
         config.qsync_file = open(config.qsync_filepath, 'w')
 
     @staticmethod
@@ -390,19 +374,20 @@ class QSyncExecutor:
 class GridXP(ArgumentParser):
     def __init__(self):
         ArgumentParser.__init__(self, description='Perform a grid experiment')
-        self.add_argument('xp_filename', metavar='XPFILE', type=str, nargs=1, help='file containing the experiment definition object')
+        self.add_argument('xp_filenames', metavar='XPFILE', type=str, nargs='+', default=[], help='file containing the experiment definition object')
         self.add_argument('--test', dest='test', action='store_true', default=False, help='test run (only one parameter value set)')
         self.add_argument('--load-path', metavar='PATH', dest='load_paths', action='append', type=str, default=['.'], help='add path where to search for experiment and parameter set files')
         self.add_argument('--local', dest='local', action='store_true', default=False, help='force local execution')
 
     def go(self):
         args = self.parse_args()
-        Experiment.search_paths = args.load_paths
-        ParamSet.search_paths = args.load_paths
-        ParamValues.search_paths = args.load_paths
-        xp = Experiment.load(args.xp_filename[0])
+        global LOAD_PATHS
+        LOAD_PATHS = args.load_paths
+        xp = ExperimentConfig()
+        for fn in args.xp_filenames:
+            xp.load_config(fn)
         if args.local:
-            xp.local()
+            xp.local_execution()
         xp.run(test=args.test)
 
 
