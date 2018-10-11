@@ -317,6 +317,8 @@ class LocalExecutor:
 
     @staticmethod
     def check(config):
+        if config.pset is None:
+            raise ValueError('missing pset()')
         if config.cl is None:
             raise ValueError('mising commandline()')
         if config.output_dir is None:
