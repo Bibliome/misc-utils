@@ -8,7 +8,7 @@ import subprocess
 from os import makedirs
 from argparse import ArgumentParser
 from datetime import datetime
-#from qsync import QSync
+from qsync import QSync
 
 
 def log(msg):
@@ -165,6 +165,7 @@ class ExperimentConfig(Experiment):
         self.qsync_filename = 'gridxp.qsync'
         self.qsync_opts = {}
         self.executor = None
+        self.dry_run = False
 
     def load_config(self, filename):
         found = searchfile(filename)
@@ -199,7 +200,8 @@ class ExperimentConfig(Experiment):
             paramvalues=pv, param_values=pv,
             qsync_opts=self._qsync_opts(),
             local=self.local_execution,
-            include=(lambda filename: self.load_config(filename))
+            include=(lambda filename: self.load_config(filename)),
+            dry_run=self._attrsetter('dry_run')
         )
 
     def local_execution(self):
@@ -266,31 +268,29 @@ class ExperimentConfig(Experiment):
     def exe(self):
         self.executor.exe(self)
 
-    def local(self):
-        self.executor = LocalExecutor
-        return self
-
-    def qsync(self):
-        self.executor = QSyncExecutor
-        return self
-
 
 class LocalExecutor:
     @staticmethod
     def pre(config):
-        if config.pre_cl is not None:
-            p = subprocess.Popen(config.pre_cl, shell=True, executable=config.shell)
-            p.wait()
-            if p.returncode != 0:
-                log('preprocess has FAILED')
+        if config.pre_cl is None:
+            return
+        if config.dry_run:
+            log('(dry run) ' + config.pre_cl)
+        p = subprocess.Popen(config.pre_cl, shell=True, executable=config.shell)
+        p.wait()
+        if p.returncode != 0:
+            log('preprocess has FAILED')
 
     @staticmethod
     def post(config):
-        if config.post_cl is not None:
-            p = subprocess.Popen(config.post_cl, shell=True, executable=config.shell)
-            p.wait()
-            if p.returncode != 0:
-                log('postprocess has FAILED')
+        if config.post_cl is None:
+            return
+        if config.dry_run:
+            log('(dry run) ' + config.post_cl)
+        p = subprocess.Popen(config.post_cl, shell=True, executable=config.shell)
+        p.wait()
+        if p.returncode != 0:
+            log('postprocess has FAILED')
 
     @staticmethod
     def exe(config):
@@ -302,13 +302,18 @@ class LocalExecutor:
         out = ExperimentConfig._open_out(config.out, d)
         err = ExperimentConfig._open_out(config.err, d)
         cl = ExperimentConfig.expand(d, config.cl)
-        p = subprocess.Popen(cl, shell=True, executable=config.shell, cwd=wd, stdout=out, stderr=err, close_fds=True)
-        p.wait()
-        if p.returncode != 0:
-            log('process has FAILED')
+        if config.dry_run:
+            log('(dry run) ' + cl)
+        else:
+            p = subprocess.Popen(cl, shell=True, executable=config.shell, cwd=wd, stdout=out, stderr=err, close_fds=True)
+            p.wait()
+            if p.returncode != 0:
+                log('process has FAILED')
 
     @staticmethod
     def ready(config):
+        if config.pset is None:
+            return False
         if config.cl is None:
             return False
         if config.output_dir is None:
@@ -336,9 +341,12 @@ class QSyncExecutor:
     @staticmethod
     def post(config):
         config.qsync_file.close()
-        qsync = QSync()
-        qsync.filenames = (config.qsync_filepath,)
-        qsync.go(**config.qsync_opts)
+        if config.dry_run:
+            log('(dry run) skipping job submission')
+        else:
+            qsync = QSync()
+            qsync.filenames = (config.qsync_filepath,)
+            qsync.go(**config.qsync_opts)
         LocalExecutor.post(config)
 
     @staticmethod
@@ -380,12 +388,14 @@ class GridXP(ArgumentParser):
         self.add_argument('--test', dest='test', action='store_true', default=False, help='test run (only one parameter value set)')
         self.add_argument('--load-path', metavar='PATH', dest='load_paths', action='append', type=str, default=['.'], help='add path where to search for experiment and parameter set files')
         self.add_argument('--local', dest='local', action='store_true', default=False, help='force local execution')
+        self.add_argument('--dry-run', dest='dry_run', action='store_true', default=False, help='dry run')
 
     def go(self):
         args = self.parse_args()
         global LOAD_PATHS
         LOAD_PATHS = args.load_paths
         xp = ExperimentConfig()
+        xp.dry_run = args.dry_run
         for fn in args.xp_filenames:
             xp.load_config(fn)
         if args.local:
