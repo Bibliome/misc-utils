@@ -54,43 +54,38 @@ def searchfile(filename):
             return r
     raise ValueError('could not find \'%s\' in %s' % (filename, LOAD_PATHS))
 
-
-class ParamSet(OrderedDict):
-    def __init__(self, *args, **kwargs):
-        OrderedDict.__init__(self, *args, **kwargs)
+            
+class Experiment:
+    def __init__(self):
+        self.params = OrderedDict()
         
     def add_param(self, p):
         if not isinstance(p, Param):
             raise TypeError('is not Param: ' + p)
-        if p.name in self:
+        if p.name in self.params:
             raise ValueError('duplicate param %s' % p.name)
-        self[p.name] = p
+        self.params[p.name] = p
             
     def set_param_values(self, name, values):
-            if name in self:
-                self[name].values = values
+            if name in self.params:
+                self.params[name].values = values
             else:
                 raise ValueError('no param %s' % name)
 
     def cells(self):
-        paramvalues = tuple(p.values for p in self.values())
-        for p in self.values():
+        paramvalues = tuple(p.values for p in self.params.values())
+        for p in self.params.values():
             if len(p.values) == 0:
                 raise ValueError('empty values for %s' % p.name)
         for pvs in itertools.product(*paramvalues):
-            for p, v in zip(self.values(), pvs):
+            for p, v in zip(self.params.values(), pvs):
                 p.set_value(v)
-            yield self
-
-            
-class Experiment:
-    def __init__(self, params):
-        self.params = params
+            yield None
 
     def run(self, test=False):
         log('running pre-process')
         self.pre()
-        for _ in self.params.cells():
+        for _ in self.cells():
             log('running process for ' + ', '.join(('%s=%s' % (p.name, p.svalue())) for p in self.params.values()))
             self.exe()
             if test:
@@ -114,7 +109,7 @@ class Experiment:
 
 class ExperimentConfig(Experiment):
     def __init__(self):
-        Experiment.__init__(self, ParamSet())
+        Experiment.__init__(self)
         self.cl = None
         self.output_dir = None
         self.sep = '_'
@@ -174,12 +169,12 @@ class ExperimentConfig(Experiment):
 
     def _paramdef(self):
         def result(name, fmt='s', domain=None):
-            self.params.add_param(Param(name, fmt, domain))
+            self.add_param(Param(name, fmt, domain))
         return result
 
     def _paramvaluessetter(self):
         def result(name, *values):
-            self.params.set_param_values(name, values)
+            self.set_param_values(name, values)
         return result
 
     def _qsync_opts(self):
