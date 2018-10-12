@@ -8,7 +8,7 @@ import subprocess
 from os import makedirs
 from argparse import ArgumentParser
 from datetime import datetime
-#from qsync import QSync
+from qsync import QSync
 
 
 def log(msg):
@@ -128,7 +128,8 @@ class ExperimentConfig(Experiment):
     def load_config(self, filename):
         found = searchfile(filename)
         log('loading experiment configuration from ' + found)
-        execfile(found, self.create_locals())
+        #execfile(found, self.create_locals())
+        exec(open(found).read(), self.create_locals())
 
     def create_locals(self):
         cl = self._attrsetter('cl')
@@ -350,6 +351,7 @@ class GridXP(ArgumentParser):
         self.add_argument('--load-path', metavar='PATH', dest='load_paths', action='append', type=str, default=['.'], help='add path where to search for experiment and parameter set files')
         self.add_argument('--local', dest='local', action='store_true', default=False, help='force local execution')
         self.add_argument('--dry-run', dest='dry_run', action='store_true', default=False, help='dry run')
+        self.add_argument('--param-values', metavar='NAME VALUES', dest='param_values', nargs=2, action='append', type=str, default=[], help='set parameter values')
 
     def go(self):
         args = self.parse_args()
@@ -361,6 +363,8 @@ class GridXP(ArgumentParser):
             xp.load_config(fn)
         if args.local:
             xp.local_execution()
+        for name, svalues in args.param_values:
+            xp.set_param_values(name, eval(svalues))
         xp.run(test=args.test)
 
 
