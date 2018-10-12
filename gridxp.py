@@ -55,47 +55,46 @@ def searchfile(filename):
     raise ValueError('could not find \'%s\' in %s' % (filename, LOAD_PATHS))
 
 
-class ParamSet:
-    def __init__(self):
-        self.params = OrderedDict()
+class ParamSet(OrderedDict):
+    def __init__(self, *args, **kwargs):
+        OrderedDict.__init__(self, *args, **kwargs)
         
     def add_param(self, p):
-        if p.name in self.params:
+        if not isinstance(p, Param):
+            raise TypeError('is not Param: ' + p)
+        if p.name in self:
             raise ValueError('duplicate param %s' % p.name)
-        self.params[p.name] = p
+        self[p.name] = p
             
     def set_param_values(self, name, values):
-            if name in self.params:
-                self.params[name].values = values
+            if name in self:
+                self[name].values = values
             else:
                 raise ValueError('no param %s' % name)
-            
-    def values(self):
-        return OrderedDict((name, p.current) for name, p in self.params.items())
 
     def cells(self):
-        paramvalues = tuple(p.values for p in self.params.values())
-        for p in self.params.values():
+        paramvalues = tuple(p.values for p in self.values())
+        for p in self.values():
             if len(p.values) == 0:
                 raise ValueError('empty values for %s' % p.name)
         for pvs in itertools.product(*paramvalues):
-            for p, v in zip(self.params.values(), pvs):
+            for p, v in zip(self.values(), pvs):
                 p.set_value(v)
             yield self
 
             
 class Experiment:
-    def __init__(self, pset):
-        self.pset = pset
+    def __init__(self, params):
+        self.params = params
 
     def run(self, test=False):
         log('running pre-process')
         self.pre()
-        for _ in self.pset.cells():
-            log('running process for ' + ', '.join(('%s=%s' % (n, p.svalue())) for (n, p) in self.pset.params.items()))
+        for _ in self.params.cells():
+            log('running process for ' + ', '.join(('%s=%s' % (p.name, p.svalue())) for p in self.params.values()))
             self.exe()
             if test:
-                log('test run, stop')
+                log('(test) stop')
                 break
         log('running post-process')
         self.post()
@@ -175,12 +174,12 @@ class ExperimentConfig(Experiment):
 
     def _paramdef(self):
         def result(name, fmt='s', domain=None):
-            self.pset.add_param(Param(name, fmt, domain))
+            self.params.add_param(Param(name, fmt, domain))
         return result
 
     def _paramvaluessetter(self):
         def result(name, *values):
-            self.pset.set_param_values(name, values)
+            self.params.set_param_values(name, values)
         return result
 
     def _qsync_opts(self):
@@ -203,13 +202,13 @@ class ExperimentConfig(Experiment):
         return p.name + self.sep + p.svalue()
 
     def _dict(self):
-        for name, p in self.pset.params.items():
+        for name, p in self.params.items():
             yield name, p.current
             yield 's_' + name, p.svalue()
         d = self.output_dir
         if not os.path.exists(d):
             makedirs(d)
-        for p in self.pset.params.values():
+        for p in self.params.values():
             d = os.path.join(d, self._param_dirname(p))
             if not os.path.exists(d):
                 makedirs(d)
@@ -262,7 +261,7 @@ class LocalExecutor:
     @staticmethod
     def exe(config):
         if config.cd:
-            wd = config._pset_dir(self.pset)
+            wd = config._pset_dir(self.params)
         else:
             wd = None
         d = dict(config._dict())
@@ -279,7 +278,7 @@ class LocalExecutor:
 
     @staticmethod
     def ready(config):
-        if config.pset is None:
+        if config.params is None:
             return False
         if config.cl is None:
             return False
@@ -289,7 +288,7 @@ class LocalExecutor:
 
     @staticmethod
     def check(config):
-        if config.pset is None:
+        if config.params is None:
             raise ValueError('missing pset()')
         if config.cl is None:
             raise ValueError('mising commandline()')
