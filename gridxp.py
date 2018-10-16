@@ -152,7 +152,7 @@ class ExperimentConfig(Experiment):
             pre_cl=pre_cl, pre_commandline=pre_cl, pre_cmdline=pre_cl, pre_command_line=pre_cl,
             post_cl=post_cl, post_commandline=post_cl, post_cmdline=post_cl, post_command_line=post_cl,
             outfile=out, out_file=out,
-            errfile=out, err_file=out,
+            errfile=err, err_file=err,
             job_opts=jo, job_options=jo,
             qf=qf, qsync_filename=qf, qsync_file=qf,
             paramvalues=pv, param_values=pv,
