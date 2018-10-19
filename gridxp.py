@@ -5,10 +5,11 @@ import itertools
 from collections import OrderedDict
 import os.path
 import subprocess
-from os import makedirs
+from os import makedirs, listdir
 from argparse import ArgumentParser
 from datetime import datetime
-from qsync import QSync
+import shutil
+#from qsync import QSync
 
 
 def log(msg):
@@ -124,6 +125,7 @@ class ExperimentConfig(Experiment):
         self.qsync_opts = {}
         self.executor = None
         self.dry_run = False
+        self.properties = {}
 
     def load_config(self, filename):
         found = searchfile(filename)
@@ -143,6 +145,7 @@ class ExperimentConfig(Experiment):
         qf = self._attrsetter('qsync_filename')
         param = self._paramdef()
         pv = self._paramvaluessetter()
+        prop = self._propdef()
         return dict(
             param=param, addparam=param, add_param=param,
             cl=cl, commandline=cl, cmdline=cl, command_line=cd,
@@ -156,6 +159,7 @@ class ExperimentConfig(Experiment):
             job_opts=jo, job_options=jo,
             qf=qf, qsync_filename=qf, qsync_file=qf,
             paramvalues=pv, param_values=pv,
+            prop=prop, property=prop,
             qsync_opts=self._qsync_opts(),
             local=self.local_execution,
             include=(lambda filename: self.load_config(filename)),
@@ -167,6 +171,11 @@ class ExperimentConfig(Experiment):
 
     def _attrsetter(self, name):
         return lambda value: setattr(self, name, value)
+
+    def _propdef(self):
+        def result(name, fun):
+            self.properties[name] = fun
+        return result
 
     def _paramdef(self):
         def result(name, fmt='s', domain=None):
@@ -197,10 +206,12 @@ class ExperimentConfig(Experiment):
     def _param_dirname(self, p):
         return p.name + self.sep + p.svalue()
 
-    def _dict(self):
+    def _dict(self, props):
+        params = {}
         for name, p in self.params.items():
             yield name, p.current
             yield 's_' + name, p.svalue()
+            params[name] = p.current
         d = self.output_dir
         if not os.path.exists(d):
             makedirs(d)
@@ -209,6 +220,12 @@ class ExperimentConfig(Experiment):
             if not os.path.exists(d):
                 makedirs(d)
             yield 'd_' + p.name, d
+        if props:
+            for name, fun in self.properties.items():
+                if hasattr(fun, '__call__'):
+                    yield name, fun(params)
+                else:
+                    yield name, fun
 
     def _executor(self):
         if self.executor is not None:
@@ -229,6 +246,31 @@ class ExperimentConfig(Experiment):
 
     def exe(self):
         self.executor.exe(self)
+
+    def insert_param_dir(self, name):
+        self.params = self._sub_params_to(name)
+        lastp = self.params[name]
+        if len(lastp.values) > 1:
+            raise Exception('can only insert parameter with a single value')
+        for _ in self.cells():
+            d = dict(self._dict(False))
+            paramdir = d['d_'+name]
+            parentdir, dirname = os.path.split(paramdir)
+            for fobj in listdir(parentdir):
+                if fobj != dirname:
+                    if self.dry_run:
+                        log('(dry run) move %s to %s' % (os.path.join(parentdir, fobj), paramdir))
+                    else:
+                        shutil.move(os.path.join(parentdir, fobj), paramdir)
+
+    def _sub_params_to(self, name):
+        params = OrderedDict()
+        for k, p in self.params.items():
+            params[k] = p
+            if k == name:
+                return params
+        raise Exception('Parameter not found: %s' % name)
+        
 
 
 class LocalExecutor:
@@ -260,7 +302,7 @@ class LocalExecutor:
             wd = config._pset_dir(self.params)
         else:
             wd = None
-        d = dict(config._dict())
+        d = dict(config._dict(True))
         out = ExperimentConfig._open_out(config.out, d)
         err = ExperimentConfig._open_out(config.err, d)
         cl = ExperimentConfig.expand(d, config.cl)
@@ -313,7 +355,7 @@ class QSyncExecutor:
 
     @staticmethod
     def exe(config):
-        d = dict(config._dict())
+        d = dict(config._dict(True))
         config.qsync_file.write('-V -cwd')
         QSyncExecutor._write_qsync_opt(config, d, ' ', config.job_opts)
         QSyncExecutor._write_qsync_opt(config, d, ' -o ', config.out)
@@ -352,6 +394,7 @@ class GridXP(ArgumentParser):
         self.add_argument('--local', dest='local', action='store_true', default=False, help='force local execution')
         self.add_argument('--dry-run', dest='dry_run', action='store_true', default=False, help='dry run')
         self.add_argument('--param-values', metavar='NAME VALUES', dest='param_values', nargs=2, action='append', type=str, default=[], help='set parameter values')
+        self.add_argument('--insert-param-dir', metavar='PARAM', action='store', type=str, dest='insert_param_dir', default=None, help='instead of runnin experiment insert parameter directory in existing directory structure')
 
     def go(self):
         args = self.parse_args()
@@ -365,7 +408,10 @@ class GridXP(ArgumentParser):
             xp.local_execution()
         for name, svalues in args.param_values:
             xp.set_param_values(name, eval(svalues))
-        xp.run(test=args.test)
+        if args.insert_param_dir is not None:
+            xp.insert_param_dir(args.insert_param_dir)
+        else:
+            xp.run(test=args.test)
 
 
 if __name__ == '__main__':
