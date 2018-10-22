@@ -1,5 +1,10 @@
 param('foo')
 param('bar', '02d')
+def test_accept(params):
+    if params['foo'] == 'a':
+        return params['bar'] > 1
+    return True
+paramaccept(test_accept)
 commandline('. test/gridxp/setenv.sh; echo %(d_bar)s - $toto')
 outdir('test/gridxp/output')
 outfile('%(d_bar)s/out.txt')

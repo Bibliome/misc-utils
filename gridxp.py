@@ -59,6 +59,7 @@ def searchfile(filename):
 class Experiment:
     def __init__(self):
         self.params = OrderedDict()
+        self.accept = []
         
     def add_param(self, p):
         if not isinstance(p, Param):
@@ -73,15 +74,23 @@ class Experiment:
             else:
                 raise ValueError('no param %s' % name)
 
+    def accept_params(self, pvs):
+        paramdict = dict(zip(self.params.keys(), pvs))
+        for f in self.accept:
+            if not f(paramdict):
+                return False
+        return True
+    
     def cells(self):
-        paramvalues = tuple(p.values for p in self.params.values())
         for p in self.params.values():
             if len(p.values) == 0:
                 raise ValueError('empty values for %s' % p.name)
+        paramvalues = tuple(p.values for p in self.params.values())
         for pvs in itertools.product(*paramvalues):
-            for p, v in zip(self.params.values(), pvs):
-                p.set_value(v)
-            yield None
+            if self.accept_params(pvs):        
+                for p, v in zip(self.params.values(), pvs):
+                    p.set_value(v)
+                yield None
 
     def run(self, test=False):
         log('running pre-process')
@@ -126,6 +135,7 @@ class ExperimentConfig(Experiment):
         self.executor = None
         self.dry_run = False
         self.properties = {}
+        self.update = False
 
     def load_config(self, filename):
         found = searchfile(filename)
@@ -145,6 +155,7 @@ class ExperimentConfig(Experiment):
         qf = self._attrsetter('qsync_filename')
         param = self._paramdef()
         pv = self._paramvaluessetter()
+        pa = self._paramaccept()
         prop = self._propdef()
         return dict(
             param=param, addparam=param, add_param=param,
@@ -159,6 +170,7 @@ class ExperimentConfig(Experiment):
             job_opts=jo, job_options=jo,
             qf=qf, qsync_filename=qf, qsync_file=qf,
             paramvalues=pv, param_values=pv,
+            paramaccept=pa, param_accept=pa,
             prop=prop, property=prop,
             qsync_opts=self._qsync_opts(),
             local=self.local_execution,
@@ -175,6 +187,11 @@ class ExperimentConfig(Experiment):
     def _propdef(self):
         def result(name, fun):
             self.properties[name] = fun
+        return result
+
+    def _paramaccept(self):
+        def result(fun):
+            self.accept.append(fun)
         return result
 
     def _paramdef(self):
@@ -244,8 +261,21 @@ class ExperimentConfig(Experiment):
     def post(self):
         self.executor.post(self)
 
+    def test_exe(self, d):
+        if not self.update:
+            return True
+        if self.out is None:
+            return True
+        expanded = ExperimentConfig.expand(d, self.out)
+        return not os.path.exists(expanded)
+
     def exe(self):
-        self.executor.exe(self)
+        d = dict(self._dict(True))
+        if self.test_exe(d):
+            self.executor.exe(self, d)
+        else:
+            log('(update) output file exixts, skip')
+            
 
     def insert_param_dir(self, name):
         self.params = self._sub_params_to(name)
@@ -297,19 +327,14 @@ class LocalExecutor:
             log('postprocess has FAILED')
 
     @staticmethod
-    def exe(config):
-        if config.cd:
-            wd = config._pset_dir(self.params)
-        else:
-            wd = None
-        d = dict(config._dict(True))
+    def exe(config, d):
         out = ExperimentConfig._open_out(config.out, d)
         err = ExperimentConfig._open_out(config.err, d)
         cl = ExperimentConfig.expand(d, config.cl)
         if config.dry_run:
             log('(dry run) ' + cl)
         else:
-            p = subprocess.Popen(cl, shell=True, executable=config.shell, cwd=wd, stdout=out, stderr=err, close_fds=True)
+            p = subprocess.Popen(cl, shell=True, executable=config.shell, stdout=out, stderr=err, close_fds=True)
             p.wait()
             if p.returncode != 0:
                 log('process has FAILED')
@@ -354,8 +379,7 @@ class QSyncExecutor:
         LocalExecutor.post(config)
 
     @staticmethod
-    def exe(config):
-        d = dict(config._dict(True))
+    def exe(config, d):
         config.qsync_file.write('-V -cwd')
         QSyncExecutor._write_qsync_opt(config, d, ' ', config.job_opts)
         QSyncExecutor._write_qsync_opt(config, d, ' -o ', config.out)
@@ -392,7 +416,8 @@ class GridXP(ArgumentParser):
         self.add_argument('--test', dest='test', action='store_true', default=False, help='test run (only one parameter value set)')
         self.add_argument('--load-path', metavar='PATH', dest='load_paths', action='append', type=str, default=['.'], help='add path where to search for experiment and parameter set files')
         self.add_argument('--local', dest='local', action='store_true', default=False, help='force local execution')
-        self.add_argument('--dry-run', dest='dry_run', action='store_true', default=False, help='dry run')
+        self.add_argument('--dry-run', dest='dry_run', action='store_true', default=False, help='dry run, print commands but do not actually execute')
+        self.add_argument('--update', dest='update', action='store_true', default=False, help='only execute if the output file does not exist')
         self.add_argument('--param-values', metavar='NAME VALUES', dest='param_values', nargs=2, action='append', type=str, default=[], help='set parameter values')
         self.add_argument('--insert-param-dir', metavar='PARAM', action='store', type=str, dest='insert_param_dir', default=None, help='instead of runnin experiment insert parameter directory in existing directory structure')
 
@@ -402,6 +427,7 @@ class GridXP(ArgumentParser):
         LOAD_PATHS = args.load_paths
         xp = ExperimentConfig()
         xp.dry_run = args.dry_run
+        xp.update = args.update
         for fn in args.xp_filenames:
             xp.load_config(fn)
         if args.local:
