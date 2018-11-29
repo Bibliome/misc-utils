@@ -24,11 +24,11 @@ gridxp.py [OPTIONS] [XPFILES...]
 |------------|-----------------|
 | `--help` | show brief help message and exit |
 | `--test` | test run, launch only one parameter value set and exit |
-| `--load-path PATH` | add path where to search for experiments files; this option can be speciied multiple times |
+| `--load-path PATH` | add *PATH* to the search paths for experiments files; this option can be specified several times |
 | `--local` | force local execution, do not submit jobs to the Grid Engine |
 | `--dry-run` | do not actually run commands, just print them; if using a GE, then generates a specification file for `qsync.py` but do not submit jobs |
 | `--update` | only execute the command if the output file does not exist |
-| `--param-values NAME VALUES` | set the values of a parameter; `VALUES` must be a valid Python expression that returns a collection |
+| `--param-values NAME VALUES` | set the values of a parameter; *VALUES* must be a valid Python expression that returns a collection |
 | `--insert-param-dir` | insert parameter directory in existing directory structure |
 
 ## Experiment files
@@ -38,17 +38,17 @@ An experiment file is a sequence of Python statements with a limited amount of f
 
 #### `param(NAME, [fmt=FMT], [domain=DOMAIN])`
 
-Creates a parameter named `NAME`. `NAME` must be a Python string.
-The parameter name is the basis for created directories, so it is recommended to use short names that contains only regular characters.
+Creates a parameter named *NAME*. *NAME* must be a Python string.
+The parameter name is the basis for created directories, so it is recommended to use short names that contain only regular characters.
 
-`FMT` is a format specifier for a Python string interpolation. By default `FMT` is `s`.
+*FMT* is a format specifier for a [Python string interpolation](file:///usr/share/doc/python3-doc/html/library/stdtypes.html#printf-style-string-formatting). By default *FMT* is `s`.
 For numeric parameters, a fixed-width format is recommended (`02d` or `6.2f`).
 
-`DOMAIN` specifies the domain of possible values for the parameter. It must be a valid Python collection.
-When the parameter is set to a value `gridxp.py` checks that the value is in `DOMAIN`.
-By default `DOMAIN` is `None` and no check is performed.
+*DOMAIN* specifies the domain of possible values for the parameter. It must be a valid Python collection.
+When the parameter is set to a value `gridxp.py` checks that the value is in *DOMAIN*.
+By default *DOMAIN* is `None` and no check is performed.
 
-The order of declaration of parameters is remembered and important. `gridxp.py` creates a tree structure which depends on the parameter order and values.
+The order of declaration of parameters is remembered and important. `gridxp.py` creates a tree structure which depends on the parameter order and value.
 
 Aliases: `addparam`, `add_param`.
 
