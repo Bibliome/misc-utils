@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/usr/bin/env python
 
 from sys import stderr
 import itertools
@@ -413,13 +413,13 @@ class GridXP(ArgumentParser):
     def __init__(self):
         ArgumentParser.__init__(self, description='Perform a grid experiment')
         self.add_argument('xp_filenames', metavar='XPFILE', type=str, nargs='+', default=[], help='file containing the experiment definition object')
-        self.add_argument('--test', dest='test', action='store_true', default=False, help='test run (only one parameter value set)')
-        self.add_argument('--load-path', metavar='PATH', dest='load_paths', action='append', type=str, default=['.'], help='add path where to search for experiment and parameter set files')
-        self.add_argument('--local', dest='local', action='store_true', default=False, help='force local execution')
-        self.add_argument('--dry-run', dest='dry_run', action='store_true', default=False, help='dry run, print commands but do not actually execute')
-        self.add_argument('--update', dest='update', action='store_true', default=False, help='only execute if the output file does not exist')
-        self.add_argument('--param-values', metavar='NAME VALUES', dest='param_values', nargs=2, action='append', type=str, default=[], help='set parameter values')
-        self.add_argument('--insert-param-dir', metavar='PARAM', action='store', type=str, dest='insert_param_dir', default=None, help='instead of runnin experiment insert parameter directory in existing directory structure')
+        self.add_argument('--test', dest='test', action='store_true', default=False, help='test run, launch only one parameter value set and exit')
+        self.add_argument('--load-path', metavar='PATH', dest='load_paths', action='append', type=str, default=['.'], help='add PATH to the search paths for experiments files; this option can be specified several times')
+        self.add_argument('--local', dest='local', action='store_true', default=False, help='force local execution, do not submit jobs to the Grid Engine')
+        self.add_argument('--dry-run', dest='dry_run', action='store_true', default=False, help='do not actually run commands, just print them; if using a GE, then generates a specification file for qsync.py but do not submit jobs')
+        self.add_argument('--update', dest='update', action='store_true', default=False, help='only execute each command if the corresponding output file does not exist')
+        self.add_argument('--param-values', metavar=('NAME', 'VALUES'), dest='param_values', nargs=2, action='append', type=str, default=[], help='set the values of parameter PARAM; VALUES must be a valid Python expression that returns a collection')
+        self.add_argument('--insert-param-dir', metavar='PARAM', action='store', type=str, dest='insert_param_dir', default=None, help='insert parameter directory for PARAM in existing directory structure, instead of running the experiment')
 
     def go(self):
         args = self.parse_args()
