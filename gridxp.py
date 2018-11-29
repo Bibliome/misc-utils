@@ -206,7 +206,7 @@ class ExperimentConfig(Experiment):
 
     def _qsync_opts(self):
         def result(**kwargs):
-            self.qsync_file = kwargs
+            self.qsync_opts = kwargs
         return result
         
     @staticmethod
