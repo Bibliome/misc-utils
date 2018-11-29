@@ -41,7 +41,7 @@ An experiment file is a sequence of Python statements with a limited amount of f
 Creates a parameter named *NAME*. *NAME* must be a Python string.
 The parameter name is the basis for created directories, so it is recommended to use short names that contain only regular characters.
 
-*FMT* is a format specifier for a [Python string interpolation](file:///usr/share/doc/python3-doc/html/library/stdtypes.html#printf-style-string-formatting). By default *FMT* is `s`.
+*FMT* is a format specifier for a [Python string interpolation](https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting). By default *FMT* is `s`.
 For numeric parameters, a fixed-width format is recommended (`02d` or `6.2f`).
 
 *DOMAIN* specifies the domain of possible values for the parameter. It must be a valid Python collection.
@@ -147,7 +147,7 @@ This parameter is adictionary object that contains the current value for each pa
 For each combination of parameter values `gridxp.py` calls all functions specified with `param_accept()`.
 If one of these returns a false value, then the combination is rejected.
 
-#### property(NAME, VALUE)
+#### `property(NAME, VALUE)`
 
 Declares a property named *NAME* with value *VALUE*.
 The property can be used in expanded strings as in commandline(), outfile(), errfile(), job_options().
