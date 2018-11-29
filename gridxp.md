@@ -27,7 +27,9 @@ gridxp.py [OPTIONS] [XPFILES...]
 | `--load-path PATH` | add path where to search for experiments files; this option can be speciied multiple times |
 | `--local` | force local execution, do not submit jobs to the Grid Engine |
 | `--dry-run` | do not actually run commands, just print them; if using a GE, then generates a specification file for `qsync.py` but do not submit jobs |
+| `--update` | only execute the command if the output file does not exist |
 | `--param-values NAME VALUES` | set the values of a parameter; `VALUES` must be a valid Python expression that returns a collection |
+| `--insert-param-dir` | insert parameter directory in existing directory structure |
 
 ## Experiment files
 
