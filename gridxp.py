@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from sys import stderr
 import itertools
@@ -55,7 +55,18 @@ def searchfile(filename):
             return r
     raise ValueError('could not find \'%s\' in %s' % (filename, LOAD_PATHS))
 
-            
+
+
+class ObjectDict(dict):
+    def __init__(self, *args, **kwargs):
+        dict.__init__(self, *args, **kwargs)
+
+    def __getattr__(self, name):
+        if name in self:
+            return self[name]
+        raise AttributeError(name)
+
+        
 class Experiment:
     def __init__(self):
         self.params = OrderedDict()
@@ -75,7 +86,7 @@ class Experiment:
                 raise ValueError('no param %s' % name)
 
     def accept_params(self, pvs):
-        paramdict = dict(zip(self.params.keys(), pvs))
+        paramdict = ObjectDict(zip(self.params.keys(), pvs))
         for f in self.accept:
             if not f(paramdict):
                 return False
@@ -411,7 +422,7 @@ class QSyncExecutor:
 
 class GridXP(ArgumentParser):
     def __init__(self):
-        ArgumentParser.__init__(self, description='Perform a grid experiment, see https://github.com/Bibliome/misc-utils/edit/master/gridxp.md')
+        ArgumentParser.__init__(self, description='Perform a grid experiment', epilog='For detailed documentation on experiment definition, see https://github.com/Bibliome/misc-utils/edit/master/gridxp.md')
         self.add_argument('xp_filenames', metavar='XPFILE', type=str, nargs='+', default=[], help='file containing the experiment definition object')
         self.add_argument('--test', dest='test', action='store_true', default=False, help='test run, launch only one parameter value set and exit')
         self.add_argument('--load-path', metavar='PATH', dest='load_paths', action='append', type=str, default=['.'], help='add PATH to the search paths for experiments files; this option can be specified several times')

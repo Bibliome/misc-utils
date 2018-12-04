@@ -142,7 +142,8 @@ By default `gridxp.py` will run the command for all combinations of parameter va
 Use this directive to exclude certain combinations that would not make sense.
 
 *PRED* is a Python callable object that takes a single parameter.
-This parameter is adictionary object that contains the current value for each parameter.
+This parameter is a dictionary object that contains the current value for each parameter.
+This dictionary also has convenience attributes named after each parameter.
 
 For each combination of parameter values `gridxp.py` calls all functions specified with `param_accept()`.
 If one of these returns a false value, then the combination is rejected.
