@@ -274,7 +274,7 @@ class ExperimentConfig(Experiment):
         if self.test_exe(d):
             self.executor.exe(self, d)
         else:
-            log('(update) output file exixts, skip')
+            log('(update) output file exists, skip')
             
 
     def insert_param_dir(self, name):
@@ -411,7 +411,7 @@ class QSyncExecutor:
 
 class GridXP(ArgumentParser):
     def __init__(self):
-        ArgumentParser.__init__(self, description='Perform a grid experiment')
+        ArgumentParser.__init__(self, description='Perform a grid experiment, see https://github.com/Bibliome/misc-utils/edit/master/gridxp.md')
         self.add_argument('xp_filenames', metavar='XPFILE', type=str, nargs='+', default=[], help='file containing the experiment definition object')
         self.add_argument('--test', dest='test', action='store_true', default=False, help='test run, launch only one parameter value set and exit')
         self.add_argument('--load-path', metavar='PATH', dest='load_paths', action='append', type=str, default=['.'], help='add PATH to the search paths for experiments files; this option can be specified several times')
