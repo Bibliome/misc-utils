@@ -5,7 +5,7 @@ import itertools
 from collections import OrderedDict
 import os.path
 import subprocess
-from os import makedirs, listdir
+from os import makedirs, listdir, remove
 from argparse import ArgumentParser
 from datetime import datetime
 import shutil
@@ -147,6 +147,7 @@ class ExperimentConfig(Experiment):
         self.dry_run = False
         self.properties = {}
         self.update = False
+        self.delete_out = False
 
     def load_config(self, filename):
         found = searchfile(filename)
@@ -164,6 +165,7 @@ class ExperimentConfig(Experiment):
         err = self._attrsetter('err')
         jo = self._attrsetter('job_opts')
         qf = self._attrsetter('qsync_filename')
+        delo = self._attrsetter('delete_out')
         param = self._paramdef()
         pv = self._paramvaluessetter()
         pa = self._paramaccept()
@@ -180,13 +182,14 @@ class ExperimentConfig(Experiment):
             errfile=err, err_file=err,
             job_opts=jo, job_options=jo,
             qf=qf, qsync_filename=qf, qsync_file=qf,
+            delete_out=delo, delete_output=delo,
             paramvalues=pv, param_values=pv,
             paramaccept=pa, param_accept=pa,
             prop=prop, property=prop,
             qsync_opts=self._qsync_opts(),
             local=self.local_execution,
             include=(lambda filename: self.load_config(filename)),
-            dry_run=self._attrsetter('dry_run')
+            dry_run=self._attrsetter('dry_run'),
         )
 
     def local_execution(self):
@@ -219,7 +222,17 @@ class ExperimentConfig(Experiment):
         def result(**kwargs):
             self.qsync_opts = kwargs
         return result
-        
+
+    def _delete_output_files(self, d):
+        self._delete_output_file(d, self.out)
+        self._delete_output_file(d, self.err)
+
+    def _delete_output_file(self, d, filename):
+        if self.delete_out and filename is not None:
+            xfn = ExperimentConfig.expand(d, filename)
+            log('deleting ' + xfn)
+            remove(xfn)
+            
     @staticmethod
     def expand(d, s):
         return os.path.expanduser(os.path.expandvars(s % d))
@@ -345,6 +358,7 @@ class LocalExecutor:
         if config.dry_run:
             log('(dry run) ' + cl)
         else:
+            config._delete_output_files(d)
             p = subprocess.Popen(cl, shell=True, executable=config.shell, stdout=out, stderr=err, close_fds=True)
             p.wait()
             if p.returncode != 0:
@@ -398,6 +412,8 @@ class QSyncExecutor:
         config.qsync_file.write(' -- ')
         config.qsync_file.write(ExperimentConfig.expand(d, config.cl))
         config.qsync_file.write('\n')
+        if not config.dry_run:
+            config._delete_output_files(d)
 
     @staticmethod
     def _write_qsync_opt(config, d, prefix, suffix):
@@ -429,6 +445,7 @@ class GridXP(ArgumentParser):
         self.add_argument('--local', dest='local', action='store_true', default=False, help='force local execution, do not submit jobs to the Grid Engine')
         self.add_argument('--dry-run', dest='dry_run', action='store_true', default=False, help='do not actually run commands, just print them; if using a GE, then generates a specification file for qsync.py but do not submit jobs')
         self.add_argument('--update', dest='update', action='store_true', default=False, help='only execute each command if the corresponding output file does not exist')
+        self.add_argument('--delete-out', dest='delo', action='store_true', default=False, help='delete output and error files before running (will not delete if dry run or updating).')
         self.add_argument('--param-values', metavar=('NAME', 'VALUES'), dest='param_values', nargs=2, action='append', type=str, default=[], help='set the values of parameter PARAM; VALUES must be a valid Python expression that returns a collection')
         self.add_argument('--insert-param-dir', metavar='PARAM', action='store', type=str, dest='insert_param_dir', default=None, help='insert parameter directory for PARAM in existing directory structure, instead of running the experiment')
 
@@ -445,6 +462,8 @@ class GridXP(ArgumentParser):
             xp.local_execution()
         for name, svalues in args.param_values:
             xp.set_param_values(name, eval(svalues))
+        if args.delo:
+            xp.delete_out = True
         if args.insert_param_dir is not None:
             xp.insert_param_dir(args.insert_param_dir)
         else:
