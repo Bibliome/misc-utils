@@ -28,6 +28,7 @@ gridxp.py [OPTIONS] [XPFILES...]
 | `--local` | force local execution, do not submit jobs to the Grid Engine |
 | `--dry-run` | do not actually run commands, just print them; if using a GE, then generates a specification file for `qsync.py` but does not submit jobs |
 | `--update` | only execute each command if the corresponding output file does not exist |
+| `--delete-out` | delete output and error files before running (will not delete if dry run or updating) |
 | `--param-values NAME VALUES` | set the values of parameter *PARAM*; *VALUES* must be a valid Python expression that returns a collection |
 | `--insert-param-dir` | insert parameter directory for *PARAM* in existing directory structure, instead of running the experiment |
 
@@ -104,6 +105,14 @@ The file path is relative to the last parameter directory.
 *PATH* is a Python string expanded in the same way as [`commandline()`](#commandlinecl).
 
 Aliases: `err_file`.
+
+#### `delete_out(BOOL)`
+
+If *BOOL* is `True`, then `gridxp.py` deletes the output and error files for the current set of parameter values.
+
+`gridxp.py` never deletes file in dry run mode or update mode.
+
+Aliases: `delete_output`.
 
 #### `job_options(OPTS)`
 
