@@ -9,7 +9,10 @@ from os import makedirs, listdir, remove
 from argparse import ArgumentParser
 from datetime import datetime
 import shutil
-#from qsync import QSync
+try:
+    from qsync import QSync
+except ImportError:
+    QSync = None
 
 
 def log(msg):
@@ -376,12 +379,12 @@ class LocalExecutor:
 
     @staticmethod
     def check(config):
-        if config.params is None:
-            raise ValueError('missing pset()')
+        if config.params is None or len(config.params) == 0:
+            raise ValueError('no parameters specified')
         if config.cl is None:
-            raise ValueError('mising commandline()')
+            raise ValueError('no command lined specified')
         if config.output_dir is None:
-            raise ValueError('mising output()')
+            raise ValueError('no output directory specified')
 
 
 
@@ -426,6 +429,10 @@ class QSyncExecutor:
         if not LocalExecutor.ready(config):
             return False
         if config.job_opts is None:
+            log('no job options specified')
+            return False
+        if QSync is None:
+            log('qsync not imported')
             return False
         return True
 
