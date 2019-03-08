@@ -55,7 +55,7 @@ Aliases: `addparam`, `add_param`.
 
 #### `commandline(CL)`
 
-Specifies the command line to run for each parameter value set. *CL* is a Python string that is modified:
+Specifies the command line to run for each parameter value set. Either `commandline` or `function` is mandatory. `commandline` or `function`are mutually exclusive. *CL* is a Python string that is modified:
 * Tilde (`~`) is expanded as the current user home directory.
 * Environment variables (`$NAME`) are expanded with the current environment.
 * The string is interpolated with a dictionary with the following keys:
@@ -66,6 +66,18 @@ Specifies the command line to run for each parameter value set. *CL* is a Python
 
 Aliases: `cl`, `cmdline`, `command_line`.
 
+#### `function(FUN)`
+
+Specifies the function to run for each parameter value set. Either `commandline` or `function` is mandatory. `commandline` or `function`are mutually exclusive. *FUN* is a Python callable object that must accept four arguments:
+* *params*: a tuple containing the list of parameter names
+* *d*: a dictionary object containing the mappings described in `commandline`
+* *out*: a writeable file object corresponding to `outfile`
+* *err*: a writeable file object corresponding to `errfile`
+
+If `function` is specified, then the execution is necessarily local.
+
+Aliases: `fun`
+
 #### `outdir(DIR)`
 
 Specifies the path to the base directory of the parameter directory tree. *DIR* must be a Python string.
@@ -74,19 +86,35 @@ Aliases: `od`, `outputdir`, `out_dir`, `output_dir`.
 
 #### `pre_cl(CL)`
 
-Specifies a command line to run at the start of the experiment. This command is executed before all commands specified with [`commandline()`](#commandlinecl).
+Specifies a command line to run at the start of the experiment. `pre_cl` and `pre_fun` are mutually exclusive. This command is executed before all commands specified with [`commandline()`](#commandlinecl) or [`function()`](#functionfun).
 
 *CL* is a Python string. Tilde (`~`) and environment variable expansion are performed.
 
 Aliases: `pre_commandline`, `pre_cmdline`, `pre_command_line`.
 
+#### `pre_fun(FUN)`
+
+Specifies a function to call at the start of the experiment. `pre_cl` and `pre_fun` are mutually exclusive. This function is called before all commands specified with [`commandline()`](#commandlinecl) or [`function()`](#functionfun).
+
+*FUN* is a Python callable object that must accept zero arguments.
+
+Aliases: `pre_function`.
+
 #### `post_cl(CL)`
 
-Specifies a command line to run at the end of the experiment. This command is executed after all commands specified with [`commandline()`](#commandlinecl).
+Specifies a command line to run at the end of the experiment. `post_cl` and `post_fun` are mutually exclusive. This command is executed after all commands specified with [`commandline()`](#commandlinecl) or [`function()`](#functionfun).
 
 *CL* is a Python string. Tilde (`~`) and environment variable expansion are performed.
 
 Aliases: `post_commandline`, `post_cmdline`, `post_command_line`.
+
+#### `post_fun(FUN)`
+
+Specifies a function to call at the end of the experiment. `post_cl` and `post_fun` are mutually exclusive. This function is called after all commands specified with [`commandline()`](#commandlinecl) or [`function()`](#functionfun).
+
+*FUN* is a Python callable object that must accept zero arguments.
+
+Aliases: `post_function`.
 
 #### `outfile(PATH)`
 

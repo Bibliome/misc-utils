@@ -389,7 +389,7 @@ class LocalExecutor:
             else:
                 config._delete_output_files(d)
                 try:
-                    config.fun(config.params, d, out, err)
+                    config.fun(tuple(config.params), d, out, err)
                 except:
                     log('function has FAILED')
                     traceback.print_exc()
