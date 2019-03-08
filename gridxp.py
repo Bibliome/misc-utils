@@ -9,6 +9,7 @@ from os import makedirs, listdir, remove
 from argparse import ArgumentParser
 from datetime import datetime
 import shutil
+import traceback
 try:
     from qsync import QSync
 except ImportError:
@@ -135,12 +136,15 @@ class ExperimentConfig(Experiment):
     def __init__(self):
         Experiment.__init__(self)
         self.cl = None
+        self.fun = None
         self.output_dir = None
         self.sep = '_'
         self.shell = None
         self.cd = False
         self.pre_cl = None
+        self.pre_fun = None
         self.post_cl = None
+        self.post_fun = None
         self.out = None
         self.err = None
         self.job_opts = None
@@ -160,10 +164,13 @@ class ExperimentConfig(Experiment):
 
     def create_locals(self):
         cl = self._attrsetter('cl')
+        fun = self._attrsetter('fun')
         od = self._attrsetter('output_dir')
         cd = self._attrsetter('cd')
         pre_cl = self._attrsetter('pre_cl')
+        pre_fun = self._attrsetter('pre_fun')
         post_cl = self._attrsetter('post_cl')
+        post_fun = self._attrsetter('post_fun')
         out = self._attrsetter('out')
         err = self._attrsetter('err')
         jo = self._attrsetter('job_opts')
@@ -176,11 +183,14 @@ class ExperimentConfig(Experiment):
         return dict(
             param=param, addparam=param, add_param=param,
             cl=cl, commandline=cl, cmdline=cl, command_line=cd,
+            fun=fun, function=fun,
             od=od, outdir=od, outputdir=od, out_dir=od, output_dir=od,
             alternate_shell=self._attrsetter('shell'),
             cd=cd, changedir=cd, change_dir=cd, change_directory=cd,
             pre_cl=pre_cl, pre_commandline=pre_cl, pre_cmdline=pre_cl, pre_command_line=pre_cl,
+            pre_fun=pre_fun, pre_function=pre_fun,
             post_cl=post_cl, post_commandline=post_cl, post_cmdline=post_cl, post_command_line=post_cl,
+            post_fun=post_fun, post_function=post_fun,
             outfile=out, out_file=out,
             errfile=err, err_file=err,
             job_opts=jo, job_options=jo,
@@ -333,45 +343,69 @@ class ExperimentConfig(Experiment):
 class LocalExecutor:
     @staticmethod
     def pre(config):
-        if config.pre_cl is None:
-            return
-        if config.dry_run:
-            log('(dry run) ' + config.pre_cl)
-        p = subprocess.Popen(config.pre_cl, shell=True, executable=config.shell)
-        p.wait()
-        if p.returncode != 0:
-            log('preprocess has FAILED')
-
+        if config.pre_cl is not None:
+            p = subprocess.Popen(config.pre_cl, shell=True, executable=config.shell)
+            p.wait()
+            if p.returncode != 0:
+                log('preprocess has FAILED')
+        elif config.pre_fun is not None:
+            try:
+                config.pre_fun()
+            except:
+                log('pre-function has FAILED')
+                traceback.print_exc()
+                
     @staticmethod
     def post(config):
-        if config.post_cl is None:
-            return
-        if config.dry_run:
-            log('(dry run) ' + config.post_cl)
-        p = subprocess.Popen(config.post_cl, shell=True, executable=config.shell)
-        p.wait()
-        if p.returncode != 0:
-            log('postprocess has FAILED')
+        if config.post_cl is not None:
+            p = subprocess.Popen(config.post_cl, shell=True, executable=config.shell)
+            p.wait()
+            if p.returncode != 0:
+                log('postprocess has FAILED')
+        elif config.post_fun is not None:
+            try:
+                config.post_fun()
+            except:
+                log('post-function has FAILED')
+                traceback.print_exc()
 
     @staticmethod
     def exe(config, d):
         out = ExperimentConfig._open_out(config.out, d)
         err = ExperimentConfig._open_out(config.err, d)
-        cl = ExperimentConfig.expand(d, config.cl)
-        if config.dry_run:
-            log('(dry run) ' + cl)
+        if config.cl is not None:
+            cl = ExperimentConfig.expand(d, config.cl)
+            if config.dry_run:
+                log('(dry run) ' + cl)
+            else:
+                config._delete_output_files(d)
+                p = subprocess.Popen(cl, shell=True, executable=config.shell, stdout=out, stderr=err, close_fds=True)
+                p.wait()
+                if p.returncode != 0:
+                    log('process has FAILED')
         else:
-            config._delete_output_files(d)
-            p = subprocess.Popen(cl, shell=True, executable=config.shell, stdout=out, stderr=err, close_fds=True)
-            p.wait()
-            if p.returncode != 0:
-                log('process has FAILED')
+            if config.dry_run:
+                log('(dry run)' )
+            else:
+                config._delete_output_files(d)
+                try:
+                    config.fun(config.params, d, out, err)
+                except:
+                    log('function has FAILED')
+                    traceback.print_exc()
+                    
 
     @staticmethod
     def ready(config):
         if config.params is None:
             return False
-        if config.cl is None:
+        if config.cl is None and config.fun is None:
+            return False
+        if config.cl is not None and config.fun is not None:
+            return False
+        if config.pre_cl is not None and config.pre_fun is not None:
+            return False
+        if config.post_cl is not None and config.post_fun is not None:
             return False
         if config.output_dir is None:
             return False
@@ -381,8 +415,14 @@ class LocalExecutor:
     def check(config):
         if config.params is None or len(config.params) == 0:
             raise ValueError('no parameters specified')
-        if config.cl is None:
-            raise ValueError('no command lined specified')
+        if config.cl is None and config.fun is None:
+            raise ValueError('no command line or function specified')
+        if config.cl is not None and config.fun is not None:
+            raise ValueError('both command line and function specified')
+        if config.pre_cl is not None and config.pre_fun is not None:
+            raise ValueError('both pre command line and pre function specified')
+        if config.post_cl is not None and config.post_fun is not None:
+            return ValueError('both post command line and post function specified')
         if config.output_dir is None:
             raise ValueError('no output directory specified')
 

@@ -5,7 +5,10 @@ def test_accept(params):
         return params.bar > 1
     return True
 paramaccept(test_accept)
-commandline('. test/gridxp/setenv.sh; echo %(d_bar)s - $toto')
+#commandline('. test/gridxp/setenv.sh; echo %(d_bar)s - $toto')
+def myfun(params, d, out, err):
+    out.write('%s\n%s\n' % (str(params), str(d)))
+fun(myfun)
 outdir('test/gridxp/output')
 outfile('%(d_bar)s/out.txt')
 include('test-values.xp')
