@@ -31,6 +31,7 @@ gridxp.py [OPTIONS] [XPFILES...]
 | `--delete-out` | delete output and error files before running (will not delete if dry run or updating) |
 | `--param-values NAME VALUES` | set the values of parameter *PARAM*; *VALUES* must be a valid Python expression that returns a collection |
 | `--insert-param-dir` | insert parameter directory for *PARAM* in existing directory structure, instead of running the experiment |
+| `--list-params` | list parameters, instead of running the experiment |
 
 ## Experiment files
 

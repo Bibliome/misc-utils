@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from sys import stderr
+from sys import stderr, stdout
 import itertools
 from collections import OrderedDict
 import os.path
@@ -495,6 +495,7 @@ class GridXP(ArgumentParser):
         self.add_argument('--delete-out', dest='delo', action='store_true', default=False, help='delete output and error files before running (will not delete if dry run or updating).')
         self.add_argument('--param-values', metavar=('NAME', 'VALUES'), dest='param_values', nargs=2, action='append', type=str, default=[], help='set the values of parameter PARAM; VALUES must be a valid Python expression that returns a collection')
         self.add_argument('--insert-param-dir', metavar='PARAM', action='store', type=str, dest='insert_param_dir', default=None, help='insert parameter directory for PARAM in existing directory structure, instead of running the experiment')
+        self.add_argument('--list-params', action='store_true', dest='list_params', default=False, help='list parameters, instead of running the experiment')
 
     def go(self):
         args = self.parse_args()
@@ -512,10 +513,16 @@ class GridXP(ArgumentParser):
         if args.delo:
             xp.delete_out = True
         if args.insert_param_dir is not None:
+            if args.list_params:
+                raise Exception('--insert-param-dir and --list-params are mutually exclusive')
             xp.insert_param_dir(args.insert_param_dir)
+        elif args.list_params:
+            for p in xp.params.values():
+                stdout.write('%s\n' % p.name)
+                for v in p.values:
+                    stdout.write('  %s\n' % p.order_fmt % v)
         else:
             xp.run(test=args.test)
-
 
 if __name__ == '__main__':
     GridXP().go()
