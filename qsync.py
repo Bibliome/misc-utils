@@ -5,6 +5,7 @@ import shlex
 from optparse import OptionParser
 from sys import stderr, stdin, exit
 from datetime import datetime
+import traceback
 
 def Stop(pool, jt, info):
     '''Job failure function that stops synchronization.'''
@@ -183,9 +184,9 @@ class QSyncBase:
                 pool.terminate()
             return r
         except BaseException as e:
-            pool.log(str(e))
+            pool.log('wow, some exception here...')
+            traceback.print_exc()
             pool.terminate()
-            raise e
         finally:
             session.exit()
 
