@@ -180,7 +180,7 @@ class TAggro(ArgumentParser):
             self.read_file(stdin, args.separator)
         else:
             for a in args.input:
-                self.read_filename(a, args.separator)
+                self.read_filename(a[0], args.separator)
         for cols in self.result.values():
             stdout.write(args.separator.join(str(a.get_value(args.list_separator)) for a in cols if not isinstance(a, Ignore)))
             stdout.write('\n')
@@ -193,6 +193,8 @@ class TAggro(ArgumentParser):
 
     def read_file(self, f, sep='\t'):
         for line in f:
+            if line[-1] == '\n':
+                line = line[:-1]
             cols = line.split(sep)
             self.read_line(cols)
 
