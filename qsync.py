@@ -10,10 +10,12 @@ def Stop(pool, jt, info):
     '''Job failure function that stops synchronization.'''
     pool.shall_stop = True
     pool.all_done = False
+    pool.failed_jobs.append(jt)
 
 def Proceed(pool, jt, info):
     '''Job failure function that proceeds with the remaining jobs.'''
     pool.all_done = False
+    pool.failed_jobs.append(jt)
 
 def Resubmit(max_tries, fail):
     '''Job failure function factory that resubmits a failed job.
@@ -49,6 +51,7 @@ class JobPool:
         self.current_jobs = {}
         self.all_done = True
         self.shall_stop = False
+        self.failed_jobs = []
 
     def log(self, msg=''):
         '''Logs a message'''
@@ -125,9 +128,8 @@ class JobPool:
             self.log('all jobs completed successfully in ' + str(delta) + ', you\'re welcome')
         else:
             self.log('sorry, the following jobs have failed:')
-            for jobid in self.current_jobs:
-                job = self.current_jobs[jobid]
-                self.log(job.source + ' with id ' + str(jobid))
+            for job in self.failed_jobs:
+                self.log(job.source + ' with id ' + str(job.jobid))
 
     def _failed(self, jobid, fail, info):
         jt = self.current_jobs[jobid]
