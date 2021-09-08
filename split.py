@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 
 from sys import stdin, stderr
-from optparse import OptionParser, OptionGroup
+from optparse import OptionParser
 import re
+
 
 def log(msg, *args):
     stderr.write(msg % args)
     stderr.write('\n')
+
 
 class Splitter:
     def __init__(self, options):
@@ -74,8 +76,6 @@ class Splitter:
             self.read_line(line)
 
 
-
-
 class Split(OptionParser):
     def __init__(self):
         OptionParser.__init__(self, usage='Usage: %prog [OPTIONS] [FILE...]')
@@ -121,6 +121,7 @@ class Split(OptionParser):
         if options.filter is not None:
             log('rejected: %d', splitter.rejected)
             log('unknown: %d', splitter.unknown)
+
 
 if __name__ == '__main__':
     Split().run()
