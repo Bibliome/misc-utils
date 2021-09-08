@@ -10,7 +10,7 @@ class Aggregator:
         self.value = init_value
 
     def add_value(self, value):
-        raise NotImplemented()
+        raise NotImplementedError()
 
     def get_value(self, sep):
         return self.value
@@ -27,7 +27,7 @@ class Aggregator:
             else:
                 raise ValueError('unknown aggregator option %s' % args[0])
         return (number_type, strict)
-    
+
     @staticmethod
     def create(ctor, args):
         if ctor == 'ignore' or ctor == '-':
@@ -61,7 +61,7 @@ class Aggregator:
                 raise ValueError('unknown aggregator option %s' % args[0])
             return Values
         raise ValueError('unknown aggregator %s' % ctor)
-    
+
     @staticmethod
     def parse_token(token):
         args = token.split(':')
@@ -75,7 +75,8 @@ class Ignore(Aggregator):
 
     def add_value(self, value):
         pass
-    
+
+
 class First(Aggregator):
     def __init__(self):
         Aggregator.__init__(self, None)
@@ -83,7 +84,8 @@ class First(Aggregator):
     def add_value(self, value):
         if self.value is None:
             self.value = value
-    
+
+
 class Last(Aggregator):
     def __init__(self):
         Aggregator.__init__(self, None)
@@ -91,9 +93,11 @@ class Last(Aggregator):
     def add_value(self, value):
         self.value = value
 
+
 class Group(First):
     def __init__(self):
         First.__init__(self)
+
 
 class Count(Aggregator):
     def __init__(self):
@@ -101,10 +105,11 @@ class Count(Aggregator):
 
     def add_value(self, value):
         self.value += 1
-        
+
+
 class NumericAggregator(Aggregator):
     def __init__(self, number_type, strict=False):
-        Aggregator.__init__(number_type(0))
+        Aggregator.__init__(self, number_type(0))
         self.number_type = number_type
         self.strict = strict
 
@@ -115,41 +120,44 @@ class NumericAggregator(Aggregator):
             if self.strict:
                 raise e
             self.add_missing()
-        
+
     def add_number(self, value):
-        raise NotImplemented()
+        raise NotImplementedError()
 
     def add_missing(self):
-        raise NotImplemented()
+        raise NotImplementedError()
 
     @classmethod
     def Type(cls, number_type, strict=False):
         return lambda: cls(number_type, strict)
-    
+
+
 class Sum(NumericAggregator):
     def __init__(self, number_type, strict=False):
         NumericAggregator.__init__(self, number_type, strict)
-        
+
     def add_number(self, value):
         self.value += value
-    
+
     def add_missing(self):
         pass
+
 
 class Mean(NumericAggregator):
     def __init__(self, number_type, strict=False):
         NumericAggregator.__init__(self, number_type, strict)
         self.count = 0
-        
+
     def add_number(self, value):
         self.value += value
         self.count += 1
-    
+
     def add_missing(self):
         pass
 
     def get_value(self, sep):
         return float(self.value) / self.count
+
 
 class Values(Aggregator):
     def __init__(self):
@@ -162,14 +170,13 @@ class Values(Aggregator):
         return sep.join(str(x) for x in self.value)
 
 
-
 class TAggro(ArgumentParser):
     def __init__(self):
         ArgumentParser.__init__(self, description='aggregate columns in a table')
         self.add_argument('aggregators', metavar='AGG', type=str, nargs='+', default=[], help='aggregators')
         self.add_argument('-i', '--input', metavar='FILE', type=str, nargs=1, action='append', dest='input', default=[], help='input file')
-        self.add_argument('-s', '--separator', metavar='CHAR', type=str, nargs=1, action='store', dest='separator', default='\t', help='column separator character (default: tab)')
-        self.add_argument('-l', '--list-separator', metavar='SEP', type=str, nargs=1, action='store', dest='list_separator', default=', ', help='list separator (default: comma)')
+        self.add_argument('-s', '--separator', metavar='CHAR', type=str, action='store', dest='separator', default='\t', help='column separator character (default: tab)')
+        self.add_argument('-l', '--list-separator', metavar='SEP', type=str, action='store', dest='list_separator', default=', ', help='list separator (default: comma)')
 
     def run(self):
         args = self.parse_args()
@@ -184,7 +191,7 @@ class TAggro(ArgumentParser):
         for cols in self.result.values():
             stdout.write(args.separator.join(str(a.get_value(args.list_separator)) for a in cols if not isinstance(a, Ignore)))
             stdout.write('\n')
-            
+
     def read_line(self, cols):
         group = tuple(cols[i] for i in self.group_indexes)
         aggregators = self.result[group]
@@ -192,6 +199,7 @@ class TAggro(ArgumentParser):
             agg.add_value(val)
 
     def read_file(self, f, sep='\t'):
+        stderr.write('separator: %s\n' % str(sep))
         for line in f:
             if line[-1] == '\n':
                 line = line[:-1]
@@ -202,8 +210,6 @@ class TAggro(ArgumentParser):
         with open(filename) as f:
             self.read_file(f, sep)
 
+
 if __name__ == '__main__':
     TAggro().run()
-
-
-
