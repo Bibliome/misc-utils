@@ -139,10 +139,11 @@ class XMLStructure(argparse.ArgumentParser):
         self.add_argument('files', metavar='FILES', type=str, nargs='+', default=[], help='XML files')
         self.add_argument('--no-squelch', action='store_true', default=False, dest='no_squelch', help='do not squelch multiple children with the same tag')
         self.add_argument('--flatten', metavar='PATH', type=str, action='append', default=[], dest='flatten', help='flatten descendents of the specified nodes')
-        self.add_argument('--indent', metavar='STR', type=str, action='store', default='|--', dest='indent_step', help='indentation (%default)')
-        self.add_argument('--max-values', metavar='N', type=int, action='store', default=6, dest='max_values', help='maximum number of values to displpay (%default)')
-        self.add_argument('--max-sources', metavar='N', type=int, action='store', default=3, dest='max_sources', help='maximum number of sources to displpay (%default)')
-        self.add_argument('--max-value-size', metavar='N', type=int, action='store', default=3, dest='max_value_size', help='maximum size in character of displayed values (%default)')
+        self.add_argument('--indent', metavar='STR', type=str, action='store', default='|--', dest='indent_step', help='indentation (%(default)s)')
+        self.add_argument('--max-values', metavar='N', type=int, action='store', default=6, dest='max_values', help='maximum number of values to displpay (%(default)s)')
+        self.add_argument('--max-sources', metavar='N', type=int, action='store', default=3, dest='max_sources', help='maximum number of sources to displpay (%(default)s)')
+        self.add_argument('--max-value-size', metavar='N', type=int, action='store', default=20, dest='max_value_size', help='maximum size in character of displayed values (%(default)s)')
+        self.add_argument('--all-attribute-values', action='store_true', default=False, dest='all_attribute_values', help='display all attribute values')
 
     def _parse_all(self):
         result = None
@@ -188,7 +189,7 @@ class XMLStructure(argparse.ArgumentParser):
         value = value.strip().replace('\n', ' ')
         if value.startswith('https://') or value.startswith('http://'):
             return XMLStructure.URL_VALUE
-        if len(value) >= self.args.max_value_size:
+        if self.args.max_value_size >= 0 and len(value) >= self.args.max_value_size:
             return XMLStructure.TEXT_VALUE
         return value
 
@@ -231,6 +232,8 @@ class XMLStructure(argparse.ArgumentParser):
     def _pp_values(self, node):
         if len(node.values) == 0:
             return ''
+        if self.args.all_attribute_values and node.tag.startswith('@'):
+            return self._pp_list(node.values, sys.maxsize, '(', ')')
         if XMLStructure.TEXT_VALUE in node.values:
             return ''
         return self._pp_list(node.values, self.args.max_values, '(', ')')
