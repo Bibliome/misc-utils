@@ -68,13 +68,28 @@ class LightNode:
         return None
 
     def lookup(self, path):
-        tags = path.split('.')
-        node = self
-        for tag in tags:
-            node = node.get_child(tag)
-            if node is None:
-                return None
-        return node
+        if type(path) == str:
+            yield from self.lookup(path.split('.'))
+        elif len(path) == 0:
+            yield self
+        else:
+            tag = path[0]
+            tail = path[1:]
+            if tag == '*':
+                for child in self.children:
+                    yield from child.lookup(tail)
+            elif tag == '@*':
+                for child in self.children:
+                    if child.tag.startswith('@'):
+                        yield from child.lookup(tail)
+            elif tag == '**':
+                for child in self.children:
+                    yield from child.lookup(path)
+                    yield from child.lookup(tail)
+            else:
+                child = self.get_child(tag)
+                if child is not None:
+                    yield from child.lookup(tail)
 
     def merge_node(self, other, card=None):
         if other is None:
@@ -143,7 +158,19 @@ class XMLStructure(argparse.ArgumentParser):
         self.add_argument('--max-values', metavar='N', type=int, action='store', default=6, dest='max_values', help='maximum number of values to displpay (%(default)s)')
         self.add_argument('--max-sources', metavar='N', type=int, action='store', default=3, dest='max_sources', help='maximum number of sources to displpay (%(default)s)')
         self.add_argument('--max-value-size', metavar='N', type=int, action='store', default=20, dest='max_value_size', help='maximum size in character of displayed values (%(default)s)')
-        self.add_argument('--all-attribute-values', action='store_true', default=False, dest='all_attribute_values', help='display all attribute values')
+        self.add_argument('--all-values', metavar='PATH', type=str, action='append', default=[], dest='all_values', help='display all values of specified nodes')
+
+    def run(self):
+        self.args = self.parse_args()
+        tree = self._parse_all()
+        self._flatten(tree)
+        self._all_values_nodes(tree)
+        self._pp(sys.stdout, tree)
+
+    def _all_values_nodes(self, tree):
+        self.args.all_values_nodes = set()
+        for path in self.args.all_values:
+            self.args.all_values_nodes |= set(tree.lookup(path))
 
     def _parse_all(self):
         result = None
@@ -195,11 +222,12 @@ class XMLStructure(argparse.ArgumentParser):
 
     def _flatten(self, tree):
         for path in self.args.flatten:
-            node = tree.lookup(path)
-            if node is None:
+            nodes = list(tree.lookup(path))
+            if len(nodes) == 0:
                 sys.stderr.write('could not find ' + path + '\n')
             else:
-                node.flatten()
+                for node in nodes:
+                    node.flatten()
 
     def _pp(self, f, node, indent=''):
         if node.cardinality == Card.NONE:
@@ -226,13 +254,13 @@ class XMLStructure(argparse.ArgumentParser):
         if max_n == 0:
             return ''
         if max_n >= 1 and len(lst) > max_n:
-            return ' ' + left + ', '.join(list(lst)[:max_n]) + ', ...' + right
-        return ' ' + left + ', '.join(lst) + right
+            return ' ' + left + ', '.join(('\'%s\'' % e) for e in list(lst)[:max_n]) + ', ...' + right
+        return ' ' + left + ', '.join(('\'%s\'' % e) for e in lst) + right
 
     def _pp_values(self, node):
         if len(node.values) == 0:
             return ''
-        if self.args.all_attribute_values and node.tag.startswith('@'):
+        if node in self.args.all_values_nodes:
             return self._pp_list(node.values, sys.maxsize, '(', ')')
         if XMLStructure.TEXT_VALUE in node.values:
             return ''
@@ -247,12 +275,6 @@ class XMLStructure(argparse.ArgumentParser):
         if node.cardinality == Card.ONE:
             return ''
         return self._pp_list(node.sources, self.args.max_sources, '{', '}')
-
-    def run(self):
-        self.args = self.parse_args()
-        tree = self._parse_all()
-        self._flatten(tree)
-        self._pp(sys.stdout, tree)
 
 
 if __name__ == '__main__':
